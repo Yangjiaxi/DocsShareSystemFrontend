@@ -1,0 +1,12 @@
+node_modules
+
+/build
+
+.cache
+.git
+.vscode
+.DS_Store
+.env
+
+yarn-error.log*
+pack.tar.gz
