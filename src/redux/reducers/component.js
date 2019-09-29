@@ -9,11 +9,14 @@ const stored = {
 const init = {
   ...stored,
   progressOn: false,
-  snackbars: []
+  snackbars: [],
+  pageName: "INIT_PAGE"
 };
 
 export function componentReducer(state = init, action) {
   switch (action.type) {
+    case actions.CHANGE_BROWSER_PATH:
+      return { ...state, pageName: action.pageName };
     case actions.CHANGE_THEME_MODE:
       const { themeMode } = state;
       const changeTo = themeMode === "light" ? "dark" : "light";

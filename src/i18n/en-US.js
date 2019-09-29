@@ -9,6 +9,8 @@ export const americanEnglish = {
     password: "Password"
   },
   AppBar: {
+    HOME_PAGE: "Home",
+    INIT_PAGE: "Initializing...",
     logout: "Logout",
     goBack: "Back",
     changeTheme: "Change To: ",

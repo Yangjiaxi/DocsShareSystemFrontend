@@ -38,7 +38,8 @@ const Bar = memo(
     themeMode,
     changeThemeMode,
     changeThemeColor,
-    themeColor
+    themeColor,
+    pageName
   }) => {
     const classes = useStyles();
     const [anchorLogout, setAnchorLogout] = useState(null);
@@ -77,7 +78,7 @@ const Bar = memo(
       window.sessionStorage.clear();
       window.location.reload();
     };
-
+    // console.log(pageName);
     return (
       <>
         <AppBar position="fixed" className={classes.appBar}>
@@ -93,7 +94,7 @@ const Bar = memo(
               <Typography>{getTermTextCurrent(i18nHelper.goBack)}</Typography>
             </Button>
             <Typography variant="h6" color="inherit" noWrap>
-              这是标题
+              {`  @ ${getTermTextCurrent(pageName)}`}
             </Typography>
             <div className={classes.rightButtons}>
               <Button color="inherit" onClick={handleClick(setAnchorI18n)}>

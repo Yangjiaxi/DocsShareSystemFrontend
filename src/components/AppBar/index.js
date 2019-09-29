@@ -12,11 +12,12 @@ import {
 import AppBar from "./component";
 
 const mapStateToProps = ({
-  component: { languageName, themeMode, themeColor }
+  component: { languageName, themeMode, themeColor, pageName }
 }) => ({
   languageName,
   themeMode,
-  themeColor
+  themeColor,
+  pageName
 });
 
 const mapDispatchToProps = dispatch =>

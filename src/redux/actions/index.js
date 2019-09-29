@@ -73,3 +73,9 @@ export const changeThemeColor = color => ({
   type: CHANGE_THEME_COLOR,
   color
 });
+
+export const CHANGE_BROWSER_PATH = "CHANGE_BROWSER_PATH";
+export const changeBrowserPath = pageName => ({
+  type: CHANGE_BROWSER_PATH,
+  pageName
+});

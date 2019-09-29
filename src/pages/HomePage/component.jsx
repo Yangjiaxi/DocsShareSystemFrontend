@@ -1,9 +1,17 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
+import { Paper } from "@material-ui/core";
 
-const HomePage = memo(() => (
-  <>
-    <h1>Hello Dashboard!</h1>
-  </>
-));
+import { pageNames } from "../pageNames";
+
+const HomePage = memo(({ changeBrowserPath }) => {
+  useEffect(() => {
+    changeBrowserPath(pageNames.HOME_PAGE);
+  }, [changeBrowserPath]);
+  return (
+    <>
+      <Paper>Hello Dashboard!</Paper>
+    </>
+  );
+});
 
 export default HomePage;

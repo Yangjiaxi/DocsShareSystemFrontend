@@ -9,6 +9,8 @@ export const simplifiedChinese = {
     password: "密码"
   },
   AppBar: {
+    HOME_PAGE: "主页",
+    INIT_PAGE: "初始化...",
     logout: "登出",
     goBack: "返回",
     changeTheme: "切换：",

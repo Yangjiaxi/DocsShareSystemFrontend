@@ -14,7 +14,9 @@ export const i18nHelper = {
   goBack: "goBack",
   changeTheme: "changeTheme",
   lightMode: "lightMode",
-  darkMode: "darkMode"
+  darkMode: "darkMode",
+  HOME_PAGE: "HOME_PAGE",
+  INIT_PAGE: "INIT_PAGE"
 };
 
 export const languageList = {
