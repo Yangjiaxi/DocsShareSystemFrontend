@@ -12,6 +12,8 @@ import {
 
 import { API } from "../../const";
 
+import { i18nHelper, getTermText } from "../../../i18n";
+
 import { customError, errHandler } from "..";
 
 export const loginEpic = action$ =>
@@ -34,9 +36,12 @@ export const loginEpic = action$ =>
             const { token, type } = res;
             if (type === "success") {
               return of(
-                enqueueSnackbar("Login Success", {
-                  variant: "success"
-                }),
+                enqueueSnackbar(
+                  getTermText("Snackbar", i18nHelper.loginSuccess),
+                  {
+                    variant: "success"
+                  }
+                ),
                 login(token)
               );
             }

@@ -2,22 +2,12 @@ import React, { memo } from "react";
 
 import { SnackbarProvider } from "notistack";
 
-import useStyles from "./style";
+// import useStyles from "./style";
 
 const Snackbar = memo(({ children }) => {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
-    <SnackbarProvider
-      maxSnack={5}
-      classes={{
-        variantSuccess: classes.success,
-        variantError: classes.error,
-        variantWarning: classes.warning,
-        variantInfo: classes.info
-      }}
-      autoHideDuration={3000}
-      className={classes.snackBar}
-    >
+    <SnackbarProvider maxSnack={5} autoHideDuration={3000}>
       <>{children}</>
     </SnackbarProvider>
   );

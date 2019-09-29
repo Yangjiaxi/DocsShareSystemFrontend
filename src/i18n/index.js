@@ -2,6 +2,9 @@ import simplifiedChinese from "./zh-CN";
 import americanEnglish from "./en-US";
 
 export const i18nHelper = {
+  // [Snackbar]
+  loginSuccess: "loginSuccess",
+  errorPrefix: "errorPrefix",
   // [Login]
   login: "login",
   email: "email",
@@ -28,7 +31,11 @@ export const languageList = {
 };
 
 export const getTermText = (namespace, term) => {
-  const language = localStorage.getItem("language") || "zh-CN";
+  let language = localStorage.getItem("language") || "zh-CN";
+  if (!(language in languageList)) {
+    console.warn(`Language [${language}] is not supported yet, sorry!`);
+    language = "zh-CN";
+  }
   return (
     languageList[language].translation[namespace][term] ||
     languageList["zh-CN"].translation[namespace][term]
