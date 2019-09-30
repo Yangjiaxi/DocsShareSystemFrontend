@@ -16,7 +16,8 @@ export const i18nHelper = {
   lightMode: "lightMode",
   darkMode: "darkMode",
   HOME_PAGE: "HOME_PAGE",
-  INIT_PAGE: "INIT_PAGE"
+  INIT_PAGE: "INIT_PAGE",
+  DOC_PAGE: "DOC_PAGE"
 };
 
 export const languageList = {

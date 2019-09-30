@@ -11,6 +11,7 @@ export const americanEnglish = {
   AppBar: {
     HOME_PAGE: "Home",
     INIT_PAGE: "Initializing...",
+    DOC_PAGE: "Document Share",
     logout: "Logout",
     goBack: "Back",
     changeTheme: "Change To: ",

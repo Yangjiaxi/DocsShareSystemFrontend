@@ -11,6 +11,7 @@ export const simplifiedChinese = {
   AppBar: {
     HOME_PAGE: "主页",
     INIT_PAGE: "初始化...",
+    DOC_PAGE: "文档共享",
     logout: "登出",
     goBack: "返回",
     changeTheme: "切换：",
