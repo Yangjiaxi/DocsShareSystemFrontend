@@ -6,22 +6,22 @@ import { toggleSlider } from "../../redux/actions";
 import Slider from "./component";
 
 const mapStateToProps = ({
-  component: { drawerOpen, languageName, pageName }
+  component: { drawerOpen, languageName, pageName },
 }) => ({
   open: drawerOpen,
   languageName,
-  pageName
+  pageName,
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      toggleSlider
+      toggleSlider,
     },
-    dispatch
+    dispatch,
   );
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Slider);

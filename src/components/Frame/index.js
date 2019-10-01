@@ -7,18 +7,18 @@ import Frame from "./component";
 
 const mapStateToProps = ({ user: { token }, component: { progressOn } }) => ({
   loggedIn: Boolean(token),
-  isLoading: progressOn
+  isLoading: progressOn,
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      toggleSlider
+      toggleSlider,
     },
-    dispatch
+    dispatch,
   );
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Frame);

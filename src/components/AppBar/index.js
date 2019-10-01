@@ -6,18 +6,18 @@ import {
   logout,
   changeLanguage,
   changeThemeMode,
-  changeThemeColor
+  changeThemeColor,
 } from "../../redux/actions";
 
 import AppBar from "./component";
 
 const mapStateToProps = ({
-  component: { languageName, themeMode, themeColor, pageName }
+  component: { languageName, themeMode, themeColor, pageName },
 }) => ({
   languageName,
   themeMode,
   themeColor,
-  pageName
+  pageName,
 });
 
 const mapDispatchToProps = dispatch =>
@@ -26,14 +26,14 @@ const mapDispatchToProps = dispatch =>
       logout,
       changeLanguage,
       changeThemeMode,
-      changeThemeColor
+      changeThemeColor,
     },
-    dispatch
+    dispatch,
   );
 
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
-  )(AppBar)
+    mapDispatchToProps,
+  )(AppBar),
 );

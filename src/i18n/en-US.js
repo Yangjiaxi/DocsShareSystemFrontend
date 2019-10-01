@@ -1,12 +1,12 @@
 export const americanEnglish = {
   Snackbar: {
     loginSuccess: "Login Success",
-    errorPrefix: "ERROR: "
+    errorPrefix: "ERROR: ",
   },
   Login: {
     login: "Login",
     email: "E-Mail",
-    password: "Password"
+    password: "Password",
   },
   AppBar: {
     HOME_PAGE: "Home",
@@ -20,15 +20,15 @@ export const americanEnglish = {
     goBack: "Back",
     changeTheme: "Change To: ",
     lightMode: "Light Mode",
-    darkMode: "Dark Mode"
+    darkMode: "Dark Mode",
   },
   Slider: {
     newDoc: "Create",
     recentDocs: "Recent",
     shareDocs: "Shared With Me",
     wasteBin: "Trash",
-    aboutSite: "About"
-  }
+    aboutSite: "About",
+  },
 };
 
 export default americanEnglish;

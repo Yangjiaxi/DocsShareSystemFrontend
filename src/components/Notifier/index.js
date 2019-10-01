@@ -6,19 +6,19 @@ import { removeSnackbar, closeSnackbar } from "../../redux/actions";
 import Notifier from "./component";
 
 const mapStateToProps = ({ component: { snackbars } }) => ({
-  notifications: snackbars
+  notifications: snackbars,
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       removeSnackbar,
-      closeSnackbar
+      closeSnackbar,
     },
-    dispatch
+    dispatch,
   );
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Notifier);

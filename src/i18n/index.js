@@ -27,20 +27,20 @@ export const i18nHelper = {
   recentDocs: "recentDocs",
   shareDocs: "shareDocs",
   wasteBin: "wasteBin",
-  aboutSite: "aboutSite"
+  aboutSite: "aboutSite",
 };
 
 export const languageList = {
   "zh-CN": {
     translation: simplifiedChinese,
     name: "简体中文",
-    flag: "🇨🇳"
+    flag: "🇨🇳",
   },
   "en-US": {
     translation: americanEnglish,
     name: "English",
-    flag: "🇺🇸"
-  }
+    flag: "🇺🇸",
+  },
 };
 
 export const getTermText = (namespace, term) => {

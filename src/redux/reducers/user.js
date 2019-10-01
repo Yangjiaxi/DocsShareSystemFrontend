@@ -7,7 +7,7 @@ const verifiedToken =
   storedToken !== null && time > Date.now() / 1000 ? storedToken : "";
 
 const init = {
-  token: verifiedToken
+  token: verifiedToken,
 };
 
 export const userReducer = (state = init, action) => {

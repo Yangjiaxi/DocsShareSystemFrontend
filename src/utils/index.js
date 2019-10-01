@@ -5,12 +5,12 @@ export { logger };
 export const insertItem = (array, index, item) => [
   ...array.slice(0, index),
   item,
-  ...array.slice(index)
+  ...array.slice(index),
 ];
 
 export const removeItem = (array, index) => [
   ...array.slice(0, index),
-  ...array.slice(index + 1)
+  ...array.slice(index + 1),
 ];
 
 export const updateObjectInArray = (array, index, item) =>
@@ -20,12 +20,12 @@ export const updateObjectInArray = (array, index, item) =>
     }
     return {
       ...element,
-      ...item
+      ...item,
     };
   });
 
 export const updateStorage = name => data =>
   sessionStorage.setItem(
     name,
-    typeof data === "string" ? data : JSON.stringify(data)
+    typeof data === "string" ? data : JSON.stringify(data),
   );

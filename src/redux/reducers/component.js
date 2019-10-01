@@ -3,7 +3,7 @@ import * as actions from "../actions";
 const stored = {
   languageName: localStorage.getItem("language") || "zh-CN",
   themeMode: localStorage.getItem("themeMode") || "light",
-  themeColor: localStorage.getItem("themeColor") || "blue"
+  themeColor: localStorage.getItem("themeColor") || "blue",
 };
 
 const init = {
@@ -11,7 +11,7 @@ const init = {
   progressOn: false,
   snackbars: [],
   pageName: "INIT_PAGE",
-  drawerOpen: false
+  drawerOpen: false,
 };
 
 export function componentReducer(state = init, action) {
@@ -37,14 +37,14 @@ export function componentReducer(state = init, action) {
     case actions.ENQUEUE_SNACKBAR:
       return {
         ...state,
-        snackbars: [...state.snackbars, { ...action.notification }]
+        snackbars: [...state.snackbars, { ...action.notification }],
       };
     case actions.REMOVE_SNACKBAR:
       return {
         ...state,
         snackbars: state.snackbars.filter(
-          snackbar => snackbar.key !== action.key
-        )
+          snackbar => snackbar.key !== action.key,
+        ),
       };
     case actions.CLOSE_SNACKBAR:
       return {
@@ -52,8 +52,8 @@ export function componentReducer(state = init, action) {
         snackbars: state.snackbars.map(snackbar =>
           action.dismissAll || snackbar.key === action.key
             ? { ...snackbar, dismissed: true }
-            : { ...snackbar }
-        )
+            : { ...snackbar },
+        ),
       };
     default:
       return state;

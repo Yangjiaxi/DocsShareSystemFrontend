@@ -4,7 +4,7 @@ import Index from "./component";
 
 const mapStateToProps = ({ component: { themeMode, themeColor } }) => ({
   themeMode,
-  themeColor
+  themeColor,
 });
 
 export default connect(mapStateToProps)(Index);

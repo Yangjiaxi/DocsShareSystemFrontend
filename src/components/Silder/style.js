@@ -9,14 +9,14 @@ const useStyles = makeStyles(({ mixins, breakpoints }) =>
       whiteSpace: "nowrap",
       width: drawerWidth,
       [breakpoints.down("xs")]: {
-        width: "100%"
-      }
+        width: "100%",
+      },
     },
     drawer: {
       width: drawerWidth,
-      flexShrink: 0
-    }
-  })
+      flexShrink: 0,
+    },
+  }),
 );
 
 export default useStyles;

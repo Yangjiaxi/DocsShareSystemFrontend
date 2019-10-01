@@ -21,22 +21,22 @@ export const errHandler = ({ message, type }, customAction) =>
         toggleProgress(),
         enqueueSnackbar(
           `${getTermText("Snackbar", i18nHelper.errorPrefix)} ${message}`,
-          { variant: type || "error" }
+          { variant: type || "error" },
         ),
-        customAction
+        customAction,
       )
     : of(
         toggleProgress(),
         enqueueSnackbar(
           `${getTermText("Snackbar", i18nHelper.errorPrefix)} ${message}`,
-          { variant: type || "error" }
-        )
+          { variant: type || "error" },
+        ),
       );
 
 const dependencies = { io, socket$: new BehaviorSubject(), sessionStorage };
 
 export const epicMiddleware = createEpicMiddleware({
-  dependencies
+  dependencies,
 });
 
 export const epics = combineEpics(...userEpic);

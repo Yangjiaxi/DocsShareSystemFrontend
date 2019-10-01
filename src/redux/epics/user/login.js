@@ -7,7 +7,7 @@ import {
   login,
   LOGIN_START,
   toggleProgress,
-  enqueueSnackbar
+  enqueueSnackbar,
 } from "../../actions";
 
 import { API } from "../../const";
@@ -25,11 +25,11 @@ export const loginEpic = action$ =>
           `${API}/user/login`,
           JSON.stringify({
             email,
-            password
+            password,
           }),
           {
-            "Content-Type": "application/json"
-          }
+            "Content-Type": "application/json",
+          },
         )
         .pipe(
           mergeMap(({ response: res }) => {
@@ -39,18 +39,18 @@ export const loginEpic = action$ =>
                 enqueueSnackbar(
                   getTermText("Snackbar", i18nHelper.loginSuccess),
                   {
-                    variant: "success"
-                  }
+                    variant: "success",
+                  },
                 ),
-                login(token)
+                login(token),
               );
             }
             throw customError(res);
           }),
           startWith(toggleProgress(true)),
           endWith(toggleProgress()),
-          catchError(err => errHandler(err))
-        )
+          catchError(err => errHandler(err)),
+        ),
     ),
-    catchError(err => errHandler(err))
+    catchError(err => errHandler(err)),
   );

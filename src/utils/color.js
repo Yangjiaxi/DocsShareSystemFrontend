@@ -6,7 +6,7 @@ export const hexToRgb = hex => {
     ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
+        b: parseInt(result[3], 16),
       }
     : null;
 };
@@ -30,10 +30,10 @@ export const colorBook = [
   { name: "deepOrange", color: colors.deepOrange },
   { name: "brown", color: colors.brown },
   { name: "grey", color: colors.grey },
-  { name: "blueGrey", color: colors.blueGrey }
+  { name: "blueGrey", color: colors.blueGrey },
 ];
 
 export const colorDict = colorBook.reduce(
   (prev, { name, color }) => ({ ...prev, [name]: color }),
-  {}
+  {},
 );

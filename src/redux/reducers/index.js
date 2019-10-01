@@ -4,5 +4,5 @@ import { componentReducer } from "./component";
 
 export const reducers = combineReducers({
   component: componentReducer,
-  user: userReducer
+  user: userReducer,
 });

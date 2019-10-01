@@ -23,6 +23,12 @@ module.exports = {
     'react',
   ],
   rules: {
+    "prettier/prettier": [
+      "error",
+      {
+        trailingComma: "all"
+      }
+    ],
     'quotes': ['error', 'double'],
     'class-methods-use-this': 0,
     'consistent-return': 0,
@@ -44,7 +50,6 @@ module.exports = {
     'react/prop-types': 0,
     'jsx-a11y/accessible-emoji': 0,
     'no-case-declarations': 0,
-    'comma-dangle': 0,
     'import/no-cycle': 0,
     'max-len': 0,
     'import/no-extraneous-dependencies': 0,

@@ -1,12 +1,12 @@
 export const simplifiedChinese = {
   Snackbar: {
     loginSuccess: "登陆成功",
-    errorPrefix: "错误："
+    errorPrefix: "错误：",
   },
   Login: {
     login: "登录",
     email: "邮箱",
-    password: "密码"
+    password: "密码",
   },
   AppBar: {
     HOME_PAGE: "主页",
@@ -20,15 +20,15 @@ export const simplifiedChinese = {
     goBack: "返回",
     changeTheme: "切换：",
     lightMode: "亮色模式",
-    darkMode: "暗色模式"
+    darkMode: "暗色模式",
   },
   Slider: {
     newDoc: "新建文档",
     recentDocs: "最近查看",
     shareDocs: "与我共享",
     wasteBin: "回收站",
-    aboutSite: "关于"
-  }
+    aboutSite: "关于",
+  },
 };
 
 export default simplifiedChinese;

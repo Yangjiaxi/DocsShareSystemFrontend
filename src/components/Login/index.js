@@ -7,18 +7,18 @@ import Login from "./component";
 
 const mapStateToProps = ({ user: { token }, component: { progressOn } }) => ({
   loggedIn: Boolean(token),
-  isLoading: progressOn
+  isLoading: progressOn,
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      login: loginStart
+      login: loginStart,
     },
-    dispatch
+    dispatch,
   );
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Login);
