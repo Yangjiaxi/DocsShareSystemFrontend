@@ -3,11 +3,14 @@ import { bindActionCreators } from "redux";
 
 import { toggleSlider } from "../../redux/actions";
 
-import Frame from "./component";
+import Slider from "./component";
 
-const mapStateToProps = ({ user: { token }, component: { progressOn } }) => ({
-  loggedIn: Boolean(token),
-  isLoading: progressOn
+const mapStateToProps = ({
+  component: { drawerOpen, languageName, pageName }
+}) => ({
+  open: drawerOpen,
+  languageName,
+  pageName
 });
 
 const mapDispatchToProps = dispatch =>
@@ -21,4 +24,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Frame);
+)(Slider);

@@ -9,7 +9,13 @@ const useStyles = makeStyles(({ spacing, breakpoints }) =>
       marginTop: spacing(10),
       [breakpoints.down("xs")]: {
         marginTop: spacing(8)
-      }
+      },
+      flexGrow: 1
+    },
+    fab: {
+      position: "absolute",
+      right: spacing(2),
+      bottom: spacing(2)
     }
   })
 );

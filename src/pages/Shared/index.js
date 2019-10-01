@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux";
 
 import { changeBrowserPath } from "../../redux/actions";
 
-import HomePage from "./component";
+import Shared from "./component";
 
 const mapStateToProps = () => ({});
 
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomePage);
+)(Shared);

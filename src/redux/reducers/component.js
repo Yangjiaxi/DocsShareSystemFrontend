@@ -10,11 +10,15 @@ const init = {
   ...stored,
   progressOn: false,
   snackbars: [],
-  pageName: "INIT_PAGE"
+  pageName: "INIT_PAGE",
+  drawerOpen: false
 };
 
 export function componentReducer(state = init, action) {
   switch (action.type) {
+    case actions.TOGGLE_SLIDER:
+      const { drawerOpen } = state;
+      return { ...state, drawerOpen: !drawerOpen };
     case actions.CHANGE_BROWSER_PATH:
       return { ...state, pageName: action.pageName };
     case actions.CHANGE_THEME_MODE:

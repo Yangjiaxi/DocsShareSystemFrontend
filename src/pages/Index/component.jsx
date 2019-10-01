@@ -13,12 +13,15 @@ import Login from "../../components/Login";
 import Notifier from "../../components/Notifier";
 import Snackbar from "../../components/Snackbar";
 
-const HomePage = lazy(() => import("../HomePage"));
 const Doc = lazy(() => import("../Doc"));
+const Recent = lazy(() => import("../Recent"));
+const Shared = lazy(() => import("../Shared"));
+const Trash = lazy(() => import("../Trash"));
+const About = lazy(() => import("../About"));
 const NoMatch = lazy(() => import("../NoMatch"));
 
 const Index = memo(({ themeMode, themeColor }) => {
-  const routeRender = Component => props => {
+  const frameRender = Component => props => {
     const {
       match: {
         params: { docID }
@@ -52,9 +55,12 @@ const Index = memo(({ themeMode, themeColor }) => {
       </Snackbar>
       <Switch>
         <Route path="/login" component={Login} />
-        <Route path="/" exact render={routeRender(HomePage)} />
-        <Route path="/doc/:docID?" render={routeRender(Doc)} />
-        <Route render={routeRender(NoMatch)} />
+        <Route path="/" exact render={frameRender(Recent)} />
+        <Route path="/shared" exact render={frameRender(Shared)} />
+        <Route path="/trash" exact render={frameRender(Trash)} />
+        <Route path="/about" exact render={frameRender(About)} />
+        <Route path="/doc/:docID?" render={frameRender(Doc)} />
+        <Route render={frameRender(NoMatch)} />
       </Switch>
     </ThemeProvider>
   );

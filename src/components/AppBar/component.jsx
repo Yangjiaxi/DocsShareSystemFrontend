@@ -1,21 +1,23 @@
-import React, { memo, useState } from "react";
+import React, { memo, useState, useMemo } from "react";
 
-import AppBar from "@material-ui/core/AppBar";
+import Helmet from "react-helmet";
+
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import Checked from "@material-ui/icons/Check";
-import IconButton from "@material-ui/core/IconButton";
 import LanguageIcon from "@material-ui/icons/Language";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 import Palette from "@material-ui/icons/Palette";
 import PersonIcon from "@material-ui/icons/Person";
 import RefreshIcon from "@material-ui/icons/Refresh";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 
 import {
+  AppBar,
+  IconButton,
+  Menu,
   Button,
+  MenuItem,
+  Toolbar,
   ListItemAvatar,
+  Typography,
   Avatar,
   ListItemText,
   ListItemSecondaryAction,
@@ -24,7 +26,7 @@ import {
 
 import useStyles from "./style";
 
-import { colorBook } from "../../utils/color";
+import { colorBook, colorDict } from "../../utils/color";
 
 import { getTermText, languageList, i18nHelper } from "../../i18n";
 
@@ -78,9 +80,19 @@ const Bar = memo(
       window.sessionStorage.clear();
       window.location.reload();
     };
-    // console.log(pageName);
+
+    const pageTitle = getTermTextCurrent(pageName);
+
     return (
       <>
+        <Helmet>
+          <meta
+            name="theme-color"
+            content={colorDict[themeColor][500]}
+            data-react-helmet="true"
+          />
+          <title>{pageTitle}</title>
+        </Helmet>
         <AppBar position="fixed" className={classes.appBar}>
           <Toolbar
             disableGutters
@@ -94,7 +106,7 @@ const Bar = memo(
               <Typography>{getTermTextCurrent(i18nHelper.goBack)}</Typography>
             </Button>
             <Typography variant="h6" color="inherit" noWrap>
-              {`  @ ${getTermTextCurrent(pageName)}`}
+              {`  @ ${pageTitle}`}
             </Typography>
             <div className={classes.rightButtons}>
               <Button color="inherit" onClick={handleClick(setAnchorI18n)}>
@@ -114,69 +126,79 @@ const Bar = memo(
                 <PersonIcon />
               </IconButton>
             </div>
-            <Menu
-              anchorEl={anchorLogout}
-              open={Boolean(anchorLogout)}
-              onClose={handleClose(setAnchorLogout)}
-            >
-              <MenuItem onClick={handleLogout}>
-                {getTermTextCurrent(i18nHelper.logout)}
-              </MenuItem>
-            </Menu>
-
-            <Menu
-              anchorEl={anchorI18n}
-              open={Boolean(anchorI18n)}
-              onClose={handleClose(setAnchorI18n)}
-            >
-              {Object.keys(languageList).map((name, index) => (
-                <MenuItem
-                  key={index}
-                  onClick={() => handleChangeLanguage(name)}
-                >
-                  <Typography>{languageList[name].name}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-            <Menu
-              anchorEl={anchorTheme}
-              open={Boolean(anchorTheme)}
-              onClose={handleClose(setAnchorTheme)}
-              PaperProps={{ style: { maxHeight: 330 } }}
-            >
-              <MenuItem onClick={() => handleChangeThemeMode()}>
-                <Typography>
-                  {`${getTermTextCurrent(
-                    i18nHelper.changeTheme
-                  )}${getTermTextCurrent(
-                    themeMode === "light"
-                      ? i18nHelper.darkMode
-                      : i18nHelper.lightMode
-                  )}`}
-                </Typography>
-              </MenuItem>
-              <Divider />
-              {colorBook.map(({ name, color: colorObj }, index) => (
-                <MenuItem
-                  button
-                  key={index}
-                  onClick={() => handleChangeColor(name)}
-                >
-                  <ListItemAvatar className={classes.icon}>
-                    <Avatar style={{ backgroundColor: colorObj[500] }} />
-                  </ListItemAvatar>
-                  <ListItemText>
-                    <Typography style={{ color: colorObj[500] }}>
-                      {name.toUpperCase()}
-                    </Typography>
-                  </ListItemText>
-                  <ListItemSecondaryAction>
-                    {themeColor === name && <Checked />}
-                  </ListItemSecondaryAction>
-                </MenuItem>
-              ))}
-            </Menu>
           </Toolbar>
+          <Menu
+            anchorEl={anchorLogout}
+            open={Boolean(anchorLogout)}
+            onClose={handleClose(setAnchorLogout)}
+          >
+            <MenuItem onClick={handleLogout}>
+              {getTermTextCurrent(i18nHelper.logout)}
+            </MenuItem>
+          </Menu>
+
+          <Menu
+            anchorEl={anchorI18n}
+            open={Boolean(anchorI18n)}
+            onClose={handleClose(setAnchorI18n)}
+          >
+            {useMemo(
+              () =>
+                Object.keys(languageList).map((name, index) => (
+                  <MenuItem
+                    key={index}
+                    onClick={() => handleChangeLanguage(name)}
+                  >
+                    <Typography>{languageList[name].name}</Typography>
+                  </MenuItem>
+                )),
+              // eslint-disable-next-line
+              []
+            )}
+          </Menu>
+          <Menu
+            anchorEl={anchorTheme}
+            open={Boolean(anchorTheme)}
+            onClose={handleClose(setAnchorTheme)}
+            PaperProps={{ style: { maxHeight: 330 } }}
+          >
+            <MenuItem onClick={() => handleChangeThemeMode()}>
+              <Typography>
+                {`${getTermTextCurrent(
+                  i18nHelper.changeTheme
+                )}${getTermTextCurrent(
+                  themeMode === "light"
+                    ? i18nHelper.darkMode
+                    : i18nHelper.lightMode
+                )}`}
+              </Typography>
+            </MenuItem>
+            <Divider />
+            {useMemo(
+              () =>
+                colorBook.map(({ name, color: colorObj }, index) => (
+                  <MenuItem
+                    button
+                    key={index}
+                    onClick={() => handleChangeColor(name)}
+                  >
+                    <ListItemAvatar className={classes.icon}>
+                      <Avatar style={{ backgroundColor: colorObj[500] }} />
+                    </ListItemAvatar>
+                    <ListItemText>
+                      <Typography style={{ color: colorObj[500] }}>
+                        {name.toUpperCase()}
+                      </Typography>
+                    </ListItemText>
+                    <ListItemSecondaryAction>
+                      {themeColor === name && <Checked />}
+                    </ListItemSecondaryAction>
+                  </MenuItem>
+                )),
+              // eslint-disable-next-line
+              [languageName, themeColor, themeMode]
+            )}
+          </Menu>
         </AppBar>
       </>
     );
