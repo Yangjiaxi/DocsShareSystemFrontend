@@ -11,34 +11,40 @@ import AppBar from "../AppBar";
 
 import useStyles from "./style";
 
-const Frame = memo(({ children, loggedIn, isLoading, toggleSlider }) => {
-  const classes = useStyles();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+const Frame = memo(
+  ({ children, loggedIn, isLoading, toggleSlider, detectWidth }) => {
+    const classes = useStyles();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
-  useEffect(() => {}, []);
+    useEffect(() => {
+      detectWidth(isMobile);
+    }, [isMobile, detectWidth]);
 
-  const MobileFab = () => (
-    <>
-      {isMobile && (
-        <Fab className={classes.fab} color="primary" onClick={toggleSlider}>
-          <MenuIcon />
-        </Fab>
-      )}
-    </>
-  );
+    const MobileFab = () => (
+      <>
+        {isMobile && (
+          <Fab className={classes.fab} color="primary" onClick={toggleSlider}>
+            <MenuIcon />
+          </Fab>
+        )}
+      </>
+    );
 
-  return loggedIn ? (
-    <div className={classes.root}>
-      <AppBar />
-      <Slider />
-      <MobileFab />
-      <Container className={classes.content}>{children}</Container>
-      {isLoading && <Progress />}
-    </div>
-  ) : (
-    <Redirect to="/login" />
-  );
-});
+    return loggedIn ? (
+      <div className={classes.root}>
+        <AppBar />
+        <Slider />
+        <MobileFab />
+        <Container maxWidth="xl" className={classes.content}>
+          {children}
+        </Container>
+        {isLoading && <Progress />}
+      </div>
+    ) : (
+      <Redirect to="/login" />
+    );
+  },
+);
 
 export default Frame;

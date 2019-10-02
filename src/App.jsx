@@ -1,22 +1,32 @@
-import { createBrowserHistory as createHistory } from "history";
 import React, { memo, useEffect } from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { routerMiddleware, ConnectedRouter } from "connected-react-router";
+import { createBrowserHistory } from "history";
 
 import { epicMiddleware, epics } from "./redux/epics";
-import { reducers } from "./redux/reducers";
+import { rootReducers } from "./redux/reducers";
 import Index from "./pages/Index";
 
-createHistory();
+export const history = createBrowserHistory();
 
 const middleware = [epicMiddleware];
 
-export const store = createStore(
-  reducers,
-  composeWithDevTools(applyMiddleware(...middleware)),
-);
+export const configureStore = () => {
+  const store = createStore(
+    rootReducers(history), // root reducer with router state
+    composeWithDevTools(
+      applyMiddleware(
+        routerMiddleware(history), // for dispatching history actions
+        ...middleware,
+      ),
+    ),
+  );
+  return store;
+};
+
+export const store = configureStore();
 
 epicMiddleware.run(epics);
 
@@ -27,9 +37,9 @@ const App = memo(() => {
 
   return (
     <Provider store={store}>
-      <Router>
+      <ConnectedRouter history={history}>
         <Index />
-      </Router>
+      </ConnectedRouter>
     </Provider>
   );
 });

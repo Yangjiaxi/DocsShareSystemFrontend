@@ -14,8 +14,8 @@ const useStyles = makeStyles(({ spacing, breakpoints }) =>
     },
     fab: {
       position: "absolute",
-      right: spacing(2),
-      bottom: spacing(2),
+      right: spacing(3),
+      bottom: spacing(3),
     },
   }),
 );

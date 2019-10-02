@@ -2,8 +2,6 @@ import React, { memo, useEffect } from "react";
 
 import {
   Drawer,
-  useMediaQuery,
-  useTheme,
   Divider,
   List,
   ListItem,
@@ -15,10 +13,9 @@ import {
 
 import { Create, History, Delete, Share, Info } from "@material-ui/icons";
 
+import { getRandomString } from "../../utils";
 import Anchor from "../Anchor";
-
 import { i18nHelper, getTermText } from "../../i18n";
-
 import useStyles from "./style";
 
 const itemList = [
@@ -57,48 +54,83 @@ const itemList = [
 
 const getTermTextCurrent = term => getTermText("Slider", term);
 
-const Slider = memo(({ open, toggleSlider, languageName, pageName }) => {
-  const classes = useStyles();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+const Slider = memo(
+  ({
+    open,
+    toggleSlider,
+    languageName,
+    pageName,
+    isMobile,
+    isViewingDocs,
+    pushUrl,
+  }) => {
+    const classes = useStyles();
+    useEffect(() => {}, [languageName]);
 
-  useEffect(() => {}, [languageName]);
+    const handleCreate = () => {
+      pushUrl(`/doc/${getRandomString(20)}`);
+    };
 
-  return (
-    <Drawer
-      className={classes.drawer}
-      classes={{ paper: classes.drawerPaper }}
-      variant={isMobile ? "temporary" : "permanent"}
-      anchor={isMobile ? "bottom" : "left"}
-      open={open}
-      onClose={toggleSlider}
-    >
-      <List>
-        {!isMobile && <div className={classes.toolbar} />}
-        <Divider />
-        <ListItem>
-          <Button variant="outlined" color="primary" fullWidth size="large">
-            <Create />
-            <Typography className={classes.createButton}>
-              {getTermTextCurrent(i18nHelper.newDoc)}
-            </Typography>
-          </Button>
-        </ListItem>
-        {itemList.map(({ type, ...rest }, index) => {
-          if (type === "divider") return <Divider key={index} />;
-          const { text, icon, name, to } = rest;
-          return (
-            <Anchor to={to} key={index} component="div">
-              <ListItem button selected={pageName === name}>
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText>{getTermTextCurrent(text)}</ListItemText>
-              </ListItem>
-            </Anchor>
-          );
-        })}
-      </List>
-    </Drawer>
-  );
-});
+    const handleClick = () => {
+      if (isMobile) toggleSlider();
+    };
+
+    const makeDrawerStyle = () => {
+      const boot = { anchor: "left", variant: "permanent" };
+      if (isMobile) {
+        boot.variant = "temporary";
+        boot.anchor = "bottom";
+      } else if (isViewingDocs) {
+        boot.variant = "temporary";
+      }
+      return boot;
+    };
+
+    return (
+      <Drawer
+        className={classes.drawer}
+        classes={{ paper: classes.drawerPaper }}
+        {...makeDrawerStyle()}
+        open={open}
+        onClose={toggleSlider}
+      >
+        <List>
+          {!isMobile && !isViewingDocs && <div className={classes.toolbar} />}
+          <Divider />
+          <ListItem>
+            <Button
+              variant="outlined"
+              color="primary"
+              fullWidth
+              size="large"
+              onClick={handleCreate}
+            >
+              <Create />
+              <Typography className={classes.createButton}>
+                {getTermTextCurrent(i18nHelper.newDoc)}
+              </Typography>
+            </Button>
+          </ListItem>
+          {itemList.map(({ type, ...rest }, index) => {
+            if (type === "divider") return <Divider key={index} />;
+            const { text, icon, name, to } = rest;
+            return (
+              <Anchor to={to} key={index} component="div">
+                <ListItem
+                  button
+                  selected={pageName === name}
+                  onClick={handleClick}
+                >
+                  <ListItemIcon>{icon}</ListItemIcon>
+                  <ListItemText>{getTermTextCurrent(text)}</ListItemText>
+                </ListItem>
+              </Anchor>
+            );
+          })}
+        </List>
+      </Drawer>
+    );
+  },
+);
 
 export default Slider;

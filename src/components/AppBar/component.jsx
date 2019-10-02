@@ -2,7 +2,7 @@ import React, { memo, useState, useMemo } from "react";
 
 import Helmet from "react-helmet";
 
-import ArrowBack from "@material-ui/icons/ArrowBack";
+import MenuIcon from "@material-ui/icons/Menu";
 import Checked from "@material-ui/icons/Check";
 import LanguageIcon from "@material-ui/icons/Language";
 import Palette from "@material-ui/icons/Palette";
@@ -42,8 +42,12 @@ const Bar = memo(
     changeThemeColor,
     themeColor,
     pageName,
+    isMobile,
+    isViewingDocs,
+    toggleSlider,
   }) => {
     const classes = useStyles();
+
     const [anchorLogout, setAnchorLogout] = useState(null);
     const [anchorTheme, setAnchorTheme] = useState(null);
     const [anchorI18n, setAnchorI18n] = useState(null);
@@ -83,6 +87,16 @@ const Bar = memo(
 
     const pageTitle = getTermTextCurrent(pageName);
 
+    const I18nComp = isMobile ? IconButton : Button;
+    const i18nButton = (
+      <I18nComp color="inherit" onClick={handleClick(setAnchorI18n)}>
+        <LanguageIcon />
+        {!isMobile && (
+          <Typography>{languageList[languageName].name}</Typography>
+        )}
+      </I18nComp>
+    );
+
     return (
       <>
         <Helmet>
@@ -94,25 +108,17 @@ const Bar = memo(
           <title>{pageTitle}</title>
         </Helmet>
         <AppBar position="fixed" className={classes.appBar}>
-          <Toolbar
-            disableGutters
-            classes={{
-              gutters: classes.appBarGutters,
-              regular: classes.regular,
-            }}
-          >
-            <Button color="inherit">
-              <ArrowBack />
-              <Typography>{getTermTextCurrent(i18nHelper.goBack)}</Typography>
-            </Button>
+          <Toolbar disableGutters={!isMobile && isViewingDocs}>
+            {isViewingDocs && !isMobile && (
+              <IconButton color="inherit" onClick={toggleSlider}>
+                <MenuIcon />
+              </IconButton>
+            )}
             <Typography variant="h6" color="inherit" noWrap>
-              {`  @ ${pageTitle}`}
+              {pageTitle}
             </Typography>
             <div className={classes.rightButtons}>
-              <Button color="inherit" onClick={handleClick(setAnchorI18n)}>
-                <LanguageIcon />
-                <Typography>{languageList[languageName].name}</Typography>
-              </Button>
+              {i18nButton}
               <IconButton color="inherit" onClick={handleClick(setAnchorTheme)}>
                 <Palette />
               </IconButton>

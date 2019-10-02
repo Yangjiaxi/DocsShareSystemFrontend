@@ -12,10 +12,16 @@ const init = {
   snackbars: [],
   pageName: "INIT_PAGE",
   drawerOpen: false,
+  isMobile: false,
+  isViewingDocs: false,
 };
 
 export function componentReducer(state = init, action) {
   switch (action.type) {
+    case actions.VIEW_DOCS:
+      return { ...state, isViewingDocs: action.isViewing };
+    case actions.DETECT_WIDTH:
+      return { ...state, isMobile: action.isMobile };
     case actions.TOGGLE_SLIDER:
       const { drawerOpen } = state;
       return { ...state, drawerOpen: !drawerOpen };

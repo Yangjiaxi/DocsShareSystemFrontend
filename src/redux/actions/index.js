@@ -72,3 +72,15 @@ export const TOGGLE_SLIDER = "TOGGLE_SLIDER";
 export const toggleSlider = () => ({
   type: TOGGLE_SLIDER,
 });
+
+export const DETECT_WIDTH = "DETECT_WIDTH";
+export const detectWidth = isMobile => ({
+  type: DETECT_WIDTH,
+  isMobile,
+});
+
+export const VIEW_DOCS = "VIEW_DOCS";
+export const viewDocs = isViewing => ({
+  type: VIEW_DOCS,
+  isViewing,
+});

@@ -5,15 +5,6 @@ const useStyles = makeStyles(({ zIndex, spacing, breakpoints }) =>
     appBar: {
       zIndex: zIndex.drawer + 1,
     },
-    appBarGutters: {
-      paddingRight: 0,
-    },
-    regular: {
-      minHeight: spacing(8),
-      [breakpoints.down("xs")]: {
-        minHeight: spacing(6),
-      },
-    },
     rightButtons: {
       marginLeft: "auto",
       display: "flex",

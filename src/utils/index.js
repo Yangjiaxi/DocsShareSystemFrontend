@@ -29,3 +29,16 @@ export const updateStorage = name => data =>
     name,
     typeof data === "string" ? data : JSON.stringify(data),
   );
+
+export const getRandom = (min, max) => ~~(Math.random() * (max - min) + min);
+
+export const getRandomString = length => {
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(getRandom(0, charactersLength));
+  }
+  return result;
+};

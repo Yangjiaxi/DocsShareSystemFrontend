@@ -13,13 +13,17 @@ import { i18nHelper } from "../../i18n";
   -> yes -> render -> websocket start
 */
 
-const Doc = memo(({ changeBrowserPath, docID }) => {
+const Doc = memo(({ changeBrowserPath, docID, viewDocs }) => {
   // if (docID) console.log(docID);
   // console.log(rest);
 
   useEffect(() => {
     changeBrowserPath(i18nHelper.DOC_PAGE);
-  }, [changeBrowserPath]);
+    viewDocs(true);
+    return () => {
+      viewDocs(false);
+    };
+  }, [changeBrowserPath, viewDocs]);
 
   return (
     <>

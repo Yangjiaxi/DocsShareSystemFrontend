@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { toggleSlider } from "../../redux/actions";
+import { toggleSlider, detectWidth } from "../../redux/actions";
 
 import Frame from "./component";
 
@@ -14,6 +14,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       toggleSlider,
+      detectWidth,
     },
     dispatch,
   );

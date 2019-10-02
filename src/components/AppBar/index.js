@@ -7,17 +7,27 @@ import {
   changeLanguage,
   changeThemeMode,
   changeThemeColor,
+  toggleSlider,
 } from "../../redux/actions";
 
 import AppBar from "./component";
 
 const mapStateToProps = ({
-  component: { languageName, themeMode, themeColor, pageName },
+  component: {
+    languageName,
+    themeMode,
+    themeColor,
+    pageName,
+    isMobile,
+    isViewingDocs,
+  },
 }) => ({
   languageName,
   themeMode,
   themeColor,
   pageName,
+  isMobile,
+  isViewingDocs,
 });
 
 const mapDispatchToProps = dispatch =>
@@ -27,6 +37,7 @@ const mapDispatchToProps = dispatch =>
       changeLanguage,
       changeThemeMode,
       changeThemeColor,
+      toggleSlider,
     },
     dispatch,
   );
