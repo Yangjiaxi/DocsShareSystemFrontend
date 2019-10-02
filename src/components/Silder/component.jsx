@@ -69,6 +69,7 @@ const Slider = memo(
 
     const handleCreate = () => {
       pushUrl(`/doc/${getRandomString(20)}`);
+      toggleSlider();
     };
 
     const handleClick = () => {
