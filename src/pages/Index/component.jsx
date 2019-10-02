@@ -24,8 +24,8 @@ const Index = memo(({ themeMode, themeColor }) => {
   const frameRender = Component => props => {
     const {
       match: {
-        params: { docID }
-      }
+        params: { docID },
+      },
     } = props;
     return (
       <PageFrame>
@@ -43,8 +43,8 @@ const Index = memo(({ themeMode, themeColor }) => {
     palette: {
       type: themeMode,
       primary: colorObj,
-      secondary: needChangeSecondary ? colorDict.blue : undefined
-    }
+      secondary: needChangeSecondary ? colorDict.blue : undefined,
+    },
   });
 
   return (

@@ -12,7 +12,7 @@ const Progress = memo(() => {
       color="primary"
       classes={{
         colorPrimary: classes.color,
-        barColorPrimary: classes.barColor
+        barColorPrimary: classes.barColor,
       }}
     />
   );

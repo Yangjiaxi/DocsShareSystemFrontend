@@ -7,7 +7,7 @@ const Anchor = memo(({ to, children }) => (
     style={{
       textDecoration: "none",
       outline: "none",
-      color: "inherit"
+      color: "inherit",
     }}
   >
     {children}

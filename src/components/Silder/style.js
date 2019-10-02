@@ -16,6 +16,9 @@ const useStyles = makeStyles(({ mixins, breakpoints }) =>
       width: drawerWidth,
       flexShrink: 0,
     },
+    createButton: {
+      fontWeight: "bold",
+    },
   }),
 );
 

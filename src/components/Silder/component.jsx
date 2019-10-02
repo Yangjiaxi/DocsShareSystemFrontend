@@ -9,7 +9,8 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Button
+  Button,
+  Typography,
 } from "@material-ui/core";
 
 import { Create, History, Delete, Share, Info } from "@material-ui/icons";
@@ -27,21 +28,21 @@ const itemList = [
     text: i18nHelper.recentDocs,
     icon: <History />,
     name: i18nHelper.RECENT_PAGE,
-    to: "/"
+    to: "/",
   },
   {
     type: "link",
     text: i18nHelper.shareDocs,
     icon: <Share />,
     name: i18nHelper.SHARED_PAGE,
-    to: "/shared"
+    to: "/shared",
   },
   {
     type: "link",
     text: i18nHelper.wasteBin,
     icon: <Delete />,
     name: i18nHelper.DELETED_PAGE,
-    to: "trash"
+    to: "trash",
   },
   { type: "divider" },
   {
@@ -49,9 +50,9 @@ const itemList = [
     text: i18nHelper.aboutSite,
     icon: <Info />,
     name: i18nHelper.ABOUT_PAGE,
-    to: "/about"
+    to: "/about",
   },
-  { type: "divider" }
+  { type: "divider" },
 ];
 
 const getTermTextCurrent = term => getTermText("Slider", term);
@@ -78,7 +79,9 @@ const Slider = memo(({ open, toggleSlider, languageName, pageName }) => {
         <ListItem>
           <Button variant="outlined" color="primary" fullWidth size="large">
             <Create />
-            {getTermTextCurrent(i18nHelper.newDoc)}
+            <Typography className={classes.createButton}>
+              {getTermTextCurrent(i18nHelper.newDoc)}
+            </Typography>
           </Button>
         </ListItem>
         {itemList.map(({ type, ...rest }, index) => {

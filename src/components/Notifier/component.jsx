@@ -31,7 +31,7 @@ const Notifier = memo(
               options.onClose(event, reason, closeKey);
             }
             removeSnackbar(closeKey);
-          }
+          },
         });
         storeDisplayed(key);
         removeSnackbar(key);
@@ -41,7 +41,7 @@ const Notifier = memo(
       displayed,
       enqueueSnackbar,
       removeSnackbar,
-      closeSnackbar
+      closeSnackbar,
     ]);
 
     return null;
@@ -51,7 +51,7 @@ const Notifier = memo(
       if (!prevSnacks.find(({ key }) => snack.key === key)) return false;
     }
     return true;
-  }
+  },
 );
 
 export default withSnackbar(Notifier);

@@ -21,7 +21,7 @@ import {
   Avatar,
   ListItemText,
   ListItemSecondaryAction,
-  Divider
+  Divider,
 } from "@material-ui/core";
 
 import useStyles from "./style";
@@ -41,7 +41,7 @@ const Bar = memo(
     changeThemeMode,
     changeThemeColor,
     themeColor,
-    pageName
+    pageName,
   }) => {
     const classes = useStyles();
     const [anchorLogout, setAnchorLogout] = useState(null);
@@ -98,7 +98,7 @@ const Bar = memo(
             disableGutters
             classes={{
               gutters: classes.appBarGutters,
-              regular: classes.regular
+              regular: classes.regular,
             }}
           >
             <Button color="inherit">
@@ -165,11 +165,11 @@ const Bar = memo(
             <MenuItem onClick={() => handleChangeThemeMode()}>
               <Typography>
                 {`${getTermTextCurrent(
-                  i18nHelper.changeTheme
+                  i18nHelper.changeTheme,
                 )}${getTermTextCurrent(
                   themeMode === "light"
                     ? i18nHelper.darkMode
-                    : i18nHelper.lightMode
+                    : i18nHelper.lightMode,
                 )}`}
               </Typography>
             </MenuItem>
@@ -202,7 +202,7 @@ const Bar = memo(
         </AppBar>
       </>
     );
-  }
+  },
 );
 
 export default Bar;

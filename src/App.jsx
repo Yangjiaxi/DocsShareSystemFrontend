@@ -15,7 +15,7 @@ const middleware = [epicMiddleware];
 
 export const store = createStore(
   reducers,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeWithDevTools(applyMiddleware(...middleware)),
 );
 
 epicMiddleware.run(epics);
