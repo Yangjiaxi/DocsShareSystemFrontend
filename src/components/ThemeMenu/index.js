@@ -2,24 +2,23 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { bindActionCreators } from "redux";
 
-import { logout, toggleSlider } from "../../redux/actions";
+import { changeThemeMode, changeThemeColor } from "../../redux/actions";
 
-import AppBar from "./component";
+import ThemeMenu from "./component";
 
 const mapStateToProps = ({
-  component: { themeColor, pageName, isMobile, isViewingDocs },
+  component: { themeMode, themeColor, languageName },
 }) => ({
+  themeMode,
   themeColor,
-  pageName,
-  isMobile,
-  isViewingDocs,
+  languageName,
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      logout,
-      toggleSlider,
+      changeThemeMode,
+      changeThemeColor,
     },
     dispatch,
   );
@@ -28,5 +27,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(AppBar),
+  )(ThemeMenu),
 );

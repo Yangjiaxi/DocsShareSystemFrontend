@@ -15,7 +15,7 @@ import { Create, History, Delete, Share, Info } from "@material-ui/icons";
 
 import { getRandomString } from "../../utils";
 import Anchor from "../Anchor";
-import { i18nHelper, getTermText } from "../../i18n";
+import { i18nHelper, TextTermMaker } from "../../i18n";
 import useStyles from "./style";
 
 const itemList = [
@@ -52,7 +52,7 @@ const itemList = [
   { type: "divider" },
 ];
 
-const getTermTextCurrent = term => getTermText("Slider", term);
+const TextComp = TextTermMaker("Slider");
 
 const Slider = memo(
   ({
@@ -108,7 +108,7 @@ const Slider = memo(
             >
               <Create />
               <Typography className={classes.createButton}>
-                {getTermTextCurrent(i18nHelper.newDoc)}
+                <TextComp term={i18nHelper.newDoc} />
               </Typography>
             </Button>
           </ListItem>
@@ -123,7 +123,9 @@ const Slider = memo(
                   onClick={handleClick}
                 >
                   <ListItemIcon>{icon}</ListItemIcon>
-                  <ListItemText>{getTermTextCurrent(text)}</ListItemText>
+                  <ListItemText>
+                    <TextComp term={text} />
+                  </ListItemText>
                 </ListItem>
               </Anchor>
             );

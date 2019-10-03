@@ -5,6 +5,8 @@ export const simplifiedChinese = {
   },
   Login: {
     login: "登录",
+    register: "注册",
+    loginWord: "登陆协同评注系统",
     email: "邮箱",
     password: "密码",
   },

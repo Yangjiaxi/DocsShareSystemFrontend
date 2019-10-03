@@ -5,9 +5,13 @@ import { loginStart } from "../../redux/actions";
 
 import Login from "./component";
 
-const mapStateToProps = ({ user: { token }, component: { progressOn } }) => ({
+const mapStateToProps = ({
+  user: { token },
+  component: { progressOn, languageName },
+}) => ({
   loggedIn: Boolean(token),
   isLoading: progressOn,
+  languageName,
 });
 
 const mapDispatchToProps = dispatch =>

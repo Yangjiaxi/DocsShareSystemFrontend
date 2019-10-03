@@ -5,6 +5,8 @@ export const americanEnglish = {
   },
   Login: {
     login: "Login",
+    register: "Register",
+    loginWord: "Login co-comment system",
     email: "E-Mail",
     password: "Password",
   },

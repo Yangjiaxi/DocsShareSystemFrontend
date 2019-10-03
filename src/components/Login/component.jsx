@@ -1,17 +1,27 @@
 import React, { memo, useState } from "react";
 import { Redirect } from "react-router";
 
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import {
+  TextField,
+  Button,
+  Container,
+  Paper,
+  Avatar,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 
-import { Container, Paper } from "@material-ui/core";
+import { Lock } from "@material-ui/icons";
+
 import Progress from "../Progress";
+import ThemeMenu from "../ThemeMenu";
+import LanguageMenu from "../LanguageMenu";
 
-import { getTermText, i18nHelper } from "../../i18n";
+import { i18nHelper, TextTermMaker } from "../../i18n";
 
 import useStyles from "./style";
 
-const getTermTextCurrent = term => getTermText("Login", term);
+const TextComp = TextTermMaker("Login");
 
 const Login = memo(({ loggedIn, login, isLoading }) => {
   const classes = useStyles();
@@ -24,6 +34,10 @@ const Login = memo(({ loggedIn, login, isLoading }) => {
     login(email, password);
   };
 
+  const handleRegister = () => {
+    // login(email, password);
+  };
+
   const handlePassword = ({ target: { value } }) => {
     setPassword(value);
   };
@@ -33,38 +47,78 @@ const Login = memo(({ loggedIn, login, isLoading }) => {
   };
 
   return (
-    <Container className={classes.container} maxWidth="xs">
-      <Paper>
-        <form className={classes.login}>
-          <TextField
-            label={getTermTextCurrent(i18nHelper.email)}
-            className={classes.textField}
-            value={email}
-            autoComplete="email"
-            onChange={handleEmail}
-            margin="normal"
-          />
-          <TextField
-            label={getTermTextCurrent(i18nHelper.password)}
-            className={classes.textField}
-            value={password}
-            type="password"
-            autoComplete="current-password"
-            onChange={handlePassword}
-            margin="normal"
-          />
-          <Button
-            color="primary"
-            size="large"
-            onClick={handleLogin}
-            disabled={!email || !password}
-          >
-            {getTermTextCurrent(i18nHelper.login)}
-          </Button>
-        </form>
-        {isLoading && <Progress />}
-      </Paper>
-    </Container>
+    <>
+      <Container className={classes.container} maxWidth="xs">
+        <Paper className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <Lock />
+          </Avatar>
+          <Typography variant="h6" gutterBottom>
+            <TextComp term={i18nHelper.loginWord} />
+          </Typography>
+          <form className={classes.form}>
+            <Grid container spacing={4}>
+              <Grid item xs={12}>
+                <TextField
+                  label={<TextComp term={i18nHelper.email} />}
+                  variant="outlined"
+                  fullWidth
+                  required
+                  value={email}
+                  autoComplete="email"
+                  onChange={handleEmail}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  label={<TextComp term={i18nHelper.password} />}
+                  variant="outlined"
+                  fullWidth
+                  required
+                  value={password}
+                  type="password"
+                  autoComplete="current-password"
+                  onChange={handlePassword}
+                />
+              </Grid>
+              <Grid item sm={4} xs={12}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="secondary"
+                  size="large"
+                  onClick={handleRegister}
+                >
+                  <TextComp term={i18nHelper.register} />
+                </Button>
+              </Grid>
+              <Grid item sm={8} xs={12}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="primary"
+                  size="large"
+                  onClick={handleLogin}
+                  disabled={!email || !password}
+                >
+                  <TextComp term={i18nHelper.login} />
+                </Button>
+              </Grid>
+            </Grid>
+          </form>
+          {isLoading && <Progress />}
+        </Paper>
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+        >
+          <LanguageMenu />
+          <ThemeMenu />
+        </Grid>
+      </Container>
+    </>
   );
 });
 

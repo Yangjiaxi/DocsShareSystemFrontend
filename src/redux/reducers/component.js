@@ -1,7 +1,11 @@
 import * as actions from "../actions";
+import { loadTranslation } from "../../i18n";
+
+const languageName = localStorage.getItem("language") || "zh-CN";
 
 const stored = {
-  languageName: localStorage.getItem("language") || "zh-CN",
+  languageName,
+  languageDict: loadTranslation(languageName),
   themeMode: localStorage.getItem("themeMode") || "light",
   themeColor: localStorage.getItem("themeColor") || "blue",
 };
@@ -37,7 +41,11 @@ export function componentReducer(state = init, action) {
       return { ...state, themeColor: action.color };
     case actions.CHANGE_LANGUAGE:
       localStorage.setItem("language", action.languageName);
-      return { ...state, languageName: action.languageName };
+      return {
+        ...state,
+        languageName: action.languageName,
+        languageDict: loadTranslation(action.languageName),
+      };
     case actions.TOGGLE_PROGRESS:
       return { ...state, progressOn: action.on };
     case actions.ENQUEUE_SNACKBAR:

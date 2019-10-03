@@ -1,12 +1,16 @@
 import simplifiedChinese from "./zh-CN";
 import americanEnglish from "./en-US";
 
+export { TextTermMaker } from "./component";
+
 export const i18nHelper = {
   // [Snackbar]
   loginSuccess: "loginSuccess",
   errorPrefix: "errorPrefix",
   // [Login]
   login: "login",
+  loginWord: "loginWord",
+  register: "register",
   email: "email",
   password: "password",
   // [AppBar]
@@ -43,10 +47,18 @@ export const languageList = {
   },
 };
 
+export const loadTranslation = languageName => {
+  if (!(languageName in languageList)) {
+    console.warn(`Language [${languageName}] is not supported yet!`);
+    return languageList["zh-CN"];
+  }
+  return languageList[languageName].translation;
+};
+
 export const getTermText = (namespace, term) => {
   let language = localStorage.getItem("language") || "zh-CN";
   if (!(language in languageList)) {
-    console.warn(`Language [${language}] is not supported yet, sorry!`);
+    console.warn(`Language [${language}] is not supported yet!`);
     language = "zh-CN";
   }
   return (
