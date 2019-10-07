@@ -11,7 +11,14 @@ import {
   Typography,
 } from "@material-ui/core";
 
-import { Create, History, Delete, Share, Info } from "@material-ui/icons";
+import {
+  Create,
+  History,
+  Delete,
+  Share,
+  Info,
+  People,
+} from "@material-ui/icons";
 
 import { getRandomString } from "../../utils";
 import Anchor from "../Anchor";
@@ -42,6 +49,13 @@ const itemList = [
     to: "trash",
   },
   { type: "divider" },
+  {
+    type: "link",
+    text: i18nHelper.profile,
+    icon: <People />,
+    name: i18nHelper.INFO_PAGE,
+    to: "/profile",
+  },
   {
     type: "link",
     text: i18nHelper.aboutSite,

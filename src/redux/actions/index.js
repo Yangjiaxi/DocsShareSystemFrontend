@@ -92,3 +92,14 @@ export const viewDocs = isViewing => ({
   type: VIEW_DOCS,
   isViewing,
 });
+
+export const GET_USER_INFO_BEGIN = "GET_USER_INFO_BEGIN";
+export const getUserInfoBegin = () => ({
+  type: GET_USER_INFO_BEGIN,
+});
+
+export const GET_USER_INFO_FINISH = "GET_USER_INFO_FINISH";
+export const getUserInfoFinish = info => ({
+  type: GET_USER_INFO_FINISH,
+  info,
+});

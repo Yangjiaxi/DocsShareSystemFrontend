@@ -66,8 +66,8 @@ const ThemeMenu = memo(
           <Typography>
             <TextComp term={i18nHelper.changeTheme} />
             {(themeMode === "light" && (
-              <TextComp term={i18nHelper.lightMode} />
-            )) || <TextComp term={i18nHelper.darkMode} />}
+              <TextComp term={i18nHelper.darkMode} />
+            )) || <TextComp term={i18nHelper.lightMode} />}
           </Typography>
         </MenuItem>
         <Divider />

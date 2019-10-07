@@ -1,6 +1,7 @@
 export const americanEnglish = {
   Snackbar: {
     loginSuccess: "Login Success",
+    registerSuccess: "Register Success",
     errorPrefix: "ERROR: ",
     // [JWT]
     NO_JWT: "No Token Provided",
@@ -31,6 +32,7 @@ export const americanEnglish = {
     username: "Username",
   },
   AppBar: {
+    INFO_PAGE: "My Profile",
     HOME_PAGE: "Home",
     INIT_PAGE: "Initializing...",
     RECENT_PAGE: "Recent Used",
@@ -50,6 +52,10 @@ export const americanEnglish = {
     shareDocs: "Shared With Me",
     wasteBin: "Trash",
     aboutSite: "About",
+    profile: "My Profile",
+  },
+  CircularProgress: {
+    loadingPrefix: "Loading",
   },
 };
 

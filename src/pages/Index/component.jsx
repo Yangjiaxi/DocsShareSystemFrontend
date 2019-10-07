@@ -20,7 +20,10 @@ const Doc = lazy(() => import("../Doc"));
 const Recent = lazy(() => import("../Recent"));
 const Shared = lazy(() => import("../Shared"));
 const Trash = lazy(() => import("../Trash"));
+
+const MyInfo = lazy(() => import("../MyInfo"));
 const About = lazy(() => import("../About"));
+
 const NoMatch = lazy(() => import("../NoMatch"));
 
 const Index = memo(({ themeMode, themeColor }) => {
@@ -70,6 +73,7 @@ const Index = memo(({ themeMode, themeColor }) => {
         <Route path="/" exact render={mainFrame(Recent)} />
         <Route path="/shared" exact render={mainFrame(Shared)} />
         <Route path="/trash" exact render={mainFrame(Trash)} />
+        <Route path="/profile" exact render={mainFrame(MyInfo)} />
         <Route path="/about" exact render={mainFrame(About)} />
         <Route path="/doc/:docID?" render={mainFrame(Doc)} />
         <Route render={mainFrame(NoMatch)} />

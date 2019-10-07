@@ -59,17 +59,6 @@ const Register = memo(({ isLoading, register, enqueueSnackbar }) => {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
-              label={<TextComp term={i18nHelper.username} />}
-              variant="outlined"
-              fullWidth
-              required
-              value={username}
-              autoComplete="username"
-              onChange={handleUsername}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
               label={<TextComp term={i18nHelper.email} />}
               variant="outlined"
               fullWidth
@@ -77,6 +66,17 @@ const Register = memo(({ isLoading, register, enqueueSnackbar }) => {
               value={email}
               autoComplete="email"
               onChange={handleEmail}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label={<TextComp term={i18nHelper.username} />}
+              variant="outlined"
+              fullWidth
+              required
+              value={username}
+              autoComplete="username"
+              onChange={handleUsername}
             />
           </Grid>
           <Grid item xs={12}>

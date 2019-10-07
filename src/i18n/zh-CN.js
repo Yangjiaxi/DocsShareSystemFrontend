@@ -1,6 +1,7 @@
 export const simplifiedChinese = {
   Snackbar: {
     loginSuccess: "登陆成功",
+    registerSuccess: "注册成功",
     errorPrefix: "错误：",
     // [JWT]
     NO_JWT: "没有提供身份验证",
@@ -31,6 +32,7 @@ export const simplifiedChinese = {
     username: "用户名",
   },
   AppBar: {
+    INFO_PAGE: "个人信息",
     HOME_PAGE: "主页",
     INIT_PAGE: "初始化...",
     DOC_PAGE: "文档共享",
@@ -50,6 +52,10 @@ export const simplifiedChinese = {
     shareDocs: "与我共享",
     wasteBin: "回收站",
     aboutSite: "关于",
+    profile: "个人信息",
+  },
+  CircularProgress: {
+    loadingPrefix: "正在加载",
   },
 };
 

@@ -6,6 +6,7 @@ export { TextTermMaker } from "./component";
 export const i18nHelper = {
   // [Snackbar]
   loginSuccess: "loginSuccess",
+  registerSuccess: "registerSuccess",
   errorPrefix: "errorPrefix",
   registerUsernameHint: "registerUsernameHint",
   registerEmailHint: "registerEmailHint",
@@ -45,6 +46,7 @@ export const i18nHelper = {
   changeTheme: "changeTheme",
   lightMode: "lightMode",
   darkMode: "darkMode",
+  INFO_PAGE: "INFO_PAGE",
   RECENT_PAGE: "RECENT_PAGE",
   SHARED_PAGE: "SHARED_PAGE",
   DELETED_PAGE: "DELETED_PAGE",
@@ -58,6 +60,9 @@ export const i18nHelper = {
   shareDocs: "shareDocs",
   wasteBin: "wasteBin",
   aboutSite: "aboutSite",
+  profile: "profile",
+  // [CircularProgress]
+  loadingPrefix: "loadingPrefix",
 };
 
 export const languageList = {
