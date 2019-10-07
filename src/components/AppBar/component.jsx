@@ -19,14 +19,22 @@ import LanguageMenu from "../LanguageMenu";
 import ThemeMenu from "../ThemeMenu";
 
 import { colorDict } from "../../utils/color";
-import { i18nHelper, TextTermMaker, getTermText } from "../../i18n";
+import { i18nHelper, TextTermMaker } from "../../i18n";
 
 import useStyles from "./style";
 
 const TextComp = TextTermMaker("AppBar");
 
 const Bar = memo(
-  ({ logout, themeColor, pageName, isMobile, isViewingDocs, toggleSlider }) => {
+  ({
+    logout,
+    themeColor,
+    pageName,
+    isMobile,
+    isViewingDocs,
+    toggleSlider,
+    titleDict,
+  }) => {
     const classes = useStyles();
 
     const [anchorLogout, setAnchorLogout] = useState(null);
@@ -57,7 +65,7 @@ const Bar = memo(
             content={colorDict[themeColor][500]}
             data-react-helmet="true"
           />
-          <title>{getTermText("AppBar", pageName)}</title>
+          <title>{titleDict && titleDict[pageName]}</title>
         </Helmet>
         <AppBar position="fixed" className={classes.appBar}>
           <Toolbar disableGutters={!isMobile && isViewingDocs}>

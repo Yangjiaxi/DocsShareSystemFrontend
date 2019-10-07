@@ -16,6 +16,14 @@ export const loginStart = (email, password) => ({
   password,
 });
 
+export const REGISTER_START = "REGISTER_START";
+export const registerStart = (username, email, password) => ({
+  type: REGISTER_START,
+  username,
+  email,
+  password,
+});
+
 export const TOGGLE_PROGRESS = "TOGGLE_PROGRESS";
 export const toggleProgress = (on = false) => ({
   type: TOGGLE_PROGRESS,

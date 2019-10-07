@@ -4,8 +4,16 @@ import { withSnackbar } from "notistack";
 import { IconButton } from "@material-ui/core";
 import { CloseRounded } from "@material-ui/icons";
 
+const NAMESPACE = "Snackbar";
+
 const Notifier = memo(
-  ({ notifications = [], enqueueSnackbar, removeSnackbar, closeSnackbar }) => {
+  ({
+    notifications = [],
+    enqueueSnackbar,
+    removeSnackbar,
+    closeSnackbar,
+    languageDict,
+  }) => {
     const [displayed, setDisplayed] = useState([]);
 
     const storeDisplayed = id => {
@@ -15,7 +23,9 @@ const Notifier = memo(
     useEffect(() => {
       notifications.forEach(({ key, message, options }) => {
         if (displayed.includes(key)) return;
-        enqueueSnackbar(message, {
+        // console.log(message);
+        const msg = languageDict[NAMESPACE][message] || message;
+        enqueueSnackbar(msg, {
           ...options,
           action: closeKey => (
             <IconButton
@@ -42,6 +52,7 @@ const Notifier = memo(
       enqueueSnackbar,
       removeSnackbar,
       closeSnackbar,
+      languageDict,
     ]);
 
     return null;

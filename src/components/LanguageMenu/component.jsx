@@ -13,7 +13,7 @@ import {
 
 import { languageList } from "../../i18n";
 
-const languageMenu = memo(({ changeLanguage, languageName }) => {
+const languageMenu = memo(({ changeLanguage, languageName, keepWidth }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
@@ -31,12 +31,13 @@ const languageMenu = memo(({ changeLanguage, languageName }) => {
     setAnchorI18n(null);
     changeLanguage(name);
   };
-
-  const I18nComp = isMobile ? IconButton : Button;
+  const I18nComp = isMobile && !keepWidth ? IconButton : Button;
   const i18nButton = (
     <I18nComp color="inherit" onClick={handleClick(setAnchorI18n)}>
       <LanguageIcon />
-      {!isMobile && <Typography>{languageList[languageName].name}</Typography>}
+      {(keepWidth || !isMobile) && (
+        <Typography>{languageList[languageName].name}</Typography>
+      )}
     </I18nComp>
   );
 

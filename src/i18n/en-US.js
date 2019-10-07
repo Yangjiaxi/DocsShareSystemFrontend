@@ -2,13 +2,33 @@ export const americanEnglish = {
   Snackbar: {
     loginSuccess: "Login Success",
     errorPrefix: "ERROR: ",
+    // [JWT]
+    NO_JWT: "No Token Provided",
+    INVALID_JWT: "Token Expired",
+    // [User]
+    // (register)
+    BAD_EMAIL: "Invalid Email Address",
+    BAD_PASSWORD: "Invalid password, at least 6 chars is required.",
+    BAD_USERNAME: "Invalid username, at least 6 chars is required.",
+    USERNAME_EXIST: "This usename has already been taken, consider another.",
+    EMAIL_EXIST: "This email has already been registered.",
+    // (login)
+    BAD_LOGIN: "Wrong password or email.",
+    // (info)
+    NO_SUCH_USER: "Invalid user ID.",
+    // (share)
+    NO_SUCH_DOC: "Invalid document ID.",
+    // (delete)
+    ALREADY_DELETED: "This document has already been deleted.",
   },
   Login: {
-    login: "Login",
-    register: "Register",
-    loginWord: "Login co-comment system",
+    login: "Sign in",
+    loginWord: "Sign in co-comment system",
+    register: "Sign up",
+    registerWord: "Sign up co-comment system",
     email: "E-Mail",
     password: "Password",
+    username: "Username",
   },
   AppBar: {
     HOME_PAGE: "Home",

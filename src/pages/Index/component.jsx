@@ -9,9 +9,12 @@ import { colorDict } from "../../utils/color";
 
 import Progress from "../../components/Progress";
 import PageFrame from "../../components/Frame";
-import Login from "../../components/Login";
+import MiniFrame from "../../components/MiniFrame";
 import Notifier from "../../components/Notifier";
 import Snackbar from "../../components/Snackbar";
+
+const Login = lazy(() => import("../Login"));
+const Register = lazy(() => import("../Register"));
 
 const Doc = lazy(() => import("../Doc"));
 const Recent = lazy(() => import("../Recent"));
@@ -21,7 +24,7 @@ const About = lazy(() => import("../About"));
 const NoMatch = lazy(() => import("../NoMatch"));
 
 const Index = memo(({ themeMode, themeColor }) => {
-  const frameRender = Component => props => {
+  const mainFrame = Component => props => {
     const {
       match: {
         params: { docID },
@@ -35,6 +38,14 @@ const Index = memo(({ themeMode, themeColor }) => {
       </PageFrame>
     );
   };
+
+  const miniFrame = Component => () => (
+    <MiniFrame>
+      <Suspense fallback={<Progress />}>
+        <Component />
+      </Suspense>
+    </MiniFrame>
+  );
 
   const colorObj = colorDict[themeColor];
   const needChangeSecondary = ["red", "pink"].includes(themeColor);
@@ -54,13 +65,14 @@ const Index = memo(({ themeMode, themeColor }) => {
         <Notifier />
       </Snackbar>
       <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/" exact render={frameRender(Recent)} />
-        <Route path="/shared" exact render={frameRender(Shared)} />
-        <Route path="/trash" exact render={frameRender(Trash)} />
-        <Route path="/about" exact render={frameRender(About)} />
-        <Route path="/doc/:docID?" render={frameRender(Doc)} />
-        <Route render={frameRender(NoMatch)} />
+        <Route path="/login" exact render={miniFrame(Login)} />
+        <Route path="/register" exact render={miniFrame(Register)} />
+        <Route path="/" exact render={mainFrame(Recent)} />
+        <Route path="/shared" exact render={mainFrame(Shared)} />
+        <Route path="/trash" exact render={mainFrame(Trash)} />
+        <Route path="/about" exact render={mainFrame(About)} />
+        <Route path="/doc/:docID?" render={mainFrame(Doc)} />
+        <Route render={mainFrame(NoMatch)} />
       </Switch>
     </ThemeProvider>
   );

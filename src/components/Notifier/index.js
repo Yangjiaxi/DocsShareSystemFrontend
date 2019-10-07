@@ -5,8 +5,12 @@ import { removeSnackbar, closeSnackbar } from "../../redux/actions";
 
 import Notifier from "./component";
 
-const mapStateToProps = ({ component: { snackbars } }) => ({
+const mapStateToProps = ({
+  component: { snackbars, languageDict, language },
+}) => ({
   notifications: snackbars,
+  language,
+  languageDict,
 });
 
 const mapDispatchToProps = dispatch =>

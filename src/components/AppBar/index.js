@@ -7,12 +7,13 @@ import { logout, toggleSlider } from "../../redux/actions";
 import AppBar from "./component";
 
 const mapStateToProps = ({
-  component: { themeColor, pageName, isMobile, isViewingDocs },
+  component: { themeColor, pageName, isMobile, isViewingDocs, languageDict },
 }) => ({
   themeColor,
   pageName,
   isMobile,
   isViewingDocs,
+  titleDict: languageDict.AppBar,
 });
 
 const mapDispatchToProps = dispatch =>
