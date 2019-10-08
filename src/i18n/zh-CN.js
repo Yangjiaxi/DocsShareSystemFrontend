@@ -57,6 +57,13 @@ export const simplifiedChinese = {
   CircularProgress: {
     loadingPrefix: "正在加载",
   },
+  DocsTable: {
+    lastUse: "最后使用：",
+    createTime: "创建时间：",
+    deletedDoc: "已删除",
+    ownedDoc: "我的",
+    sharedDoc: "与我共享",
+  },
 };
 
 export default simplifiedChinese;

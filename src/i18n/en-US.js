@@ -57,6 +57,13 @@ export const americanEnglish = {
   CircularProgress: {
     loadingPrefix: "Loading",
   },
+  DocsTable: {
+    lastUse: "Last use: ",
+    createTime: "Create time: ",
+    deletedDoc: "Deleted",
+    ownedDoc: "Mine",
+    sharedDoc: "Shared with me",
+  },
 };
 
 export default americanEnglish;

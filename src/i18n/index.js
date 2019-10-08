@@ -63,6 +63,12 @@ export const i18nHelper = {
   profile: "profile",
   // [CircularProgress]
   loadingPrefix: "loadingPrefix",
+  // [DocsTable]
+  lastUse: "lastUse",
+  createTime: "createTime",
+  deletedDoc: "deletedDoc",
+  ownedDoc: "ownedDoc",
+  sharedDoc: "sharedDoc",
 };
 
 export const languageList = {

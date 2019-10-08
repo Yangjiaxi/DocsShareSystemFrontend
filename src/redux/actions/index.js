@@ -103,3 +103,14 @@ export const getUserInfoFinish = info => ({
   type: GET_USER_INFO_FINISH,
   info,
 });
+
+export const GET_RECENT_DOCS_BEGIN = "GET_RECENT_DOCS_BEGIN";
+export const getRecentDocsBegin = () => ({
+  type: GET_RECENT_DOCS_BEGIN,
+});
+
+export const GET_RECENT_DOCS_FINISH = "GET_RECENT_DOCS_FINISH";
+export const getRecentDocsFinish = data => ({
+  type: GET_RECENT_DOCS_FINISH,
+  data,
+});
