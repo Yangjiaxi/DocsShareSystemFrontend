@@ -110,7 +110,29 @@ export const getRecentDocsBegin = () => ({
 });
 
 export const GET_RECENT_DOCS_FINISH = "GET_RECENT_DOCS_FINISH";
-export const getRecentDocsFinish = data => ({
+export const getRecentDocsFinish = recent => ({
   type: GET_RECENT_DOCS_FINISH,
-  data,
+  recent,
+});
+
+export const GET_SHARED_DOCS_BEGIN = "GET_SHARED_DOCS_BEGIN";
+export const getSharedDocsBegin = () => ({
+  type: GET_SHARED_DOCS_BEGIN,
+});
+
+export const GET_SHARED_DOCS_FINISH = "GET_SHARED_DOCS_FINISH";
+export const getSharedDocsFinish = shared => ({
+  type: GET_SHARED_DOCS_FINISH,
+  shared,
+});
+
+export const GET_TRASH_DOCS_BEGIN = "GET_TRASH_DOCS_BEGIN";
+export const getTrashDocsBegin = () => ({
+  type: GET_TRASH_DOCS_BEGIN,
+});
+
+export const GET_TRASH_DOCS_FINISH = "GET_TRASH_DOCS_FINISH";
+export const getTrashDocsFinish = trash => ({
+  type: GET_TRASH_DOCS_FINISH,
+  trash,
 });

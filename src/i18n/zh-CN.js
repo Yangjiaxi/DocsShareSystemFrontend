@@ -60,11 +60,18 @@ export const simplifiedChinese = {
   DocsTable: {
     lastUse: "最后使用：",
     createTime: "创建时间：",
-    deletedDoc: "已删除",
+    deleteTime: "删除时间：",
+    deletedDoc: "被创建者删除",
     ownedDoc: "我的",
     sharedDoc: "与我共享",
     shareButton: "分享",
-    deleteButton: "移到垃圾箱",
+    deleteButton: "移到回收站",
+    deleteHint: "文档将被移动至回收站",
+  },
+  Dialog: {
+    confirmButton: "确认",
+    cancelButton: "取消",
+    attentionText: "注意",
   },
 };
 

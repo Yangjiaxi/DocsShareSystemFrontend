@@ -11,7 +11,9 @@ const Recent = memo(({ changeBrowserPath, getRecent, recentDocs }) => {
     // eslint-disable-next-line
   }, [changeBrowserPath]);
   // console.log(recentDocs);
-  const sortedDocs = recentDocs.sort(({ lastUse: a }, { lastUse: b }) => b - a);
+  const docs = recentDocs || [];
+  const sortedDocs = docs.sort(({ lastUse: a }, { lastUse: b }) => b - a);
+  console.log("Sorted", sortedDocs);
   return (
     <>
       <DocsTable data={sortedDocs} />

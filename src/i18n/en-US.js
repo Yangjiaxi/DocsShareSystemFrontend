@@ -60,11 +60,18 @@ export const americanEnglish = {
   DocsTable: {
     lastUse: "Last use: ",
     createTime: "Create time: ",
-    deletedDoc: "Deleted",
+    deleteTime: "Delete time: ",
+    deletedDoc: "Deleted by Owner",
     ownedDoc: "Mine",
     sharedDoc: "Shared with me",
     shareButton: "Share",
     deleteButton: "Move to Trash",
+    deleteHint: "Document will be sent to trash.",
+  },
+  Dialog: {
+    confirmButton: "Confirm",
+    cancelButton: "Cancel",
+    attentionText: "ATTENTION",
   },
 };
 

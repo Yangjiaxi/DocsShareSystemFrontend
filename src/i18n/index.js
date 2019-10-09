@@ -66,11 +66,17 @@ export const i18nHelper = {
   // [DocsTable]
   lastUse: "lastUse",
   createTime: "createTime",
+  deleteTime: "deleteTime",
   deletedDoc: "deletedDoc",
   ownedDoc: "ownedDoc",
   sharedDoc: "sharedDoc",
   shareButton: "shareButton",
   deleteButton: "deleteButton",
+  deleteHint: "deleteHint",
+  // [Dialog]
+  confirmButton: "confirmButton",
+  cancelButton: "cancelButton",
+  attentionText: "attentionText",
 };
 
 export const languageList = {

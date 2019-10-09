@@ -1,14 +1,21 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { changeBrowserPath } from "../../redux/actions";
+import { changeBrowserPath, getTrashDocsBegin } from "../../redux/actions";
 
 import Trash from "./component";
 
-const mapStateToProps = () => ({});
-
+const mapStateToProps = ({ docs: { trash } }) => ({
+  trashDocs: trash,
+});
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ changeBrowserPath }, dispatch);
+  bindActionCreators(
+    {
+      changeBrowserPath,
+      getTrash: getTrashDocsBegin,
+    },
+    dispatch,
+  );
 
 export default connect(
   mapStateToProps,

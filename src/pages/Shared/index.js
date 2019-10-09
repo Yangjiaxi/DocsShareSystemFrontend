@@ -1,14 +1,21 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { changeBrowserPath } from "../../redux/actions";
+import { changeBrowserPath, getSharedDocsBegin } from "../../redux/actions";
 
 import Shared from "./component";
 
-const mapStateToProps = () => ({});
-
+const mapStateToProps = ({ docs: { shared } }) => ({
+  sharedDocs: shared,
+});
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ changeBrowserPath }, dispatch);
+  bindActionCreators(
+    {
+      changeBrowserPath,
+      getShared: getSharedDocsBegin,
+    },
+    dispatch,
+  );
 
 export default connect(
   mapStateToProps,
