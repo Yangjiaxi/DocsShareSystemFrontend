@@ -10,12 +10,11 @@ import {
   Divider,
   ListItemText,
   Chip,
-  Collapse,
-  Button,
-  Grid,
   ListItemSecondaryAction,
   IconButton,
   Typography,
+  Menu,
+  MenuItem,
 } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
@@ -26,16 +25,24 @@ import useStyles from "./style";
 
 const TextComp = TextTermMaker("DocsTable");
 
-const DocsTable = memo(({ data, languageName, isMobile }) => {
+const DocsTable = memo(({ data, languageName }) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(null);
+
+  const [selectedDoc, setSelectedDoc] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   moment.locale(languageName);
+
+  const handleClickMenu = id => ({ currentTarget }) => {
+    setSelectedDoc(id);
+    setAnchorEl(currentTarget);
+  };
 
   const deletedMarker = isDeleted => {
     if (isDeleted) {
       return (
         <Chip
+          className={classes.chips}
           size="small"
           color="secondary"
           component="span"
@@ -48,6 +55,7 @@ const DocsTable = memo(({ data, languageName, isMobile }) => {
   const ownMarker = isOwn => {
     return (
       <Chip
+        className={classes.chips}
         component="span"
         color="primary"
         size="small"
@@ -58,13 +66,16 @@ const DocsTable = memo(({ data, languageName, isMobile }) => {
     );
   };
 
-  const handleClick = idx => () => {
-    if (open !== idx) setOpen(idx);
-    else setOpen(null);
+  const handleClickDoc = id => () => {
+    console.log(`Click at Doc ${id}`);
+  };
+
+  const handleClickButton = id => () => {
+    console.log(`Click at Button ${id}`);
   };
 
   const rowMaker = (row, index) => {
-    const { title, createTime, lastUse, deleted, owned } = row;
+    const { title, createTime, lastUse, deleted, owned, id } = row;
     const lastUseWord = (
       <>
         <TextComp term={i18nHelper.lastUse} />
@@ -79,23 +90,20 @@ const DocsTable = memo(({ data, languageName, isMobile }) => {
       </>
     );
 
-    const markers = (
-      <>
-        {deletedMarker(deleted)}
-        {ownMarker(owned)}
-      </>
-    );
-
     const timeWords = (
       <>
-        <Typography>{createWord}</Typography>
-        <Typography>{lastUseWord}</Typography>
+        <Typography component="span" display="block">
+          {createWord}
+        </Typography>
+        <Typography component="span" display="block">
+          {lastUseWord}
+        </Typography>
       </>
     );
 
     const titleWords = (
       <>
-        <Typography display="inline" className={classes.title}>
+        <Typography display="inline" className={classes.title} component="span">
           {title}
         </Typography>
         {deletedMarker(deleted)}
@@ -105,59 +113,37 @@ const DocsTable = memo(({ data, languageName, isMobile }) => {
 
     return (
       <Fragment key={index}>
-        <ListItem button onClick={handleClick(index)} disabled={deleted}>
+        <ListItem button onClick={handleClickDoc(id)} disabled={deleted}>
           <ListItemText primary={titleWords} secondary={timeWords} />
-          {/* <ListItemText primary={createWord} secondary={markers} /> */}
-          <ListItemSecondaryAction>
-            <IconButton onClick={handleClick(index)}>
+          <ListItemSecondaryAction onClick={handleClickMenu(id)}>
+            <IconButton onClick={handleClickButton(id)} disabled={deleted}>
               <MenuIcon />
             </IconButton>
           </ListItemSecondaryAction>
-          {/* <ListItemText>
-            <Grid
-              className={classes.buttons}
-              container
-              direction="row"
-              justify="space-evenly"
-              alignItems="center"
-            >
-              <Button variant="contained" color="secondary">
-                DELETE
-              </Button>
-              <Button variant="contained" color="primary">
-                SHARE
-              </Button>
-            </Grid>
-          </ListItemText> */}
         </ListItem>
-        <Collapse in={index === open} unmountOnExit>
-          {/* <Grid
-            className={classes.buttons}
-            container
-            direction="row"
-            justify="space-evenly"
-            alignItems="center"
-          >
-            <Button variant="contained" color="secondary">
-              DELETE
-            </Button>
-            <Button variant="contained" color="primary">
-              SHARE
-            </Button>
-            <Button variant="contained" color="primary">
-              OPEN
-            </Button>
-          </Grid> */}
-        </Collapse>
-        <Divider variant="middle" />
+        <Divider />
       </Fragment>
     );
   };
 
   return (
-    <Paper className={classes.paper}>
-      <List>{data.map((ele, index) => rowMaker(ele, index))}</List>
-    </Paper>
+    <>
+      <Paper className={classes.paper}>
+        <List>{data.map((ele, index) => rowMaker(ele, index))}</List>
+      </Paper>
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={() => setAnchorEl(null)}
+      >
+        <MenuItem onClick={() => console.log(selectedDoc)}>
+          <TextComp term={i18nHelper.shareButton} />
+        </MenuItem>
+        <MenuItem onClick={() => console.log(selectedDoc)}>
+          <TextComp term={i18nHelper.deleteButton} />
+        </MenuItem>
+      </Menu>
+    </>
   );
 });
 

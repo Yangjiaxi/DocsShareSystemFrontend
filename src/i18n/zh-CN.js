@@ -63,6 +63,8 @@ export const simplifiedChinese = {
     deletedDoc: "已删除",
     ownedDoc: "我的",
     sharedDoc: "与我共享",
+    shareButton: "分享",
+    deleteButton: "移到垃圾箱",
   },
 };
 

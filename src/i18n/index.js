@@ -69,6 +69,8 @@ export const i18nHelper = {
   deletedDoc: "deletedDoc",
   ownedDoc: "ownedDoc",
   sharedDoc: "sharedDoc",
+  shareButton: "shareButton",
+  deleteButton: "deleteButton",
 };
 
 export const languageList = {

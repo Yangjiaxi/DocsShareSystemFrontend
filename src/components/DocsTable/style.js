@@ -5,6 +5,9 @@ const useStyles = makeStyles(({ spacing }) =>
     buttons: {
       margin: `${spacing(2)}px 0`,
     },
+    chips: {
+      marginLeft: spacing(1),
+    },
   }),
 );
 

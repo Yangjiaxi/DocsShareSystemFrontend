@@ -63,6 +63,8 @@ export const americanEnglish = {
     deletedDoc: "Deleted",
     ownedDoc: "Mine",
     sharedDoc: "Shared with me",
+    shareButton: "Share",
+    deleteButton: "Move to Trash",
   },
 };
 
