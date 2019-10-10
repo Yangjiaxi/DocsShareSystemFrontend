@@ -5,8 +5,9 @@ import { changeBrowserPath, getRecentDocsBegin } from "../../redux/actions";
 
 import Recent from "./component";
 
-const mapStateToProps = ({ docs: { recent } }) => ({
+const mapStateToProps = ({ docs: { recent, shouldUpdateRecent } }) => ({
   recentDocs: recent,
+  shouldUpdate: shouldUpdateRecent,
 });
 
 const mapDispatchToProps = dispatch =>

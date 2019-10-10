@@ -1,5 +1,6 @@
 export const americanEnglish = {
   Snackbar: {
+    deleteSuccess: "Move to Trash Success",
     loginSuccess: "Login Success",
     registerSuccess: "Register Success",
     errorPrefix: "ERROR: ",
@@ -66,7 +67,11 @@ export const americanEnglish = {
     sharedDoc: "Shared with me",
     shareButton: "Share",
     deleteButton: "Move to Trash",
+    restoreButton: "Restore",
+    destroyButton: "Remove Completely",
     deleteHint: "Document will be sent to trash.",
+    destroyHint:
+      "Document will be remove completely, this operation CANNOT undo.",
   },
   Dialog: {
     confirmButton: "Confirm",

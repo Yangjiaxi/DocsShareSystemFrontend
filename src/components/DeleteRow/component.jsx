@@ -32,19 +32,19 @@ const DeleteRow = memo(({ rowData, languageName }) => {
 
   moment.locale(languageName);
 
-  const handleClickShare = () => {
-    console.log(`Share ${id}`);
+  const handleClickRestore = () => {
+    console.log(`Restore ${id}`);
     setAnchorDoc(null);
   };
 
-  const handleClickDelete = () => {
-    console.log(`Delete ${id}`);
+  const handleClickDestroy = () => {
+    console.log(`Destroy ${id}`);
     setAnchorDoc(null);
     setDialog(true);
   };
 
-  const handleDelete = () => {
-    console.log("FINAL DELETE", id);
+  const handleDestroy = () => {
+    console.log("FINAL Destroy", id);
     setDialog(false);
   };
 
@@ -105,18 +105,18 @@ const DeleteRow = memo(({ rowData, languageName }) => {
         open={Boolean(anchorDoc)}
         onClose={() => setAnchorDoc(null)}
       >
-        <MenuItem onClick={handleClickShare}>
-          <TextComp term={i18nHelper.shareButton} />
+        <MenuItem onClick={handleClickRestore}>
+          <TextComp term={i18nHelper.restoreButton} />
         </MenuItem>
-        <MenuItem onClick={handleClickDelete}>
-          <TextComp term={i18nHelper.deleteButton} />
+        <MenuItem onClick={handleClickDestroy}>
+          <TextComp term={i18nHelper.destroyButton} />
         </MenuItem>
       </Menu>
       <Dialog
         open={dialog}
-        onConfirm={handleDelete}
+        onConfirm={handleDestroy}
         onCancel={() => setDialog(false)}
-        content={<TextComp term={i18nHelper.deleteHint} />}
+        content={<TextComp term={i18nHelper.destroyHint} />}
       />
     </>
   );

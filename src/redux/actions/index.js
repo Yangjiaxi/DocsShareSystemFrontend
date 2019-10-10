@@ -136,3 +136,29 @@ export const getTrashDocsFinish = trash => ({
   type: GET_TRASH_DOCS_FINISH,
   trash,
 });
+
+export const DELETE_DOC_BEGIN = "DELETE_DOC_BEGIN";
+export const deleteDocBegin = id => ({
+  type: DELETE_DOC_BEGIN,
+  id,
+});
+
+export const DELETE_DOC_FINISH = "DELETE_DOC_FINISH";
+export const deleteDocFinish = () => ({
+  type: DELETE_DOC_FINISH,
+});
+
+export const SHOULD_UPDATE_RECENT = "SHOULD_UPDATE_RECENT";
+export const shouldUpdateRecent = () => ({
+  type: SHOULD_UPDATE_RECENT,
+});
+
+export const SHOULD_UPDATE_SHARED = "SHOULD_UPDATE_SHARED";
+export const shouldUpdateShared = () => ({
+  type: SHOULD_UPDATE_SHARED,
+});
+
+export const SHOULD_UPDATE_TRASH = "SHOULD_UPDATE_TRASH";
+export const shouldUpdateTrash = () => ({
+  type: SHOULD_UPDATE_TRASH,
+});

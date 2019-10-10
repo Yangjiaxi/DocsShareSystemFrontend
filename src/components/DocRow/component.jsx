@@ -23,7 +23,7 @@ import useStyles from "./style";
 
 const TextComp = TextTermMaker("DocsTable");
 
-const DocRow = memo(({ rowData, languageName }) => {
+const DocRow = memo(({ rowData, languageName, deleteDoc }) => {
   const {
     title,
     createTime, // no
@@ -54,6 +54,7 @@ const DocRow = memo(({ rowData, languageName }) => {
   const handleDelete = () => {
     console.log("FINAL DELETE", id);
     setDialog(false);
+    deleteDoc(id);
   };
 
   const deletedMarker = () => {
@@ -123,7 +124,7 @@ const DocRow = memo(({ rowData, languageName }) => {
       <ListItem button onClick={handleClickDoc} disabled={deleted}>
         <ListItemText primary={titleWords()} secondary={timeWords()} />
         <ListItemSecondaryAction>
-          <IconButton onClick={handleClickButton} disabled={deleted}>
+          <IconButton onClick={handleClickButton}>
             <MenuIcon />
           </IconButton>
         </ListItemSecondaryAction>

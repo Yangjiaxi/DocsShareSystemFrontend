@@ -1,5 +1,6 @@
 export const simplifiedChinese = {
   Snackbar: {
+    deleteSuccess: "成功移动至回收站",
     loginSuccess: "登陆成功",
     registerSuccess: "注册成功",
     errorPrefix: "错误：",
@@ -66,7 +67,10 @@ export const simplifiedChinese = {
     sharedDoc: "与我共享",
     shareButton: "分享",
     deleteButton: "移到回收站",
+    restoreButton: "恢复",
+    destroyButton: "彻底删除",
     deleteHint: "文档将被移动至回收站",
+    destroyHint: "文档将被彻底删除，该操作无法恢复",
   },
   Dialog: {
     confirmButton: "确认",
