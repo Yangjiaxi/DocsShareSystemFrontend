@@ -1,5 +1,6 @@
 export const americanEnglish = {
   Snackbar: {
+    createDocSuccess: "Create Success",
     restoreSuccess: "Restore Success",
     destroySuccess: "Destroy Success",
     deleteSuccess: "Move to Trash Success",
@@ -39,6 +40,7 @@ export const americanEnglish = {
     HOME_PAGE: "Home",
     INIT_PAGE: "Initializing...",
     RECENT_PAGE: "Recent Used",
+    MY_PAGE: "My Documents",
     SHARED_PAGE: "Shared Documents",
     DELETED_PAGE: "Deleted Documents",
     ABOUT_PAGE: "About",
@@ -52,6 +54,7 @@ export const americanEnglish = {
   Slider: {
     newDoc: "Create",
     recentDocs: "Recent",
+    myDocs: "My Documents",
     shareDocs: "Shared With Me",
     wasteBin: "Trash",
     aboutSite: "About",

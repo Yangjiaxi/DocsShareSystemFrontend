@@ -9,11 +9,18 @@ import { i18nHelper } from "../../i18n";
   -> redux -> epic -> judge can open 
   -> no 
     -> error path (no such docID) -> 404
-    -> shouldEnterPassword -> redux -> epic -> judge can open 
   -> yes -> render -> websocket start
 */
 
-const Doc = memo(({ changeBrowserPath, docID, viewDocs }) => {
+/*
+Doc = {
+  title,
+  hintBar,
+
+}
+*/
+
+const Doc = memo(({ changeBrowserPath, docID, viewDocs, acceptDoc }) => {
   // if (docID) console.log(docID);
   // console.log(rest);
 
@@ -25,10 +32,37 @@ const Doc = memo(({ changeBrowserPath, docID, viewDocs }) => {
     };
   }, [changeBrowserPath, viewDocs]);
 
+  useEffect(() => {
+    acceptDoc(docID);
+  }, [docID, acceptDoc]);
+
   return (
     <>
       <Paper>
-        <Typography>{`Hello Doc!${docID}`}</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
+        <Typography variant="h1">Hello Doc!</Typography>
       </Paper>
     </>
   );

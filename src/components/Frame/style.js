@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles(({ spacing, breakpoints }) =>
+const useStyles = makeStyles(({ spacing, breakpoints, zIndex }) =>
   createStyles({
     root: {
       display: "flex",
@@ -13,9 +13,10 @@ const useStyles = makeStyles(({ spacing, breakpoints }) =>
       flexGrow: 1,
     },
     fab: {
-      position: "absolute",
+      position: "fixed",
       right: spacing(3),
       bottom: spacing(3),
+      zIndex: zIndex.drawer - 1,
     },
   }),
 );

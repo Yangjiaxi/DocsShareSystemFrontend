@@ -115,6 +115,17 @@ export const getRecentDocsFinish = recent => ({
   recent,
 });
 
+export const GET_MY_DOCS_BEGIN = "GET_MY_DOCS_BEGIN";
+export const getMyDocsBegin = () => ({
+  type: GET_MY_DOCS_BEGIN,
+});
+
+export const GET_MY_DOCS_FINISH = "GET_MY_DOCS_FINISH";
+export const getMyDocsFinish = my => ({
+  type: GET_MY_DOCS_FINISH,
+  my,
+});
+
 export const GET_SHARED_DOCS_BEGIN = "GET_SHARED_DOCS_BEGIN";
 export const getSharedDocsBegin = () => ({
   type: GET_SHARED_DOCS_BEGIN,
@@ -153,6 +164,11 @@ export const shouldUpdateRecent = () => ({
   type: SHOULD_UPDATE_RECENT,
 });
 
+export const SHOULD_UPDATE_MY = "SHOULD_UPDATE_MY";
+export const shouldUpdateMy = () => ({
+  type: SHOULD_UPDATE_MY,
+});
+
 export const SHOULD_UPDATE_SHARED = "SHOULD_UPDATE_SHARED";
 export const shouldUpdateShared = () => ({
   type: SHOULD_UPDATE_SHARED,
@@ -183,4 +199,25 @@ export const destroyDocBegin = id => ({
 export const DESTROY_DOC_FINISH = "DESTROY_DOC_FINISH";
 export const destroyDocFinish = () => ({
   type: DESTROY_DOC_FINISH,
+});
+
+export const CREATE_DOC_START = "CREATE_DOC_START";
+export const createDocStart = () => ({
+  type: CREATE_DOC_START,
+});
+
+export const CREATE_DOC_FINISH = "CREATE_DOC_FINISH";
+export const createDocFinish = () => ({
+  type: CREATE_DOC_FINISH,
+});
+
+export const ACCEPT_DOC_START = "ACCEPT_DOC_START";
+export const acceptDocStart = id => ({
+  type: ACCEPT_DOC_START,
+  id,
+});
+
+export const ACCEPT_DOC_FINISH = "ACCEPT_DOC_FINISH";
+export const acceptDocFinish = () => ({
+  type: ACCEPT_DOC_FINISH,
 });

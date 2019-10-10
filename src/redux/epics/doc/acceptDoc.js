@@ -3,43 +3,40 @@ import { of } from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { catchError, mergeMap, startWith, endWith } from "rxjs/operators";
 
+import { push } from "connected-react-router";
+
 import {
-  DELETE_DOC_BEGIN,
+  ACCEPT_DOC_START,
   toggleProgress,
-  deleteDocFinish,
   enqueueSnackbar,
+  acceptDocFinish,
   shouldUpdateRecent,
   shouldUpdateShared,
-  shouldUpdateTrash,
-  shouldUpdateMy,
 } from "../../actions";
 
 import { API } from "../../const";
 
+import { checkToken, customError, errHandler } from "..";
 import { i18nHelper } from "../../../i18n";
 
-import { customError, errHandler, checkToken } from "..";
-
-export const deleteDocEpic = action$ =>
+export const acceptDocEpic = action$ =>
   action$.pipe(
-    ofType(DELETE_DOC_BEGIN),
-    mergeMap(({ id }) => {
+    ofType(ACCEPT_DOC_START),
+    mergeMap(() => {
       const token = checkToken();
       return ajax
-        .delete(`${API}/doc/delete/${id}`, { Authorization: `Bearer ${token}` })
+        .getJSON(`${API}/doc/new`, { Authorization: `Bearer ${token}` })
         .pipe(
-          mergeMap(({ response: res }) => {
-            const { type } = res;
-            if (type === "success") {
+          mergeMap(res => {
+            if (res.type === "success") {
+              const { data: docID } = res;
               return of(
-                enqueueSnackbar(i18nHelper.deleteSuccess, {
+                createDocFinish(),
+                push(`/doc/${docID}`),
+                enqueueSnackbar(i18nHelper.createDocSuccess, {
                   variant: "success",
                 }),
-                deleteDocFinish(),
                 shouldUpdateRecent(),
-                shouldUpdateShared(),
-                shouldUpdateTrash(),
-                shouldUpdateMy(),
               );
             }
             throw customError(res);

@@ -5,6 +5,7 @@ export { TextTermMaker } from "./component";
 
 export const i18nHelper = {
   // [Snackbar]
+  createDocSuccess: "createDocSuccess",
   restoreSuccess: "restoreSuccess",
   destroySuccess: "destroySuccess",
   deleteSuccess: "deleteSuccess",
@@ -51,6 +52,7 @@ export const i18nHelper = {
   darkMode: "darkMode",
   INFO_PAGE: "INFO_PAGE",
   RECENT_PAGE: "RECENT_PAGE",
+  MY_PAGE: "MY_PAGE",
   SHARED_PAGE: "SHARED_PAGE",
   DELETED_PAGE: "DELETED_PAGE",
   ABOUT_PAGE: "ABOUT_PAGE",
@@ -60,6 +62,7 @@ export const i18nHelper = {
   // [Slider]
   newDoc: "newDoc",
   recentDocs: "recentDocs",
+  myDocs: "myDocs",
   shareDocs: "shareDocs",
   wasteBin: "wasteBin",
   aboutSite: "aboutSite",

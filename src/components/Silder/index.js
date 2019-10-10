@@ -1,8 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { push } from "connected-react-router";
 
-import { toggleSlider } from "../../redux/actions";
+import { toggleSlider, createDocStart } from "../../redux/actions";
 
 import Slider from "./component";
 
@@ -20,7 +19,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       toggleSlider,
-      pushUrl: push,
+      createNewDoc: createDocStart,
     },
     dispatch,
   );

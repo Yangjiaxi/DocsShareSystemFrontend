@@ -1,5 +1,6 @@
 export const simplifiedChinese = {
   Snackbar: {
+    createDocSuccess: "新建成功",
     restoreSuccess: "文件已恢复",
     destroySuccess: "文件已移除",
     deleteSuccess: "成功移动至回收站",
@@ -40,6 +41,7 @@ export const simplifiedChinese = {
     INIT_PAGE: "初始化...",
     DOC_PAGE: "文档共享",
     RECENT_PAGE: "最近查看",
+    MY_PAGE: "我的文档",
     SHARED_PAGE: "与我共享",
     DELETED_PAGE: "回收站",
     ABOUT_PAGE: "关于",
@@ -52,6 +54,7 @@ export const simplifiedChinese = {
   Slider: {
     newDoc: "新建文档",
     recentDocs: "最近查看",
+    myDocs: "我的文档",
     shareDocs: "与我共享",
     wasteBin: "回收站",
     aboutSite: "关于",

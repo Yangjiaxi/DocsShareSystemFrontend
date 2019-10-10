@@ -11,6 +11,7 @@ import {
   shouldUpdateRecent,
   shouldUpdateShared,
   shouldUpdateTrash,
+  shouldUpdateMy,
 } from "../../actions";
 
 import { API } from "../../const";
@@ -40,6 +41,7 @@ export const restoreDocEpic = action$ =>
                 shouldUpdateRecent(),
                 shouldUpdateShared(),
                 shouldUpdateTrash(),
+                shouldUpdateMy(),
               );
             }
             throw customError(res);

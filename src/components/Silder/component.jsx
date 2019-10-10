@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 
 import {
   Drawer,
@@ -20,8 +20,8 @@ import {
   People,
 } from "@material-ui/icons";
 
-import { getRandomString } from "../../utils";
 import Anchor from "../Anchor";
+
 import { i18nHelper, TextTermMaker } from "../../i18n";
 import useStyles from "./style";
 
@@ -33,6 +33,13 @@ const itemList = [
     icon: <History />,
     name: i18nHelper.RECENT_PAGE,
     to: "/",
+  },
+  {
+    type: "link",
+    text: i18nHelper.myDocs,
+    icon: <History />,
+    name: i18nHelper.MY_PAGE,
+    to: "/my",
   },
   {
     type: "link",
@@ -69,20 +76,11 @@ const itemList = [
 const TextComp = TextTermMaker("Slider");
 
 const Slider = memo(
-  ({
-    open,
-    toggleSlider,
-    languageName,
-    pageName,
-    isMobile,
-    isViewingDocs,
-    pushUrl,
-  }) => {
+  ({ open, toggleSlider, pageName, isMobile, isViewingDocs, createNewDoc }) => {
     const classes = useStyles();
-    useEffect(() => {}, [languageName]);
 
     const handleCreate = () => {
-      pushUrl(`/doc/${getRandomString(20)}`);
+      createNewDoc();
       toggleSlider();
     };
 

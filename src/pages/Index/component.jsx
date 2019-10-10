@@ -18,6 +18,7 @@ const Register = lazy(() => import("../Register"));
 
 const Doc = lazy(() => import("../Doc"));
 const Recent = lazy(() => import("../Recent"));
+const My = lazy(() => import("../My"));
 const Shared = lazy(() => import("../Shared"));
 const Trash = lazy(() => import("../Trash"));
 
@@ -72,6 +73,7 @@ const Index = memo(({ themeMode, themeColor }) => {
         <Route path="/register" exact render={miniFrame(Register)} />
         <Route path="/" exact render={mainFrame(Recent)} />
         <Route path="/shared" exact render={mainFrame(Shared)} />
+        <Route path="/my" exact render={mainFrame(My)} />
         <Route path="/trash" exact render={mainFrame(Trash)} />
         <Route path="/profile" exact render={mainFrame(MyInfo)} />
         <Route path="/about" exact render={mainFrame(About)} />
