@@ -32,24 +32,17 @@ const DeleteRow = memo(({ rowData, languageName, destroyDoc, restoreDoc }) => {
 
   moment.locale(languageName);
 
-  console.log(deleteTime);
-  console.log(moment(deleteTime).toLocaleString());
-  console.log(moment(deleteTime).format("YYYY-MM-DD"));
-
   const handleClickRestore = () => {
-    console.log(`Restore ${id}`);
     setAnchorDoc(null);
     restoreDoc(id);
   };
 
   const handleClickDestroy = () => {
-    console.log(`Destroy ${id}`);
     setAnchorDoc(null);
     setDialog(true);
   };
 
   const handleDestroy = () => {
-    console.log("FINAL Destroy", id);
     setDialog(false);
     destroyDoc(id);
   };
@@ -73,7 +66,6 @@ const DeleteRow = memo(({ rowData, languageName, destroyDoc, restoreDoc }) => {
   };
 
   const handleClickButton = ({ currentTarget }) => {
-    console.log(`Click at Button ${id}`);
     setAnchorDoc(currentTarget);
   };
 

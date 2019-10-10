@@ -15,7 +15,6 @@ export const userReducer = (state = init, action) => {
   switch (action.type) {
     case actions.GET_USER_INFO_FINISH:
       const { info } = action;
-      console.log(info);
       return { ...state, info };
     case actions.LOGIN:
       const { token } = action;

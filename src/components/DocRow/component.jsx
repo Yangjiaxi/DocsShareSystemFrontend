@@ -41,18 +41,15 @@ const DocRow = memo(({ rowData, languageName, deleteDoc }) => {
   moment.locale(languageName);
 
   const handleClickShare = () => {
-    console.log(`Share ${id}`);
     setAnchorDoc(null);
   };
 
   const handleClickDelete = () => {
-    console.log(`Delete ${id}`);
     setAnchorDoc(null);
     setDialog(true);
   };
 
   const handleDelete = () => {
-    console.log("FINAL DELETE", id);
     setDialog(false);
     deleteDoc(id);
   };
@@ -90,7 +87,6 @@ const DocRow = memo(({ rowData, languageName, deleteDoc }) => {
   };
 
   const handleClickButton = ({ currentTarget }) => {
-    console.log(`Click at Button ${id}`);
     setAnchorDoc(currentTarget);
   };
 

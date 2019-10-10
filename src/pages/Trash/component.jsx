@@ -16,7 +16,7 @@ const Trash = memo(
 
     const docs = trashDocs || [];
     const sortedDocs = docs.sort(({ lastUse: a }, { lastUse: b }) => b - a);
-    console.log("TRash", sortedDocs);
+
     return (
       <>
         <DocsTable data={sortedDocs} isTrash />

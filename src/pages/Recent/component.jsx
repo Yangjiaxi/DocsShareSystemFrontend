@@ -16,7 +16,7 @@ const Recent = memo(
 
     const docs = recentDocs || [];
     const sortedDocs = docs.sort(({ lastUse: a }, { lastUse: b }) => b - a);
-    console.log("Sorted", sortedDocs);
+
     return (
       <>
         <DocsTable data={sortedDocs} />

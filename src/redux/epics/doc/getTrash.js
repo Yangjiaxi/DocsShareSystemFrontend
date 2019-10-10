@@ -24,7 +24,6 @@ export const getTrashEpic = action$ =>
           mergeMap(res => {
             if (res.type === "success") {
               const { data } = res;
-              console.log("Trash", data);
               return of(getTrashDocsFinish(data));
             }
             throw customError(res);
