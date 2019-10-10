@@ -162,3 +162,25 @@ export const SHOULD_UPDATE_TRASH = "SHOULD_UPDATE_TRASH";
 export const shouldUpdateTrash = () => ({
   type: SHOULD_UPDATE_TRASH,
 });
+
+export const RESTORE_DOC_BEGIN = "RESTORE_DOC_BEGIN";
+export const restoreDocBegin = id => ({
+  type: RESTORE_DOC_BEGIN,
+  id,
+});
+
+export const RESTORE_DOC_FINISH = "RESTORE_DOC_FINISH";
+export const restoreDocFinish = () => ({
+  type: RESTORE_DOC_FINISH,
+});
+
+export const DESTROY_DOC_BEGIN = "DESTROY_DOC_BEGIN";
+export const destroyDocBegin = id => ({
+  type: DESTROY_DOC_BEGIN,
+  id,
+});
+
+export const DESTROY_DOC_FINISH = "DESTROY_DOC_FINISH";
+export const destroyDocFinish = () => ({
+  type: DESTROY_DOC_FINISH,
+});

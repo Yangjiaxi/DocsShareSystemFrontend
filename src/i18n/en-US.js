@@ -1,5 +1,7 @@
 export const americanEnglish = {
   Snackbar: {
+    restoreSuccess: "Restore Success",
+    destroySuccess: "Destroy Success",
     deleteSuccess: "Move to Trash Success",
     loginSuccess: "Login Success",
     registerSuccess: "Register Success",

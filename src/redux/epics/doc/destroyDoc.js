@@ -4,12 +4,10 @@ import { ajax } from "rxjs/ajax";
 import { catchError, mergeMap, startWith, endWith } from "rxjs/operators";
 
 import {
-  DELETE_DOC_BEGIN,
+  DESTROY_DOC_BEGIN,
   toggleProgress,
-  deleteDocFinish,
+  destroyDocFinish,
   enqueueSnackbar,
-  shouldUpdateRecent,
-  shouldUpdateShared,
   shouldUpdateTrash,
 } from "../../actions";
 
@@ -19,24 +17,24 @@ import { i18nHelper } from "../../../i18n";
 
 import { customError, errHandler, checkToken } from "..";
 
-export const deleteDocEpic = action$ =>
+export const destroyDocEpic = action$ =>
   action$.pipe(
-    ofType(DELETE_DOC_BEGIN),
+    ofType(DESTROY_DOC_BEGIN),
     mergeMap(({ id }) => {
       const token = checkToken();
       return ajax
-        .delete(`${API}/doc/delete/${id}`, { Authorization: `Bearer ${token}` })
+        .delete(`${API}/doc/destroy/${id}`, {
+          Authorization: `Bearer ${token}`,
+        })
         .pipe(
           mergeMap(({ response: res }) => {
             const { type } = res;
             if (type === "success") {
               return of(
-                enqueueSnackbar(i18nHelper.deleteSuccess, {
+                enqueueSnackbar(i18nHelper.destroySuccess, {
                   variant: "success",
                 }),
-                deleteDocFinish(),
-                shouldUpdateRecent(),
-                shouldUpdateShared(),
+                destroyDocFinish(),
                 shouldUpdateTrash(),
               );
             }

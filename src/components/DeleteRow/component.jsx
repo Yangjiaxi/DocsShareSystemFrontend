@@ -23,7 +23,7 @@ import useStyles from "./style";
 
 const TextComp = TextTermMaker("DocsTable");
 
-const DeleteRow = memo(({ rowData, languageName }) => {
+const DeleteRow = memo(({ rowData, languageName, destroyDoc, restoreDoc }) => {
   const { title, owned, id, deleteTime } = rowData;
   const classes = useStyles();
 
@@ -32,9 +32,14 @@ const DeleteRow = memo(({ rowData, languageName }) => {
 
   moment.locale(languageName);
 
+  console.log(deleteTime);
+  console.log(moment(deleteTime).toLocaleString());
+  console.log(moment(deleteTime).format("YYYY-MM-DD"));
+
   const handleClickRestore = () => {
     console.log(`Restore ${id}`);
     setAnchorDoc(null);
+    restoreDoc(id);
   };
 
   const handleClickDestroy = () => {
@@ -46,6 +51,7 @@ const DeleteRow = memo(({ rowData, languageName }) => {
   const handleDestroy = () => {
     console.log("FINAL Destroy", id);
     setDialog(false);
+    destroyDoc(id);
   };
 
   const ownMarker = () => {
@@ -75,7 +81,7 @@ const DeleteRow = memo(({ rowData, languageName }) => {
     return (
       <Typography component="span" display="block">
         <TextComp term={i18nHelper.deleteTime} />
-        {moment(deleteTime).format("YYYY-mm-DD")}
+        {moment(deleteTime).format("YYYY-MM-DD")}
       </Typography>
     );
   };

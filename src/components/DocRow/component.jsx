@@ -99,7 +99,7 @@ const DocRow = memo(({ rowData, languageName, deleteDoc }) => {
       <>
         <Typography component="span" display="block">
           <TextComp term={i18nHelper.createTime} />
-          {moment(createTime).format("YYYY-mm-DD")}
+          {moment(createTime).format("YYYY-MM-DD")}
         </Typography>
         <Typography component="span" display="block">
           <TextComp term={i18nHelper.lastUse} />

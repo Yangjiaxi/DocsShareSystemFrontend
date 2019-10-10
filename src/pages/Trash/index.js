@@ -5,8 +5,9 @@ import { changeBrowserPath, getTrashDocsBegin } from "../../redux/actions";
 
 import Trash from "./component";
 
-const mapStateToProps = ({ docs: { trash } }) => ({
+const mapStateToProps = ({ docs: { trash, shouldUpdateTrash } }) => ({
   trashDocs: trash,
+  shouldUpdate: shouldUpdateTrash,
 });
 const mapDispatchToProps = dispatch =>
   bindActionCreators(

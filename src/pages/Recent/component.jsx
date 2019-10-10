@@ -13,7 +13,7 @@ const Recent = memo(
     useEffect(() => {
       if (shouldUpdate) getRecent();
     }, [shouldUpdate, getRecent]);
-    // console.log(recentDocs);
+
     const docs = recentDocs || [];
     const sortedDocs = docs.sort(({ lastUse: a }, { lastUse: b }) => b - a);
     console.log("Sorted", sortedDocs);

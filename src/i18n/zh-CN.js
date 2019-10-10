@@ -1,5 +1,7 @@
 export const simplifiedChinese = {
   Snackbar: {
+    restoreSuccess: "文件已恢复",
+    destroySuccess: "文件已移除",
     deleteSuccess: "成功移动至回收站",
     loginSuccess: "登陆成功",
     registerSuccess: "注册成功",

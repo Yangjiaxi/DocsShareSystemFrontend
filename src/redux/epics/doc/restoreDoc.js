@@ -4,9 +4,9 @@ import { ajax } from "rxjs/ajax";
 import { catchError, mergeMap, startWith, endWith } from "rxjs/operators";
 
 import {
-  DELETE_DOC_BEGIN,
+  RESTORE_DOC_BEGIN,
   toggleProgress,
-  deleteDocFinish,
+  restoreDocFinish,
   enqueueSnackbar,
   shouldUpdateRecent,
   shouldUpdateShared,
@@ -19,22 +19,24 @@ import { i18nHelper } from "../../../i18n";
 
 import { customError, errHandler, checkToken } from "..";
 
-export const deleteDocEpic = action$ =>
+export const restoreDocEpic = action$ =>
   action$.pipe(
-    ofType(DELETE_DOC_BEGIN),
+    ofType(RESTORE_DOC_BEGIN),
     mergeMap(({ id }) => {
       const token = checkToken();
       return ajax
-        .delete(`${API}/doc/delete/${id}`, { Authorization: `Bearer ${token}` })
+        .get(`${API}/doc/restore/${id}`, {
+          Authorization: `Bearer ${token}`,
+        })
         .pipe(
           mergeMap(({ response: res }) => {
             const { type } = res;
             if (type === "success") {
               return of(
-                enqueueSnackbar(i18nHelper.deleteSuccess, {
+                enqueueSnackbar(i18nHelper.restoreSuccess, {
                   variant: "success",
                 }),
-                deleteDocFinish(),
+                restoreDocFinish(),
                 shouldUpdateRecent(),
                 shouldUpdateShared(),
                 shouldUpdateTrash(),
