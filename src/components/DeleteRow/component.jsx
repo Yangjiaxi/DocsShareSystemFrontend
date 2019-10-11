@@ -23,8 +23,14 @@ import useStyles from "./style";
 
 const TextComp = TextTermMaker("DocsTable");
 
-const DeleteRow = memo(({ rowData, languageName, destroyDoc, restoreDoc }) => {
-  const { title, owned, id, deleteTime } = rowData;
+const DeleteRow = memo(props => {
+  const {
+    rowData: { title, owned, id, deleteTime },
+    languageName,
+    destroyDoc,
+    restoreDoc,
+    disableDivider,
+  } = props;
   const classes = useStyles();
 
   const [anchorDoc, setAnchorDoc] = useState(null);
@@ -61,10 +67,6 @@ const DeleteRow = memo(({ rowData, languageName, destroyDoc, restoreDoc }) => {
     );
   };
 
-  const handleClickDoc = () => {
-    console.log(`Click at Doc ${id}`);
-  };
-
   const handleClickButton = ({ currentTarget }) => {
     setAnchorDoc(currentTarget);
   };
@@ -89,7 +91,7 @@ const DeleteRow = memo(({ rowData, languageName, destroyDoc, restoreDoc }) => {
 
   return (
     <>
-      <ListItem button onClick={handleClickDoc}>
+      <ListItem>
         <ListItemText primary={titleWords()} secondary={timeWords()} />
         <ListItemSecondaryAction>
           <IconButton onClick={handleClickButton}>
@@ -97,7 +99,7 @@ const DeleteRow = memo(({ rowData, languageName, destroyDoc, restoreDoc }) => {
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
-      <Divider />
+      {!disableDivider && <Divider variant="middle" />}
       <Menu
         anchorEl={anchorDoc}
         open={Boolean(anchorDoc)}

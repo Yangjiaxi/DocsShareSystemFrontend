@@ -1,10 +1,10 @@
 import * as actions from "../actions";
 
 const init = {
-  recent: [],
-  shared: [],
-  trash: [],
-  my: [],
+  recent: null,
+  shared: null,
+  trash: null,
+  my: null,
   shouldUpdateRecent: true,
   shouldUpdateShared: true,
   shouldUpdateTrash: true,

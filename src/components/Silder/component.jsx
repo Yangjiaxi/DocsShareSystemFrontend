@@ -14,10 +14,11 @@ import {
 import {
   Create,
   History,
+  EmojiPeople,
   Delete,
   Share,
   Info,
-  People,
+  ContactPhone,
 } from "@material-ui/icons";
 
 import Anchor from "../Anchor";
@@ -37,7 +38,7 @@ const itemList = [
   {
     type: "link",
     text: i18nHelper.myDocs,
-    icon: <History />,
+    icon: <EmojiPeople />,
     name: i18nHelper.MY_PAGE,
     to: "/my",
   },
@@ -59,7 +60,7 @@ const itemList = [
   {
     type: "link",
     text: i18nHelper.profile,
-    icon: <People />,
+    icon: <ContactPhone />,
     name: i18nHelper.INFO_PAGE,
     to: "/profile",
   },

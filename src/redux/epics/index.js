@@ -25,17 +25,16 @@ export const checkToken = () => {
 
 export const errHandler = ({ message, type }, customAction) => {
   if (customAction) {
-    of(
-      toggleProgress(),
+    return of(
+      toggleProgress(false),
       enqueueSnackbar(message, { variant: type || "error" }),
       customAction,
     );
-  } else {
-    of(
-      toggleProgress(),
-      enqueueSnackbar(message, { variant: type || "error" }),
-    );
   }
+  return of(
+    toggleProgress(false),
+    enqueueSnackbar(message, { variant: type || "error" }),
+  );
 };
 
 const dependencies = { io, socket$: new BehaviorSubject(), sessionStorage };

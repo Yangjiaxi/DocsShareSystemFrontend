@@ -13,8 +13,9 @@ const MyInfo = memo(({ changeBrowserPath, getUserInfo, info }) => {
   }, []);
 
   if (!info) {
-    return <Loading text="info" />;
+    return <Loading />;
   }
+
   return (
     <>
       <Typography>{JSON.stringify(info)}</Typography>

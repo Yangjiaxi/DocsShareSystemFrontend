@@ -1,6 +1,7 @@
 import React, { memo, useEffect } from "react";
 
 import DocsTable from "../../components/DocsTable";
+import Loading from "../../components/CircularProgress";
 
 import { i18nHelper } from "../../i18n";
 
@@ -12,6 +13,10 @@ const My = memo(({ changeBrowserPath, getMy, myDocs, shouldUpdate }) => {
   useEffect(() => {
     if (shouldUpdate) getMy();
   }, [shouldUpdate, getMy]);
+
+  if (!myDocs) {
+    return <Loading />;
+  }
 
   const docs = myDocs || [];
   const sortedDocs = docs.sort(({ lastUse: a }, { lastUse: b }) => b - a);

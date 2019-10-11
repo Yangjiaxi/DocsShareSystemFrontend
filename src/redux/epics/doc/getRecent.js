@@ -29,7 +29,7 @@ export const getRecentEpic = action$ =>
             throw customError(res);
           }),
           startWith(toggleProgress(true)),
-          endWith(toggleProgress()),
+          endWith(toggleProgress(false)),
           catchError(err => errHandler(err)),
         );
     }),

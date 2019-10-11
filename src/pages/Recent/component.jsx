@@ -1,6 +1,7 @@
 import React, { memo, useEffect } from "react";
 
 import DocsTable from "../../components/DocsTable";
+import Loading from "../../components/CircularProgress";
 
 import { i18nHelper } from "../../i18n";
 
@@ -13,6 +14,10 @@ const Recent = memo(
     useEffect(() => {
       if (shouldUpdate) getRecent();
     }, [shouldUpdate, getRecent]);
+
+    if (!recentDocs) {
+      return <Loading />;
+    }
 
     const docs = recentDocs || [];
     const sortedDocs = docs.sort(({ lastUse: a }, { lastUse: b }) => b - a);

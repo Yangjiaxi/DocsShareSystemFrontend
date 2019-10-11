@@ -16,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
 
 import Dialog from "../Dialog";
+import Anchor from "../Anchor";
 
 import { i18nHelper, TextTermMaker } from "../../i18n";
 
@@ -23,16 +24,20 @@ import useStyles from "./style";
 
 const TextComp = TextTermMaker("DocsTable");
 
-const DocRow = memo(({ rowData, languageName, deleteDoc }) => {
+const DocRow = memo(props => {
   const {
-    title,
-    createTime, // no
-    lastUse, // no
-    deleted, // no
-    owned,
-    id,
-    // deleteTime,
-  } = rowData;
+    rowData: {
+      title,
+      createTime, // no
+      lastUse, // no
+      deleted, // no
+      owned,
+      id,
+    },
+    languageName,
+    deleteDoc,
+    disableDivider,
+  } = props;
   const classes = useStyles();
 
   const [anchorDoc, setAnchorDoc] = useState(null);
@@ -82,10 +87,6 @@ const DocRow = memo(({ rowData, languageName, deleteDoc }) => {
     );
   };
 
-  const handleClickDoc = () => {
-    console.log(`Click at Doc ${id}`);
-  };
-
   const handleClickButton = ({ currentTarget }) => {
     setAnchorDoc(currentTarget);
   };
@@ -117,15 +118,17 @@ const DocRow = memo(({ rowData, languageName, deleteDoc }) => {
 
   return (
     <>
-      <ListItem button onClick={handleClickDoc} disabled={deleted}>
-        <ListItemText primary={titleWords()} secondary={timeWords()} />
-        <ListItemSecondaryAction>
-          <IconButton onClick={handleClickButton}>
-            <MenuIcon />
-          </IconButton>
-        </ListItemSecondaryAction>
-      </ListItem>
-      <Divider />
+      <Anchor to={`/doc/${id}`}>
+        <ListItem button disabled={deleted}>
+          <ListItemText primary={titleWords()} secondary={timeWords()} />
+          <ListItemSecondaryAction>
+            <IconButton onClick={handleClickButton}>
+              <MenuIcon />
+            </IconButton>
+          </ListItemSecondaryAction>
+        </ListItem>
+      </Anchor>
+      {!disableDivider && <Divider variant="middle" />}
       <Menu
         anchorEl={anchorDoc}
         open={Boolean(anchorDoc)}
