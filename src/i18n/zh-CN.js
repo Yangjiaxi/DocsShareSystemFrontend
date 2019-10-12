@@ -1,5 +1,6 @@
 export const simplifiedChinese = {
   Snackbar: {
+    acceptSuccess: "正在打开...",
     createDocSuccess: "新建成功",
     restoreSuccess: "文件已恢复",
     destroySuccess: "文件已移除",

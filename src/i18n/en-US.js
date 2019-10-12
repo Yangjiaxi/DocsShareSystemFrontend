@@ -1,5 +1,6 @@
 export const americanEnglish = {
   Snackbar: {
+    acceptSuccess: "Opening document...",
     createDocSuccess: "Create Success",
     restoreSuccess: "Restore Success",
     destroySuccess: "Destroy Success",

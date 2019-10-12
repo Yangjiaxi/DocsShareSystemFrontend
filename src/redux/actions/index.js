@@ -221,3 +221,14 @@ export const ACCEPT_DOC_FINISH = "ACCEPT_DOC_FINISH";
 export const acceptDocFinish = () => ({
   type: ACCEPT_DOC_FINISH,
 });
+
+export const CHECKOUT_CONTENT_START = "CHECKOUT_CONTENT_START";
+export const checkoutContentStart = id => ({
+  type: CHECKOUT_CONTENT_START,
+  id,
+});
+
+export const CHECKOUT_CONTENT_FINISH = "CHECKOUT_CONTENT_FINISH";
+export const checkoutContentFinish = () => ({
+  type: CHECKOUT_CONTENT_FINISH,
+});

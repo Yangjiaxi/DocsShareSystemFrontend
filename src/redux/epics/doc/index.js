@@ -6,6 +6,7 @@ import { deleteDocEpic } from "./deleteDoc";
 import { restoreDocEpic } from "./restoreDoc";
 import { destroyDocEpic } from "./destroyDoc";
 import { createDocEpic } from "./createDoc";
+import { acceptDocEpic } from "./acceptDoc";
 
 export default [
   getRecentEpic,
@@ -16,4 +17,5 @@ export default [
   destroyDocEpic,
   createDocEpic,
   getMyEpic,
+  acceptDocEpic,
 ];
