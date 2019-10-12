@@ -83,6 +83,10 @@ export const simplifiedChinese = {
     cancelButton: "取消",
     attentionText: "注意",
   },
+  ContentCell: {
+    lastModify: "最后修改：",
+    commentsCount: "评论数：",
+  },
 };
 
 export default simplifiedChinese;

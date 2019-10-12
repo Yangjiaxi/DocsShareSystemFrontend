@@ -16,7 +16,6 @@ import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
 
 import Dialog from "../Dialog";
-import Anchor from "../Anchor";
 
 import { i18nHelper, TextTermMaker } from "../../i18n";
 
@@ -37,6 +36,7 @@ const DocRow = memo(props => {
     languageName,
     deleteDoc,
     disableDivider,
+    pushUrl,
   } = props;
   const classes = useStyles();
 
@@ -47,6 +47,10 @@ const DocRow = memo(props => {
 
   const handleClickShare = () => {
     setAnchorDoc(null);
+  };
+
+  const handleJumpToDoc = () => {
+    pushUrl(`/doc/${id}`);
   };
 
   const handleClickDelete = () => {
@@ -118,16 +122,14 @@ const DocRow = memo(props => {
 
   return (
     <>
-      <Anchor to={`/doc/${id}`}>
-        <ListItem button disabled={deleted}>
-          <ListItemText primary={titleWords()} secondary={timeWords()} />
-          <ListItemSecondaryAction>
-            <IconButton onClick={handleClickButton}>
-              <MenuIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
-      </Anchor>
+      <ListItem button disabled={deleted} onClick={handleJumpToDoc}>
+        <ListItemText primary={titleWords()} secondary={timeWords()} />
+        <ListItemSecondaryAction>
+          <IconButton onClick={handleClickButton}>
+            <MenuIcon />
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
       {!disableDivider && <Divider variant="middle" />}
       <Menu
         anchorEl={anchorDoc}

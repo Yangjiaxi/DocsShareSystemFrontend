@@ -1,6 +1,10 @@
 import React, { memo, useEffect } from "react";
 import { Paper, Typography } from "@material-ui/core";
 
+import Loading from "../../components/CircularProgress";
+import ContentTitle from "../../components/ContentTitle";
+import ContentFloors from "../../components/ContentFloors";
+
 import { i18nHelper } from "../../i18n";
 
 /*
@@ -21,7 +25,15 @@ Doc = {
 */
 
 const Doc = memo(
-  ({ changeBrowserPath, docID, viewDocs, acceptDoc, checkoutContent }) => {
+  ({
+    changeBrowserPath,
+    docID,
+    viewDocs,
+    acceptDoc,
+    checkoutContent,
+    cleanUp,
+    isLoading,
+  }) => {
     // if (docID) console.log(docID);
     // console.log(rest);
 
@@ -41,41 +53,24 @@ const Doc = memo(
     // 渲染元素
     // socket启动
     // -> socket 结束 & 更新最后使用日期
-    useEffect(() => {}, []);
 
     useEffect(() => {
       acceptDoc(docID);
-      // checkoutContent(docID);
-    }, [docID, acceptDoc, checkoutContent]);
+      checkoutContent(docID);
+      return () => {
+        cleanUp();
+      };
+    }, [docID, acceptDoc, checkoutContent, cleanUp]);
+
+    if (isLoading) {
+      return <Loading />;
+    }
 
     return (
       <>
-        <Paper>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-          <Typography variant="h1">Hello Doc!</Typography>
-        </Paper>
+        <ContentTitle />
+        <ContentFloors />
+        {/* <FloorComments /> */}
       </>
     );
   },

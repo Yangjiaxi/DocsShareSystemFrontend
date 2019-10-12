@@ -229,6 +229,21 @@ export const checkoutContentStart = id => ({
 });
 
 export const CHECKOUT_CONTENT_FINISH = "CHECKOUT_CONTENT_FINISH";
-export const checkoutContentFinish = () => ({
+export const checkoutContentFinish = (id, title, time, contents) => ({
   type: CHECKOUT_CONTENT_FINISH,
+  id,
+  title,
+  time,
+  contents,
+});
+
+export const EXIT_DOC_VIEWING = "EXIT_DOC_VIEWING";
+export const exitDocViewing = () => ({
+  type: EXIT_DOC_VIEWING,
+});
+
+export const OPEN_COMMENT_START = "OPEN_COMMENT_START";
+export const openCommentStart = id => ({
+  type: OPEN_COMMENT_START,
+  id,
 });

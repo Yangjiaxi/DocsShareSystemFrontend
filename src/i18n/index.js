@@ -87,6 +87,9 @@ export const i18nHelper = {
   confirmButton: "confirmButton",
   cancelButton: "cancelButton",
   attentionText: "attentionText",
+  // [ContentCell]
+  lastModify: "lastModify",
+  commentsCount: "commentsCount",
 };
 
 export const languageList = {

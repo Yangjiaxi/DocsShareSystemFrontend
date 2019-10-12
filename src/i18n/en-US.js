@@ -84,6 +84,10 @@ export const americanEnglish = {
     cancelButton: "Cancel",
     attentionText: "ATTENTION",
   },
+  ContentCell: {
+    lastModify: "Last Modify: ",
+    commentsCount: "#Comment: ",
+  },
 };
 
 export default americanEnglish;

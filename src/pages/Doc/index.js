@@ -6,11 +6,14 @@ import {
   viewDocs,
   acceptDocStart,
   checkoutContentStart,
+  exitDocViewing,
 } from "../../redux/actions";
 
 import Doc from "./component";
 
-const mapStateToProps = () => ({});
+const mapStateToProps = ({ content: { title } }) => ({
+  isLoading: !title,
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
@@ -19,6 +22,7 @@ const mapDispatchToProps = dispatch =>
       viewDocs,
       acceptDoc: acceptDocStart,
       checkoutContent: checkoutContentStart,
+      cleanUp: exitDocViewing,
     },
     dispatch,
   );
