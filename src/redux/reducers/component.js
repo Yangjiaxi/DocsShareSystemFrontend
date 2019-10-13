@@ -18,10 +18,15 @@ const init = {
   drawerOpen: false,
   isMobile: false,
   isViewingDocs: false,
+  commentDrawerOpen: false,
 };
 
 export function componentReducer(state = init, action) {
   switch (action.type) {
+    case actions.TOGGLE_VIEWING_DRAWER: {
+      const { id } = action;
+      return { ...state, commentDrawerOpen: Boolean(id) };
+    }
     case actions.VIEW_DOCS:
       return { ...state, isViewingDocs: action.isViewing };
     case actions.DETECT_WIDTH:

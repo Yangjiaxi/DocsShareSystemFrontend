@@ -7,7 +7,6 @@ import { restoreDocEpic } from "./restoreDoc";
 import { destroyDocEpic } from "./destroyDoc";
 import { createDocEpic } from "./createDoc";
 import { acceptDocEpic } from "./acceptDoc";
-import { checkoutDocEpic } from "./checkoutDoc";
 
 export default [
   getRecentEpic,
@@ -19,5 +18,4 @@ export default [
   createDocEpic,
   getMyEpic,
   acceptDocEpic,
-  checkoutDocEpic,
 ];

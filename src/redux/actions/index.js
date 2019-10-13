@@ -242,8 +242,21 @@ export const exitDocViewing = () => ({
   type: EXIT_DOC_VIEWING,
 });
 
-export const OPEN_COMMENT_START = "OPEN_COMMENT_START";
-export const openCommentStart = id => ({
-  type: OPEN_COMMENT_START,
+export const GET_COMMENT_START = "GET_COMMENT_START";
+export const getCommentStart = id => ({
+  type: GET_COMMENT_START,
+  id,
+});
+
+export const GET_COMMENT_FINISH = "GET_COMMENT_FINISH";
+export const getCommentFinish = (id, comments) => ({
+  type: GET_COMMENT_FINISH,
+  id,
+  comments,
+});
+
+export const TOGGLE_VIEWING_DRAWER = "TOGGLE_VIEWING_DRAWER";
+export const toggleViewingDrawer = id => ({
+  type: TOGGLE_VIEWING_DRAWER,
   id,
 });

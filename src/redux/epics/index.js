@@ -8,6 +8,7 @@ import { i18nHelper } from "../../i18n";
 
 import userEpic from "./user";
 import docEpic from "./doc";
+import contentEpic from "./content";
 
 export const customError = error => {
   const err = new Error(error.message);
@@ -43,4 +44,4 @@ export const epicMiddleware = createEpicMiddleware({
   dependencies,
 });
 
-export const epics = combineEpics(...userEpic, ...docEpic);
+export const epics = combineEpics(...userEpic, ...docEpic, ...contentEpic);

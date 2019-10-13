@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import ContentCell from "../ContentCell";
 
 const ContentFloors = memo(({ contents }) => {
-  console.log(contents);
+  // console.log(contents);
   return (
     <>
       {contents.map(

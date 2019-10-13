@@ -1,9 +1,9 @@
 import React, { memo, useEffect } from "react";
-import { Paper, Typography } from "@material-ui/core";
 
 import Loading from "../../components/CircularProgress";
 import ContentTitle from "../../components/ContentTitle";
 import ContentFloors from "../../components/ContentFloors";
+import FloorComments from "../../components/FloorComments";
 
 import { i18nHelper } from "../../i18n";
 
@@ -70,7 +70,7 @@ const Doc = memo(
       <>
         <ContentTitle />
         <ContentFloors />
-        {/* <FloorComments /> */}
+        <FloorComments />
       </>
     );
   },

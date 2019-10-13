@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 
 import "moment/min/locales";
 import moment from "moment";
@@ -22,12 +22,14 @@ const ContentCell = memo(
     languageName,
     commentsCount,
     openComment,
+    toggleViewingDrawer,
   }) => {
     const classes = useStyles();
     moment.locale(languageName);
 
     const handleOpenComment = () => {
-      openComment(id);
+      toggleViewingDrawer(id);
+      if (needFetch) openComment(id);
     };
 
     return (
