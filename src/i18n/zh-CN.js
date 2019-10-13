@@ -86,6 +86,11 @@ export const simplifiedChinese = {
   ContentCell: {
     lastModify: "最后修改：",
     commentsCount: "评论数：",
+    previewButton: "预览",
+    publishButton: "发布",
+    editCellButton: "编辑",
+    removeCellButton: "删除",
+    collapseCellButton: "收起",
   },
   FloorComments: {
     sendButton: "发送",

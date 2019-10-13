@@ -90,6 +90,11 @@ export const i18nHelper = {
   // [ContentCell]
   lastModify: "lastModify",
   commentsCount: "commentsCount",
+  previewButton: "previewButton",
+  publishButton: "publishButton",
+  editCellButton: "editCellButton",
+  removeCellButton: "removeCellButton",
+  collapseCellButton: "collapseCellButton",
   // [FloorComments]
   sendButton: "sendButton",
 };

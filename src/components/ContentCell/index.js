@@ -5,8 +5,12 @@ import { getCommentStart, toggleViewingDrawer } from "../../redux/actions";
 
 import ContentCell from "./component";
 
-const mapStateToProps = ({ component: { languageName } }) => ({
+const mapStateToProps = ({
+  component: { languageName },
+  content: { isOwned },
+}) => ({
   languageName,
+  isOwned,
 });
 
 const mapDispatchToProps = dispatch =>

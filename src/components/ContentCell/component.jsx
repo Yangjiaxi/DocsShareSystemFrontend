@@ -1,11 +1,19 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 
 import "moment/min/locales";
 import moment from "moment";
 
-import { Typography, Paper, Grid, Button } from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import Markdown from "react-markdown";
+
+import {
+  Typography,
+  Paper,
+  Grid,
+  Button,
+  Collapse,
+  TextField,
+  Divider,
+} from "@material-ui/core";
 
 import { TextTermMaker, i18nHelper } from "../../i18n";
 
@@ -23,8 +31,12 @@ const ContentCell = memo(
     commentsCount,
     openComment,
     toggleViewingDrawer,
+    isOwned,
   }) => {
     const classes = useStyles();
+    const [openEditor, setOpenEditor] = useState(false);
+    const [newContent, setNewContent] = useState(content);
+
     moment.locale(languageName);
 
     const handleOpenComment = () => {
@@ -32,10 +44,17 @@ const ContentCell = memo(
       if (needFetch) openComment(id);
     };
 
+    const toggleEdit = () => {
+      setOpenEditor(!openEditor);
+    };
+
+    const handleChange = ({ target: { value } }) => {
+      setNewContent(value);
+    };
+
     return (
       <>
         <Paper className={classes.cell}>
-          {/* render result */}
           <Grid container spacing={1}>
             <Grid
               container
@@ -56,20 +75,64 @@ const ContentCell = memo(
                   {commentsCount}
                 </Button>
               </Grid>
-              <Grid item>
-                <IconButton size="small">
-                  <MenuIcon />
-                </IconButton>
-              </Grid>
+              {isOwned && (
+                <>
+                  <Grid item>
+                    <Button
+                      color="primary"
+                      size="small"
+                      variant="outlined"
+                      onClick={toggleEdit}
+                    >
+                      <TextComp
+                        term={
+                          openEditor
+                            ? i18nHelper.collapseCellButton
+                            : i18nHelper.editCellButton
+                        }
+                      />
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button color="secondary" size="small" variant="outlined">
+                      <TextComp term={i18nHelper.removeCellButton} />
+                    </Button>
+                  </Grid>
+                </>
+              )}
             </Grid>
             <Grid item xs={12}>
-              <Typography>{content}</Typography>
+              <Markdown source={newContent} className={classes.markdown} />
             </Grid>
             <Grid item container xs={12}>
               <Typography variant="caption">
                 <TextComp term={i18nHelper.lastModify} />
                 {moment(time).fromNow()}
               </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Collapse in={openEditor}>
+                <Divider className={classes.divider} />
+                <TextField
+                  value={newContent}
+                  fullWidth
+                  variant="outlined"
+                  multiline
+                  onChange={handleChange}
+                />
+                <Grid container justify="flex-end" spacing={2}>
+                  <Grid item>
+                    <Button variant="outlined" color="primary">
+                      <TextComp term={i18nHelper.previewButton} />
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button variant="outlined" color="secondary">
+                      <TextComp term={i18nHelper.publishButton} />
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Collapse>
             </Grid>
           </Grid>
         </Paper>

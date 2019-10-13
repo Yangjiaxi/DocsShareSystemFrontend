@@ -1,9 +1,11 @@
 import React, { memo } from "react";
 
+import { Fab, Grid } from "@material-ui/core";
+import { Add } from "@material-ui/icons";
+
 import ContentCell from "../ContentCell";
 
-const ContentFloors = memo(({ contents }) => {
-  // console.log(contents);
+const ContentFloors = memo(({ contents, isOwned }) => {
   return (
     <>
       {contents.map(
@@ -17,6 +19,13 @@ const ContentFloors = memo(({ contents }) => {
             commentsCount={commentsCount}
           />
         ),
+      )}
+      {isOwned && (
+        <Grid container justify="center" alignItems="center">
+          <Fab color="primary">
+            <Add />
+          </Fab>
+        </Grid>
       )}
     </>
   );

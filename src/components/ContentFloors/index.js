@@ -5,8 +5,9 @@ import {} from "../../redux/actions";
 
 import ContentFloors from "./component";
 
-const mapStateToProps = ({ content: { contents } }) => ({
+const mapStateToProps = ({ content: { contents, isOwned } }) => ({
   contents,
+  isOwned,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);

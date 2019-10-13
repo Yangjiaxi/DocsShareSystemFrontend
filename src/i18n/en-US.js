@@ -87,6 +87,11 @@ export const americanEnglish = {
   ContentCell: {
     lastModify: "Last Modify: ",
     commentsCount: "#Comment: ",
+    previewButton: "Preview",
+    publishButton: "Publish",
+    editCellButton: "Edit",
+    removeCellButton: "Delete",
+    collapseCellButton: "Collapse",
   },
   FloorComments: {
     sendButton: "SEND",

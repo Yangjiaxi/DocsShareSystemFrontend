@@ -15,8 +15,6 @@ const CommentBubble = memo(
 
     moment.locale(languageName);
 
-    console.log(voteDown, voteUp);
-
     const handleVoteUp = () => {
       console.log("Up", id);
     };
@@ -66,26 +64,32 @@ const CommentBubble = memo(
               {comment}
             </Typography>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} container spacing={1}>
             {time && (
-              <Typography variant="caption">
-                {moment(time).fromNow()}
-              </Typography>
+              <Grid item>
+                <Typography variant="caption">
+                  {moment(time).fromNow()}
+                </Typography>
+              </Grid>
             )}
             {voteUp !== undefined && voteDown !== undefined && (
               <>
-                <Chip
-                  variant="outlined"
-                  size="small"
-                  onClick={handleVoteUp}
-                  label={voteUpComp}
-                />
-                <Chip
-                  variant="outlined"
-                  size="small"
-                  onClick={handleVoteDown}
-                  label={voteDownComp}
-                />
+                <Grid item>
+                  <Chip
+                    variant="outlined"
+                    size="small"
+                    onClick={handleVoteUp}
+                    label={voteUpComp}
+                  />
+                </Grid>
+                <Grid item>
+                  <Chip
+                    variant="outlined"
+                    size="small"
+                    onClick={handleVoteDown}
+                    label={voteDownComp}
+                  />
+                </Grid>
               </>
             )}
           </Grid>

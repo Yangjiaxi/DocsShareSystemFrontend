@@ -6,6 +6,15 @@ const useStyles = makeStyles(({ spacing }) =>
       margin: `${spacing(2)}px auto`,
       padding: spacing(1),
     },
+    divider: {
+      margin: spacing(1),
+    },
+    markdown: {
+      border: "1px solid red",
+      display: "block",
+      width: "100%",
+      overflowX: "scroll",
+    },
   }),
 );
 

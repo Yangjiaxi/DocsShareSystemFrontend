@@ -27,13 +27,9 @@ const init = {
 export const contentReducer = (state = init, action) => {
   switch (action.type) {
     case actions.CHECKOUT_CONTENT_FINISH:
-      const { id, title, time, contents, isOwned } = action;
+      const { contents, ...rests } = action;
       return {
-        ...state,
-        id,
-        title,
-        time,
-        isOwned,
+        ...rests,
         contents: contents.map(
           ({ _id: contentId, content, time: contentTime, comments }) => ({
             id: contentId,
