@@ -27,8 +27,10 @@ export const checkoutDocEpic = action$ =>
         .pipe(
           mergeMap(res => {
             if (res.type === "success") {
-              const { contents, id: docID, time, title } = res;
-              return of(checkoutContentFinish(docID, title, time, contents));
+              const { contents, id: docID, time, title, isOwned } = res;
+              return of(
+                checkoutContentFinish(docID, title, time, contents, isOwned),
+              );
             }
             throw customError(res);
           }),

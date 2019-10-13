@@ -229,12 +229,13 @@ export const checkoutContentStart = id => ({
 });
 
 export const CHECKOUT_CONTENT_FINISH = "CHECKOUT_CONTENT_FINISH";
-export const checkoutContentFinish = (id, title, time, contents) => ({
+export const checkoutContentFinish = (id, title, time, contents, isOwned) => ({
   type: CHECKOUT_CONTENT_FINISH,
   id,
   title,
   time,
   contents,
+  isOwned,
 });
 
 export const EXIT_DOC_VIEWING = "EXIT_DOC_VIEWING";

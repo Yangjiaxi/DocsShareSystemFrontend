@@ -5,8 +5,9 @@ import {} from "../../redux/actions";
 
 import CommentBubble from "./component";
 
-const mapStateToProps = () => ({});
-
+const mapStateToProps = ({ component: { languageName } }) => ({
+  languageName,
+});
 const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
 
 export default connect(

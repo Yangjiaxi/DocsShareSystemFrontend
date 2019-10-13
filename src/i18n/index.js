@@ -90,6 +90,8 @@ export const i18nHelper = {
   // [ContentCell]
   lastModify: "lastModify",
   commentsCount: "commentsCount",
+  // [FloorComments]
+  sendButton: "sendButton",
 };
 
 export const languageList = {

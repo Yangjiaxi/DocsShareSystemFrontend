@@ -88,6 +88,9 @@ export const americanEnglish = {
     lastModify: "Last Modify: ",
     commentsCount: "#Comment: ",
   },
+  FloorComments: {
+    sendButton: "SEND",
+  },
 };
 
 export default americanEnglish;

@@ -87,6 +87,9 @@ export const simplifiedChinese = {
     lastModify: "最后修改：",
     commentsCount: "评论数：",
   },
+  FloorComments: {
+    sendButton: "发送",
+  },
 };
 
 export default simplifiedChinese;

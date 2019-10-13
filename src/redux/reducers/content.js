@@ -5,6 +5,7 @@ const init = {
   title: null,
   time: null, // time when doc create
   viewingFloor: null, // for toggle comment drawer
+  isOwned: false,
   contents: [],
   /*
     {
@@ -26,12 +27,13 @@ const init = {
 export const contentReducer = (state = init, action) => {
   switch (action.type) {
     case actions.CHECKOUT_CONTENT_FINISH:
-      const { id, title, time, contents } = action;
+      const { id, title, time, contents, isOwned } = action;
       return {
         ...state,
         id,
         title,
         time,
+        isOwned,
         contents: contents.map(
           ({ _id: contentId, content, time: contentTime, comments }) => ({
             id: contentId,

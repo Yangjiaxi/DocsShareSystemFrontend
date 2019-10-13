@@ -7,12 +7,14 @@ import FloorComments from "./component";
 
 const mapStateToProps = ({
   content: { contents, viewingFloor },
-  component: { isMobile, commentDrawerOpen },
+  component: { isMobile },
+  user: { username },
 }) => ({
   contents,
   viewingFloor,
-  commentDrawerOpen,
+  open: Boolean(viewingFloor),
   isMobile,
+  myName: username,
 });
 
 const mapDispatchToProps = dispatch =>
