@@ -26,6 +26,16 @@ const init = {
 
 export const contentReducer = (state = init, action) => {
   switch (action.type) {
+    case actions.ADD_FLOOR:
+      const newFloor = {
+        id: null,
+        content: "",
+        time: null,
+        needFetch: false,
+        comments: null,
+        commentsCount: 0,
+      };
+      return { ...state, contents: [...state.contents, newFloor] };
     case actions.CHECKOUT_CONTENT_FINISH:
       const { contents, ...rests } = action;
       return {

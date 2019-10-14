@@ -92,6 +92,8 @@ export const americanEnglish = {
     editCellButton: "Edit",
     removeCellButton: "Delete",
     collapseCellButton: "Collapse",
+    realtimeSwitch: "Realtime Render",
+    soonSaveHint: "Modified, please save as soon as posible",
   },
   FloorComments: {
     sendButton: "SEND",

@@ -261,3 +261,8 @@ export const toggleViewingDrawer = id => ({
   type: TOGGLE_VIEWING_DRAWER,
   id,
 });
+
+export const ADD_FLOOR = "ADD_FLOOR";
+export const addFloor = () => ({
+  type: ADD_FLOOR,
+});

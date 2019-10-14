@@ -3,8 +3,6 @@ import React, { memo, useState } from "react";
 import "moment/min/locales";
 import moment from "moment";
 
-import Markdown from "react-markdown";
-
 import {
   Typography,
   Paper,
@@ -13,7 +11,15 @@ import {
   Collapse,
   TextField,
   Divider,
+  Chip,
+  Switch,
+  Tooltip,
+  Grow,
 } from "@material-ui/core";
+
+import { Save } from "@material-ui/icons";
+
+import Markdown from "../Markdown";
 
 import { TextTermMaker, i18nHelper } from "../../i18n";
 
@@ -34,8 +40,11 @@ const ContentCell = memo(
     isOwned,
   }) => {
     const classes = useStyles();
-    const [openEditor, setOpenEditor] = useState(false);
+    // id === null 意味着这是新建的cell，也就是，需要立刻编辑的cell
+    const [openEditor, setOpenEditor] = useState(id === null);
     const [newContent, setNewContent] = useState(content);
+    const [renderContent, setRenderContent] = useState(content);
+    const [realtime, toggleRealtime] = useState(false);
 
     moment.locale(languageName);
 
@@ -48,12 +57,21 @@ const ContentCell = memo(
       setOpenEditor(!openEditor);
     };
 
+    const handleNewContent = () => {
+      setRenderContent(newContent);
+    };
+
     const handleChange = ({ target: { value } }) => {
       setNewContent(value);
+      if (realtime) handleNewContent();
+    };
+
+    const handleRealtimeChange = () => {
+      toggleRealtime(!realtime);
     };
 
     return (
-      <>
+      <Grow in style={{ transformOrigin: "top center" }}>
         <Paper className={classes.cell}>
           <Grid container spacing={1}>
             <Grid
@@ -64,6 +82,18 @@ const ContentCell = memo(
               alignItems="center"
               spacing={2}
             >
+              {(content !== newContent || id === null) && (
+                <Tooltip title={<TextComp term={i18nHelper.soonSaveHint} />}>
+                  <Grid item>
+                    <Chip
+                      label={<Save />}
+                      color="secondary"
+                      variant="outlined"
+                      size="small"
+                    />
+                  </Grid>
+                </Tooltip>
+              )}
               <Grid item>
                 <Button
                   variant="outlined"
@@ -102,14 +132,16 @@ const ContentCell = memo(
               )}
             </Grid>
             <Grid item xs={12}>
-              <Markdown source={newContent} className={classes.markdown} />
+              <Markdown source={renderContent} />
             </Grid>
-            <Grid item container xs={12}>
-              <Typography variant="caption">
-                <TextComp term={i18nHelper.lastModify} />
-                {moment(time).fromNow()}
-              </Typography>
-            </Grid>
+            {time && (
+              <Grid item container xs={12}>
+                <Typography variant="caption">
+                  <TextComp term={i18nHelper.lastModify} />
+                  {moment(time).fromNow()}
+                </Typography>
+              </Grid>
+            )}
             <Grid item xs={12}>
               <Collapse in={openEditor}>
                 <Divider className={classes.divider} />
@@ -122,7 +154,18 @@ const ContentCell = memo(
                 />
                 <Grid container justify="flex-end" spacing={2}>
                   <Grid item>
-                    <Button variant="outlined" color="primary">
+                    <TextComp term={i18nHelper.realtimeSwitch} />
+                    <Switch
+                      checked={realtime}
+                      onChange={handleRealtimeChange}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      onClick={handleNewContent}
+                    >
                       <TextComp term={i18nHelper.previewButton} />
                     </Button>
                   </Grid>
@@ -136,7 +179,7 @@ const ContentCell = memo(
             </Grid>
           </Grid>
         </Paper>
-      </>
+      </Grow>
     );
   },
 );

@@ -10,7 +10,7 @@ const useStyles = makeStyles(({ spacing }) =>
       margin: spacing(1),
     },
     markdown: {
-      border: "1px solid red",
+      padding: spacing(0, 2),
       display: "block",
       width: "100%",
       overflowX: "scroll",

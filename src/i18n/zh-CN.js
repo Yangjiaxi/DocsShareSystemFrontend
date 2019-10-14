@@ -91,6 +91,8 @@ export const simplifiedChinese = {
     editCellButton: "编辑",
     removeCellButton: "删除",
     collapseCellButton: "收起",
+    realtimeSwitch: "实时渲染",
+    soonSaveHint: "已修改，请尽快保存",
   },
   FloorComments: {
     sendButton: "发送",

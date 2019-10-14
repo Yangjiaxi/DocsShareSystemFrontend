@@ -1,11 +1,14 @@
 import React, { memo, useEffect } from "react";
 
+import { Container } from "@material-ui/core";
 import Loading from "../../components/CircularProgress";
 import ContentTitle from "../../components/ContentTitle";
 import ContentFloors from "../../components/ContentFloors";
 import FloorComments from "../../components/FloorComments";
 
 import { i18nHelper } from "../../i18n";
+
+import useStyles from "./style";
 
 /*
   enter 
@@ -37,6 +40,8 @@ const Doc = memo(
     // if (docID) console.log(docID);
     // console.log(rest);
 
+    const classes = useStyles();
+
     useEffect(() => {
       changeBrowserPath(i18nHelper.DOC_PAGE);
     }, [changeBrowserPath]);
@@ -67,11 +72,11 @@ const Doc = memo(
     }
 
     return (
-      <>
+      <Container maxWidth="xl" className={classes.root}>
         <ContentTitle />
         <ContentFloors />
         <FloorComments />
-      </>
+      </Container>
     );
   },
 );

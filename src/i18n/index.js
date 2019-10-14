@@ -95,6 +95,8 @@ export const i18nHelper = {
   editCellButton: "editCellButton",
   removeCellButton: "removeCellButton",
   collapseCellButton: "collapseCellButton",
+  realtimeSwitch: "realtimeSwitch",
+  soonSaveHint: "soonSaveHint",
   // [FloorComments]
   sendButton: "sendButton",
 };

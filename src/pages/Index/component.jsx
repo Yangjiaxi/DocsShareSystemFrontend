@@ -77,7 +77,7 @@ const Index = memo(({ themeMode, themeColor }) => {
         <Route path="/trash" exact render={mainFrame(Trash)} />
         <Route path="/profile" exact render={mainFrame(MyInfo)} />
         <Route path="/about" exact render={mainFrame(About)} />
-        <Route path="/doc/:docID?" render={mainFrame(Doc)} />
+        <Route path="/doc/:docID" render={mainFrame(Doc)} />
         <Route render={mainFrame(NoMatch)} />
       </Switch>
     </ThemeProvider>

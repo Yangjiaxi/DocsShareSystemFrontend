@@ -5,7 +5,11 @@ import { Add } from "@material-ui/icons";
 
 import ContentCell from "../ContentCell";
 
-const ContentFloors = memo(({ contents, isOwned }) => {
+const ContentFloors = memo(({ contents, isOwned, addFloor }) => {
+  const handleAddFloor = () => {
+    console.log("new");
+    addFloor();
+  };
   return (
     <>
       {contents.map(
@@ -22,7 +26,7 @@ const ContentFloors = memo(({ contents, isOwned }) => {
       )}
       {isOwned && (
         <Grid container justify="center" alignItems="center">
-          <Fab color="primary">
+          <Fab color="primary" onClick={handleAddFloor}>
             <Add />
           </Fab>
         </Grid>
