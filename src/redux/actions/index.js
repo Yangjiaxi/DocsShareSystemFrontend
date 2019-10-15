@@ -309,3 +309,15 @@ export const changeFloorFinish = (id, time, content) => ({
   time,
   content,
 });
+
+export const DELETE_FLOOR_START = "DELETE_FLOOR_START";
+export const deleteFloorStart = id => ({
+  type: DELETE_FLOOR_START,
+  id,
+});
+
+export const DELETE_FLOOR_FINISH = "DELETE_FLOOR_FINISH";
+export const deleteFloorFinish = id => ({
+  type: DELETE_FLOOR_FINISH,
+  id,
+});

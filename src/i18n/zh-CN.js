@@ -94,6 +94,7 @@ export const simplifiedChinese = {
     collapseCellButton: "收起",
     realtimeSwitch: "实时渲染",
     soonSaveHint: "已修改，请尽快保存",
+    deleteFloorHint: "单元格将被永久删除，该操作无法恢复",
   },
   FloorComments: {
     sendButton: "发送",

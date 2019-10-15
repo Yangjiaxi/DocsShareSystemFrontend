@@ -5,6 +5,7 @@ import {
   getCommentStart,
   toggleViewingDrawer,
   changeFloorStart,
+  deleteFloorStart,
 } from "../../redux/actions";
 
 import ContentCell from "./component";
@@ -23,6 +24,7 @@ const mapDispatchToProps = dispatch =>
       openComment: getCommentStart,
       toggleViewingDrawer,
       changeFloor: changeFloorStart,
+      deleteFloor: deleteFloorStart,
     },
     dispatch,
   );

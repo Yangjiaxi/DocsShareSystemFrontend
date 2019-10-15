@@ -99,6 +99,7 @@ export const i18nHelper = {
   collapseCellButton: "collapseCellButton",
   realtimeSwitch: "realtimeSwitch",
   soonSaveHint: "soonSaveHint",
+  deleteFloorHint: "deleteFloorHint",
   // [FloorComments]
   sendButton: "sendButton",
   // [ContentTitle]:

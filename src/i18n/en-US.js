@@ -96,6 +96,8 @@ export const americanEnglish = {
     collapseCellButton: "Collapse",
     realtimeSwitch: "Realtime Render",
     soonSaveHint: "Modified, please save as soon as posible",
+    deleteFloorHint:
+      "Cell will be remove completely, this operation CANNOT undo.",
   },
   FloorComments: {
     sendButton: "SEND",

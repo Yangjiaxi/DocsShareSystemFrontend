@@ -5,10 +5,11 @@ import { ignoreElements, switchMap, tap } from "rxjs/operators";
 import {
   SOCKET_START,
   toggleProgress,
-  changeTitleFinish,
   enqueueSnackbar,
+  changeTitleFinish,
   appendFloorFinish,
   changeFloorFinish,
+  deleteFloorFinish,
 } from "../actions";
 
 import { API } from "../const";
@@ -67,6 +68,17 @@ const socketReceiveEpic = (action$, state$, { socket$ }) =>
               o.next(toggleProgress());
             });
             socket.on("changeFloorError", res => {
+              const { message, type } = res;
+              o.next(enqueueSnackbar(message, { variant: type || "error" }));
+              o.next(toggleProgress());
+            });
+            // delete floor
+            socket.on("deleteFloor", ({ id }) => {
+              o.next(toggleProgress(true));
+              o.next(deleteFloorFinish(id));
+              o.next(toggleProgress());
+            });
+            socket.on("deleteFloorError", res => {
               const { message, type } = res;
               o.next(enqueueSnackbar(message, { variant: type || "error" }));
               o.next(toggleProgress());

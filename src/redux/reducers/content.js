@@ -78,6 +78,11 @@ export const contentReducer = (state = init, action) => {
             : ele,
         ),
       };
+    case actions.DELETE_FLOOR_FINISH:
+      return {
+        ...state,
+        contents: state.contents.filter(({ id }) => id !== action.id),
+      };
     // side work
     case actions.EXIT_DOC_VIEWING:
       return init;

@@ -20,6 +20,7 @@ import {
 import { Save } from "@material-ui/icons";
 
 import Markdown from "../Markdown";
+import Dialog from "../Dialog";
 
 import { TextTermMaker, i18nHelper } from "../../i18n";
 
@@ -39,12 +40,14 @@ const ContentCell = memo(
     toggleViewingDrawer,
     isOwned,
     changeFloor,
+    deleteFloor,
   }) => {
     const classes = useStyles();
     const [openEditor, setOpenEditor] = useState(false);
     const [newContent, setNewContent] = useState(content);
     const [renderContent, setRenderContent] = useState(content);
     const [realtime, toggleRealtime] = useState(false);
+    const [dialog, setDialog] = useState(false);
 
     moment.locale(languageName);
 
@@ -79,125 +82,143 @@ const ContentCell = memo(
       changeFloor(newContent, id);
     };
 
+    const handleDeleteFloor = () => {
+      deleteFloor(id);
+      setDialog(false);
+    };
+
     return (
-      <Grow in style={{ transformOrigin: "top center" }}>
-        <Paper className={classes.cell}>
-          <Grid container spacing={1}>
-            <Grid
-              container
-              item
-              xs={12}
-              justify="flex-end"
-              alignItems="center"
-              spacing={2}
-            >
-              {content !== newContent && (
-                <Tooltip title={<TextComp term={i18nHelper.soonSaveHint} />}>
-                  <Grid item>
-                    <Chip
-                      label={<Save />}
-                      color="secondary"
-                      variant="outlined"
-                      size="small"
-                    />
-                  </Grid>
-                </Tooltip>
-              )}
-              <Grid item>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  color="primary"
-                  onClick={handleOpenComment}
-                >
-                  <TextComp term={i18nHelper.commentsCount} />
-                  {commentsCount}
-                </Button>
-              </Grid>
-              {isOwned && (
-                <>
-                  <Grid item>
-                    <Button
-                      color="primary"
-                      size="small"
-                      variant="outlined"
-                      onClick={toggleEdit}
-                    >
-                      <TextComp
-                        term={
-                          openEditor
-                            ? i18nHelper.collapseCellButton
-                            : i18nHelper.editCellButton
-                        }
+      <>
+        <Grow in style={{ transformOrigin: "top center" }}>
+          <Paper className={classes.cell}>
+            <Grid container spacing={1}>
+              <Grid
+                container
+                item
+                xs={12}
+                justify="flex-end"
+                alignItems="center"
+                spacing={2}
+              >
+                {content !== newContent && (
+                  <Tooltip title={<TextComp term={i18nHelper.soonSaveHint} />}>
+                    <Grid item>
+                      <Chip
+                        label={<Save />}
+                        color="secondary"
+                        variant="outlined"
+                        size="small"
                       />
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button color="secondary" size="small" variant="outlined">
-                      <TextComp term={i18nHelper.removeCellButton} />
-                    </Button>
-                  </Grid>
-                </>
-              )}
-            </Grid>
-            <Grid item xs={12}>
-              <Markdown source={renderContent} />
-            </Grid>
-            {time && (
-              <Grid item container xs={12}>
-                <Typography variant="caption">
-                  <TextComp term={i18nHelper.lastModify} />
-                  {moment(time).fromNow()}
-                </Typography>
-              </Grid>
-            )}
-            <Grid item xs={12}>
-              <Collapse in={openEditor}>
-                <Divider className={classes.divider} />
-                <TextField
-                  value={newContent}
-                  fullWidth
-                  variant="outlined"
-                  multiline
-                  onChange={handleChange}
-                  InputProps={{
-                    classes: {
-                      input: classes.input,
-                    },
-                  }}
-                />
-                <Grid container justify="flex-end" spacing={2}>
-                  <Grid item>
-                    <TextComp term={i18nHelper.realtimeSwitch} />
-                    <Switch
-                      checked={realtime}
-                      onChange={handleRealtimeChange}
-                    />
-                  </Grid>
-                  <Grid item>
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      onClick={handleNewContent}
-                    >
-                      <TextComp term={i18nHelper.previewButton} />
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button
-                      variant="outlined"
-                      color="secondary"
-                      onClick={handlePublishChange}
-                    >
-                      <TextComp term={i18nHelper.publishButton} />
-                    </Button>
-                  </Grid>
+                    </Grid>
+                  </Tooltip>
+                )}
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    color="primary"
+                    onClick={handleOpenComment}
+                  >
+                    <TextComp term={i18nHelper.commentsCount} />
+                    {commentsCount}
+                  </Button>
                 </Grid>
-              </Collapse>
+                {isOwned && (
+                  <>
+                    <Grid item>
+                      <Button
+                        color="primary"
+                        size="small"
+                        variant="outlined"
+                        onClick={toggleEdit}
+                      >
+                        <TextComp
+                          term={
+                            openEditor
+                              ? i18nHelper.collapseCellButton
+                              : i18nHelper.editCellButton
+                          }
+                        />
+                      </Button>
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        color="secondary"
+                        size="small"
+                        variant="outlined"
+                        onClick={() => setDialog(true)}
+                      >
+                        <TextComp term={i18nHelper.removeCellButton} />
+                      </Button>
+                    </Grid>
+                  </>
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                <Markdown source={renderContent} />
+              </Grid>
+              {time && (
+                <Grid item container xs={12}>
+                  <Typography variant="caption">
+                    <TextComp term={i18nHelper.lastModify} />
+                    {moment(time).fromNow()}
+                  </Typography>
+                </Grid>
+              )}
+              <Grid item xs={12}>
+                <Collapse in={openEditor}>
+                  <Divider className={classes.divider} />
+                  <TextField
+                    value={newContent}
+                    fullWidth
+                    variant="outlined"
+                    multiline
+                    onChange={handleChange}
+                    InputProps={{
+                      classes: {
+                        input: classes.input,
+                      },
+                    }}
+                  />
+                  <Grid container justify="flex-end" spacing={2}>
+                    <Grid item>
+                      <TextComp term={i18nHelper.realtimeSwitch} />
+                      <Switch
+                        checked={realtime}
+                        onChange={handleRealtimeChange}
+                      />
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        variant="outlined"
+                        color="primary"
+                        onClick={handleNewContent}
+                      >
+                        <TextComp term={i18nHelper.previewButton} />
+                      </Button>
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        variant="outlined"
+                        color="secondary"
+                        onClick={handlePublishChange}
+                      >
+                        <TextComp term={i18nHelper.publishButton} />
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </Collapse>
+              </Grid>
             </Grid>
-          </Grid>
-        </Paper>
-      </Grow>
+          </Paper>
+        </Grow>
+        <Dialog
+          open={dialog}
+          onConfirm={handleDeleteFloor}
+          onCancel={() => setDialog(false)}
+          content={<TextComp term={i18nHelper.deleteFloorHint} />}
+        />
+      </>
     );
   },
 );

@@ -3,6 +3,7 @@ import { checkoutDocEpic } from "./checkoutDoc";
 import { changeTitleEpic } from "./changeTitle";
 import { appendFloorEpic } from "./appendFloor";
 import { changeFloorEpic } from "./changeFloor";
+import { deleteFloorEpic } from "./deleteFloor";
 
 export default [
   getCommentEpic,
@@ -10,4 +11,5 @@ export default [
   changeTitleEpic,
   appendFloorEpic,
   changeFloorEpic,
+  deleteFloorEpic,
 ];
