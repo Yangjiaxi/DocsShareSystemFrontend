@@ -263,11 +263,6 @@ export const toggleViewingDrawer = id => ({
   id,
 });
 
-export const ADD_FLOOR = "ADD_FLOOR";
-export const addFloor = () => ({
-  type: ADD_FLOOR,
-});
-
 // [SOCKET]
 export const SOCKET_START = "SOCKET_START";
 export const socketStart = id => ({
@@ -285,4 +280,32 @@ export const CHANGE_TITLE_FINISH = "CHANGE_TITLE_FINISH";
 export const changeTitleFinish = title => ({
   type: CHANGE_TITLE_FINISH,
   title,
+});
+
+export const APPEND_FLOOR_START = "APPEND_FLOOR_START";
+export const appendFloorStart = () => ({
+  type: APPEND_FLOOR_START,
+});
+
+export const APPEND_FLOOR_FINISH = "APPEND_FLOOR_FINISH";
+export const appendFloorFinish = (id, time, content) => ({
+  type: APPEND_FLOOR_FINISH,
+  id,
+  time,
+  content,
+});
+
+export const CHANGE_FLOOR_START = "CHANGE_FLOOR_START";
+export const changeFloorStart = (content, floorID) => ({
+  type: CHANGE_FLOOR_START,
+  content,
+  floorID,
+});
+
+export const CHANGE_FLOOR_FINISH = "CHANGE_FLOOR_FINISH";
+export const changeFloorFinish = (id, time, content) => ({
+  type: CHANGE_FLOOR_FINISH,
+  id,
+  time,
+  content,
 });

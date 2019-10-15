@@ -26,16 +26,6 @@ const init = {
 
 export const contentReducer = (state = init, action) => {
   switch (action.type) {
-    case actions.ADD_FLOOR:
-      const newFloor = {
-        id: null,
-        content: "",
-        time: null,
-        needFetch: false,
-        comments: null,
-        commentsCount: 0,
-      };
-      return { ...state, contents: [...state.contents, newFloor] };
     case actions.CHECKOUT_CONTENT_FINISH:
       const { contents, ...rests } = action;
       return {
@@ -65,6 +55,30 @@ export const contentReducer = (state = init, action) => {
     // socket:
     case actions.CHANGE_TITLE_FINISH:
       return { ...state, title: action.title };
+    case actions.APPEND_FLOOR_FINISH:
+      const newFloor = {
+        id: action.id,
+        time: action.time,
+        content: action.content,
+        needFetch: true,
+        comments: null,
+        commentsCount: 0,
+      };
+      return { ...state, contents: [...state.contents, newFloor] };
+    case actions.CHANGE_FLOOR_FINISH:
+      return {
+        ...state,
+        contents: state.contents.map(ele =>
+          ele.id === action.id
+            ? {
+                ...ele,
+                content: action.content,
+                time: action.time,
+              }
+            : ele,
+        ),
+      };
+    // side work
     case actions.EXIT_DOC_VIEWING:
       return init;
     default:

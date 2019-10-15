@@ -1,7 +1,11 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { getCommentStart, toggleViewingDrawer } from "../../redux/actions";
+import {
+  getCommentStart,
+  toggleViewingDrawer,
+  changeFloorStart,
+} from "../../redux/actions";
 
 import ContentCell from "./component";
 
@@ -18,6 +22,7 @@ const mapDispatchToProps = dispatch =>
     {
       openComment: getCommentStart,
       toggleViewingDrawer,
+      changeFloor: changeFloorStart,
     },
     dispatch,
   );

@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { addFloor } from "../../redux/actions";
+import { appendFloorStart } from "../../redux/actions";
 
 import ContentFloors from "./component";
 
@@ -11,7 +11,7 @@ const mapStateToProps = ({ content: { contents, isOwned } }) => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ addFloor }, dispatch);
+  bindActionCreators({ addFloor: appendFloorStart }, dispatch);
 
 export default connect(
   mapStateToProps,

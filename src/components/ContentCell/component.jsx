@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useState, useEffect } from "react";
 
 import "moment/min/locales";
 import moment from "moment";
@@ -38,15 +38,20 @@ const ContentCell = memo(
     openComment,
     toggleViewingDrawer,
     isOwned,
+    changeFloor,
   }) => {
     const classes = useStyles();
-    // id === null 意味着这是新建的cell，也就是，需要立刻编辑的cell
-    const [openEditor, setOpenEditor] = useState(id === null);
+    const [openEditor, setOpenEditor] = useState(false);
     const [newContent, setNewContent] = useState(content);
     const [renderContent, setRenderContent] = useState(content);
     const [realtime, toggleRealtime] = useState(false);
 
     moment.locale(languageName);
+
+    useEffect(() => {
+      setRenderContent(content);
+      setNewContent(content);
+    }, [content]);
 
     const handleOpenComment = () => {
       toggleViewingDrawer(id);
@@ -70,6 +75,10 @@ const ContentCell = memo(
       toggleRealtime(!realtime);
     };
 
+    const handlePublishChange = () => {
+      changeFloor(newContent, id);
+    };
+
     return (
       <Grow in style={{ transformOrigin: "top center" }}>
         <Paper className={classes.cell}>
@@ -82,7 +91,7 @@ const ContentCell = memo(
               alignItems="center"
               spacing={2}
             >
-              {(content !== newContent || id === null) && (
+              {content !== newContent && (
                 <Tooltip title={<TextComp term={i18nHelper.soonSaveHint} />}>
                   <Grid item>
                     <Chip
@@ -175,7 +184,11 @@ const ContentCell = memo(
                     </Button>
                   </Grid>
                   <Grid item>
-                    <Button variant="outlined" color="secondary">
+                    <Button
+                      variant="outlined"
+                      color="secondary"
+                      onClick={handlePublishChange}
+                    >
                       <TextComp term={i18nHelper.publishButton} />
                     </Button>
                   </Grid>
