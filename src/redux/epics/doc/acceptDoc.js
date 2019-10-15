@@ -31,7 +31,6 @@ export const acceptDocEpic = action$ =>
         .pipe(
           mergeMap(res => {
             if (res.type === "success") {
-              // console.log(res);
               return of(
                 acceptDocFinish(),
                 shouldUpdateRecent(),

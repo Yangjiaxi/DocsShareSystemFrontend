@@ -7,7 +7,6 @@ import ContentCell from "../ContentCell";
 
 const ContentFloors = memo(({ contents, isOwned, addFloor }) => {
   const handleAddFloor = () => {
-    console.log("new");
     addFloor();
   };
   return (

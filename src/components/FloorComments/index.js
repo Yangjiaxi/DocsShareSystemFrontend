@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { toggleViewingDrawer } from "../../redux/actions";
+import { toggleViewingDrawer, addCommentStart } from "../../redux/actions";
 
 import FloorComments from "./component";
 
@@ -18,7 +18,10 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ toggleViewingDrawer }, dispatch);
+  bindActionCreators(
+    { toggleViewingDrawer, addComment: addCommentStart },
+    dispatch,
+  );
 
 export default connect(
   mapStateToProps,

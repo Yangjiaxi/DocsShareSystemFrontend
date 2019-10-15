@@ -41,6 +41,7 @@ const ContentCell = memo(
     isOwned,
     changeFloor,
     deleteFloor,
+    viewingFloor,
   }) => {
     const classes = useStyles();
     const [openEditor, setOpenEditor] = useState(false);
@@ -55,6 +56,13 @@ const ContentCell = memo(
       setRenderContent(content);
       setNewContent(content);
     }, [content]);
+
+    useEffect(() => {
+      if (needFetch && id === viewingFloor) {
+        openComment(id);
+      }
+      // eslint-disable-next-line
+    }, [needFetch]);
 
     const handleOpenComment = () => {
       toggleViewingDrawer(id);

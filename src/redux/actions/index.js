@@ -321,3 +321,16 @@ export const deleteFloorFinish = id => ({
   type: DELETE_FLOOR_FINISH,
   id,
 });
+
+export const ADD_COMMENT_START = "ADD_COMMENT_START";
+export const addCommentStart = (floorID, content) => ({
+  type: ADD_COMMENT_START,
+  floorID,
+  content,
+});
+
+export const ADD_COMMENT_FINISH = "ADD_COMMENT_FINISH";
+export const addCommentFinish = floorID => ({
+  type: ADD_COMMENT_FINISH,
+  floorID,
+});

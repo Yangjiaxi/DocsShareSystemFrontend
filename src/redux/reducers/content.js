@@ -83,6 +83,19 @@ export const contentReducer = (state = init, action) => {
         ...state,
         contents: state.contents.filter(({ id }) => id !== action.id),
       };
+    case actions.ADD_COMMENT_FINISH:
+      return {
+        ...state,
+        contents: state.contents.map(ele =>
+          ele.id === action.floorID
+            ? {
+                ...ele,
+                needFetch: true,
+                commentsCount: ele.commentsCount + 1,
+              }
+            : ele,
+        ),
+      };
     // side work
     case actions.EXIT_DOC_VIEWING:
       return init;

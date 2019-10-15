@@ -4,6 +4,7 @@ import { changeTitleEpic } from "./changeTitle";
 import { appendFloorEpic } from "./appendFloor";
 import { changeFloorEpic } from "./changeFloor";
 import { deleteFloorEpic } from "./deleteFloor";
+import { addCommentEpic } from "./addComment";
 
 export default [
   getCommentEpic,
@@ -12,4 +13,5 @@ export default [
   appendFloorEpic,
   changeFloorEpic,
   deleteFloorEpic,
+  addCommentEpic,
 ];

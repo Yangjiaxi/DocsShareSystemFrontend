@@ -38,9 +38,6 @@ const Doc = memo(
     isLoading,
     toggleSlider,
   }) => {
-    // if (docID) console.log(docID);
-    // console.log(rest);
-
     const classes = useStyles();
 
     useEffect(() => {

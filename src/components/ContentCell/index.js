@@ -12,10 +12,11 @@ import ContentCell from "./component";
 
 const mapStateToProps = ({
   component: { languageName },
-  content: { isOwned },
+  content: { isOwned, viewingFloor },
 }) => ({
   languageName,
   isOwned,
+  viewingFloor,
 });
 
 const mapDispatchToProps = dispatch =>
