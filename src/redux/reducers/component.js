@@ -27,8 +27,10 @@ export function componentReducer(state = init, action) {
     case actions.DETECT_WIDTH:
       return { ...state, isMobile: action.isMobile };
     case actions.TOGGLE_SLIDER:
-      const { drawerOpen } = state;
-      return { ...state, drawerOpen: !drawerOpen };
+      return {
+        ...state,
+        drawerOpen: action.target === null ? !state.drawerOpen : action.target,
+      };
     case actions.CHANGE_BROWSER_PATH:
       return { ...state, pageName: action.pageName };
     case actions.CHANGE_THEME_MODE:

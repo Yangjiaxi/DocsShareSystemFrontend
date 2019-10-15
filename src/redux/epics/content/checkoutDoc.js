@@ -9,6 +9,7 @@ import {
   CHECKOUT_CONTENT_START,
   toggleProgress,
   checkoutContentFinish,
+  socketStart,
 } from "../../actions";
 
 import { API } from "../../const";
@@ -30,6 +31,7 @@ export const checkoutDocEpic = action$ =>
               const { contents, id: docID, time, title, isOwned } = res;
               return of(
                 checkoutContentFinish(docID, title, time, contents, isOwned),
+                socketStart(docID),
               );
             }
             throw customError(res);

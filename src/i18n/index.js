@@ -36,6 +36,8 @@ export const i18nHelper = {
   NO_SUCH_DOC: "NO_SUCH_DOC",
   // (delete)
   ALREADY_DELETED: "ALREADY_DELETED",
+  // (changeTitle)
+  TITLE_ZERO_LENGTH: "TITLE_ZERO_LENGTH",
   // --------------------------
   // [Login] | [Register]
   login: "login",
@@ -99,6 +101,8 @@ export const i18nHelper = {
   soonSaveHint: "soonSaveHint",
   // [FloorComments]
   sendButton: "sendButton",
+  // [ContentTitle]:
+  contentTitle: "contentTitle",
 };
 
 export const languageList = {

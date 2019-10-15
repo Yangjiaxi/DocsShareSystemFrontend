@@ -77,8 +77,9 @@ export const changeBrowserPath = pageName => ({
 });
 
 export const TOGGLE_SLIDER = "TOGGLE_SLIDER";
-export const toggleSlider = () => ({
+export const toggleSlider = (target = null) => ({
   type: TOGGLE_SLIDER,
+  target,
 });
 
 export const DETECT_WIDTH = "DETECT_WIDTH";
@@ -265,4 +266,23 @@ export const toggleViewingDrawer = id => ({
 export const ADD_FLOOR = "ADD_FLOOR";
 export const addFloor = () => ({
   type: ADD_FLOOR,
+});
+
+// [SOCKET]
+export const SOCKET_START = "SOCKET_START";
+export const socketStart = id => ({
+  type: SOCKET_START,
+  id,
+});
+
+export const CHANGE_TITLE_START = "CHANGE_TITLE_START";
+export const changeTitleStart = title => ({
+  type: CHANGE_TITLE_START,
+  title,
+});
+
+export const CHANGE_TITLE_FINISH = "CHANGE_TITLE_FINISH";
+export const changeTitleFinish = title => ({
+  type: CHANGE_TITLE_FINISH,
+  title,
 });

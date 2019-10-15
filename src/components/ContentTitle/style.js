@@ -1,9 +1,9 @@
 import { createStyles, makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles(({ spacing }) =>
+const useStyles = makeStyles(() =>
   createStyles({
-    root: {
-      paddingBottom: spacing(30),
+    input: {
+      fontSize: "2.5em",
     },
   }),
 );

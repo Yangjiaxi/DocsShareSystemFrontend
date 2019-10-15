@@ -106,7 +106,7 @@ const Slider = memo(
         classes={{ paper: classes.drawerPaper }}
         {...makeDrawerStyle()}
         open={open}
-        onClose={toggleSlider}
+        onClose={() => toggleSlider()}
       >
         <List>
           {!isMobile && !isViewingDocs && <div className={classes.toolbar} />}

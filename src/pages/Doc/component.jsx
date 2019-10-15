@@ -36,6 +36,7 @@ const Doc = memo(
     checkoutContent,
     cleanUp,
     isLoading,
+    toggleSlider,
   }) => {
     // if (docID) console.log(docID);
     // console.log(rest);
@@ -44,7 +45,8 @@ const Doc = memo(
 
     useEffect(() => {
       changeBrowserPath(i18nHelper.DOC_PAGE);
-    }, [changeBrowserPath]);
+      toggleSlider(false);
+    }, [changeBrowserPath, toggleSlider]);
 
     useEffect(() => {
       viewDocs(true);

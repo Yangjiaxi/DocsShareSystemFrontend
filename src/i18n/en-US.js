@@ -26,6 +26,8 @@ export const americanEnglish = {
     NO_SUCH_DOC: "Invalid document ID.",
     // (delete)
     ALREADY_DELETED: "This document has already been deleted.",
+    // (changeTitle)
+    TITLE_ZERO_LENGTH: "Title can't be empty.",
   },
   Login: {
     login: "Sign in",
@@ -97,6 +99,9 @@ export const americanEnglish = {
   },
   FloorComments: {
     sendButton: "SEND",
+  },
+  ContentTitle: {
+    contentTitle: "Title",
   },
 };
 

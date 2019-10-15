@@ -70,7 +70,7 @@ const Bar = memo(
         <AppBar position="fixed" className={classes.appBar}>
           <Toolbar disableGutters={!isMobile && isViewingDocs}>
             {isViewingDocs && !isMobile && (
-              <IconButton color="inherit" onClick={toggleSlider}>
+              <IconButton color="inherit" onClick={() => toggleSlider()}>
                 <MenuIcon />
               </IconButton>
             )}

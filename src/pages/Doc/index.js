@@ -7,12 +7,13 @@ import {
   acceptDocStart,
   checkoutContentStart,
   exitDocViewing,
+  toggleSlider,
 } from "../../redux/actions";
 
 import Doc from "./component";
 
-const mapStateToProps = ({ content: { title } }) => ({
-  isLoading: !title,
+const mapStateToProps = ({ content: { id } }) => ({
+  isLoading: !id,
 });
 
 const mapDispatchToProps = dispatch =>
@@ -23,6 +24,7 @@ const mapDispatchToProps = dispatch =>
       acceptDoc: acceptDocStart,
       checkoutContent: checkoutContentStart,
       cleanUp: exitDocViewing,
+      toggleSlider,
     },
     dispatch,
   );

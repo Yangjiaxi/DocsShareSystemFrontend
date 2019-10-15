@@ -1,15 +1,22 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import {} from "../../redux/actions";
+import { changeTitleStart } from "../../redux/actions";
 
 import ContentTitle from "./component";
 
-const mapStateToProps = ({ content: { title } }) => ({
+const mapStateToProps = ({ content: { title, isOwned } }) => ({
+  isOwned,
   title,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      changeTitle: changeTitleStart,
+    },
+    dispatch,
+  );
 
 export default connect(
   mapStateToProps,

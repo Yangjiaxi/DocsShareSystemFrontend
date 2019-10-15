@@ -15,6 +15,9 @@ const useStyles = makeStyles(({ spacing }) =>
       width: "100%",
       overflowX: "scroll",
     },
+    input: {
+      fontFamily: "monospace",
+    },
   }),
 );
 

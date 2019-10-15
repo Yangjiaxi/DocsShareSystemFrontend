@@ -151,6 +151,11 @@ const ContentCell = memo(
                   variant="outlined"
                   multiline
                   onChange={handleChange}
+                  InputProps={{
+                    classes: {
+                      input: classes.input,
+                    },
+                  }}
                 />
                 <Grid container justify="flex-end" spacing={2}>
                   <Grid item>

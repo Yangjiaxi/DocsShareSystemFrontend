@@ -62,6 +62,9 @@ export const contentReducer = (state = init, action) => {
       };
     case actions.TOGGLE_VIEWING_DRAWER:
       return { ...state, viewingFloor: action.id };
+    // socket:
+    case actions.CHANGE_TITLE_FINISH:
+      return { ...state, title: action.title };
     case actions.EXIT_DOC_VIEWING:
       return init;
     default:

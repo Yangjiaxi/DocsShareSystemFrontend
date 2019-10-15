@@ -24,7 +24,11 @@ const Frame = memo(
     const MobileFab = () => (
       <>
         {isMobile && (
-          <Fab className={classes.fab} color="primary" onClick={toggleSlider}>
+          <Fab
+            className={classes.fab}
+            color="primary"
+            onClick={() => toggleSlider()}
+          >
             <MenuIcon />
           </Fab>
         )}

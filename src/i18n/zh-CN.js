@@ -26,6 +26,7 @@ export const simplifiedChinese = {
     NO_SUCH_DOC: "不合法的文档ID",
     // (delete)
     ALREADY_DELETED: "文档已被删除",
+    TITLE_ZERO_LENGTH: "文档名不能为空",
   },
   Login: {
     login: "登录",
@@ -96,6 +97,9 @@ export const simplifiedChinese = {
   },
   FloorComments: {
     sendButton: "发送",
+  },
+  ContentTitle: {
+    contentTitle: "文档标题",
   },
 };
 
