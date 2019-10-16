@@ -10,17 +10,30 @@ import { ThumbUpOutlined, ThumbDownOutlined, Person } from "@material-ui/icons";
 import useStyles from "./style";
 
 const CommentBubble = memo(
-  ({ comment, time, username, voteDown, voteUp, isSelf, languageName, id }) => {
+  ({
+    comment,
+    time,
+    username,
+    voteDown,
+    voteUp,
+    isSelf,
+    languageName,
+    id,
+    voteComment,
+    viewingFloor,
+  }) => {
     const classes = useStyles();
 
     moment.locale(languageName);
 
     const handleVoteUp = () => {
       console.log("Up", id);
+      voteComment(viewingFloor, id, "UP");
     };
 
     const handleVoteDown = () => {
       console.log("Down", id);
+      voteComment(viewingFloor, id, "DOWN");
     };
 
     const voteUpComp = (

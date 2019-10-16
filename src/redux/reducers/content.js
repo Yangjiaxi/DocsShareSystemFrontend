@@ -105,6 +105,18 @@ export const contentReducer = (state = init, action) => {
             : ele,
         ),
       };
+    case actions.VOTE_COMMENT_FINISH:
+      return {
+        ...state,
+        contents: state.contents.map(ele =>
+          ele.id === action.floorID
+            ? {
+                ...ele,
+                needUpdate: true,
+              }
+            : ele,
+        ),
+      };
     // side work
     case actions.EXIT_DOC_VIEWING:
       return init;

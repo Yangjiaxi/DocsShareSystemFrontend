@@ -334,3 +334,17 @@ export const addCommentFinish = floorID => ({
   type: ADD_COMMENT_FINISH,
   floorID,
 });
+
+export const VOTE_COMMENT_START = "VOTE_COMMENT_START";
+export const voteCommentStart = (floorID, commentID, vote) => ({
+  type: VOTE_COMMENT_START,
+  floorID,
+  commentID,
+  vote,
+});
+
+export const VOTE_COMMENT_FINISH = "VOTE_COMMENT_FINISH";
+export const voteCommentFinish = floorID => ({
+  type: VOTE_COMMENT_FINISH,
+  floorID,
+});

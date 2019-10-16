@@ -5,6 +5,7 @@ import { appendFloorEpic } from "./appendFloor";
 import { changeFloorEpic } from "./changeFloor";
 import { deleteFloorEpic } from "./deleteFloor";
 import { addCommentEpic } from "./addComment";
+import { voteCommentEpic } from "./voteComment";
 
 export default [
   getCommentEpic,
@@ -14,4 +15,5 @@ export default [
   changeFloorEpic,
   deleteFloorEpic,
   addCommentEpic,
+  voteCommentEpic,
 ];
