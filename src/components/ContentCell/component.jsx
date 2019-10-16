@@ -16,9 +16,10 @@ import {
   Tooltip,
   Grow,
   Badge,
+  IconButton,
 } from "@material-ui/core";
 
-import { Save } from "@material-ui/icons";
+import { Save, ArrowUpward, ArrowDownward } from "@material-ui/icons";
 
 import Markdown from "../Markdown";
 import Dialog from "../Dialog";
@@ -44,6 +45,10 @@ const ContentCell = memo(
     changeFloor,
     deleteFloor,
     viewingFloor,
+    floor,
+    isTop,
+    isBottom,
+    moveFloor,
   }) => {
     const classes = useStyles();
     const [openEditor, setOpenEditor] = useState(false);
@@ -97,6 +102,14 @@ const ContentCell = memo(
       setDialog(false);
     };
 
+    const handleMoveFloorUp = () => {
+      moveFloor(floor, floor - 1);
+    };
+
+    const handleMoveFloorDown = () => {
+      moveFloor(floor, floor + 1);
+    };
+
     const warpWithDot = comp =>
       needUpdate ? (
         <Badge color="secondary" variant="dot">
@@ -119,6 +132,25 @@ const ContentCell = memo(
                 alignItems="center"
                 spacing={2}
               >
+                <Grid item className={classes.floorTextWrapper}>
+                  <Typography className={classes.floorText}>
+                    {`#${floor}`}
+                  </Typography>
+                </Grid>
+                {isOwned && (
+                  <Grid item>
+                    {!isTop && (
+                      <IconButton onClick={handleMoveFloorUp}>
+                        <ArrowUpward />
+                      </IconButton>
+                    )}
+                    {!isBottom && (
+                      <IconButton onClick={handleMoveFloorDown}>
+                        <ArrowDownward />
+                      </IconButton>
+                    )}
+                  </Grid>
+                )}
                 {content !== newContent && (
                   <Tooltip title={<TextComp term={i18nHelper.soonSaveHint} />}>
                     <Grid item>

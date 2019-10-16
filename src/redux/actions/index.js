@@ -322,6 +322,20 @@ export const deleteFloorFinish = id => ({
   id,
 });
 
+export const MOVE_FLOOR_START = "MOVE_FLOOR_START";
+export const moveFloorStart = (from, to) => ({
+  type: MOVE_FLOOR_START,
+  from,
+  to,
+});
+
+export const MOVE_FLOOR_FINISH = "MOVE_FLOOR_FINISH";
+export const moveFloorFinish = (from, to) => ({
+  type: MOVE_FLOOR_FINISH,
+  from,
+  to,
+});
+
 export const ADD_COMMENT_START = "ADD_COMMENT_START";
 export const addCommentStart = (floorID, content) => ({
   type: ADD_COMMENT_START,

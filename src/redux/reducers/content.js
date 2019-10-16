@@ -1,4 +1,5 @@
 import * as actions from "../actions";
+import { move } from "../../utils";
 
 const init = {
   id: null,
@@ -116,6 +117,11 @@ export const contentReducer = (state = init, action) => {
               }
             : ele,
         ),
+      };
+    case actions.MOVE_FLOOR_FINISH:
+      return {
+        ...state,
+        contents: move(state.contents, action.from, action.to),
       };
     // side work
     case actions.EXIT_DOC_VIEWING:

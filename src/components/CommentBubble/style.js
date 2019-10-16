@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles(({ palette, spacing }) =>
+const useStyles = makeStyles(({ spacing }) =>
   createStyles({
     root: {
       margin: spacing(0, 2, 2),

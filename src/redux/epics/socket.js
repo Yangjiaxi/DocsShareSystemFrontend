@@ -12,6 +12,7 @@ import {
   deleteFloorFinish,
   addCommentFinish,
   voteCommentFinish,
+  moveFloorFinish,
 } from "../actions";
 
 import { API } from "../const";
@@ -79,6 +80,17 @@ const socketReceiveEpic = (action$, state$, { socket$ }) =>
               o.next(toggleProgress());
             });
             socket.on("deleteFloorError", res => {
+              const { message, type } = res;
+              o.next(enqueueSnackbar(message, { variant: type || "error" }));
+              o.next(toggleProgress());
+            });
+            // move floor
+            socket.on("moveFloor", ({ from, to }) => {
+              o.next(toggleProgress(true));
+              o.next(moveFloorFinish(from, to));
+              o.next(toggleProgress());
+            });
+            socket.on("moveFloorError", res => {
               const { message, type } = res;
               o.next(enqueueSnackbar(message, { variant: type || "error" }));
               o.next(toggleProgress());

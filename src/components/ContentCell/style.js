@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles(({ spacing }) =>
+const useStyles = makeStyles(({ spacing, palette }) =>
   createStyles({
     cell: {
       margin: `${spacing(2)}px auto`,
@@ -17,6 +17,13 @@ const useStyles = makeStyles(({ spacing }) =>
     },
     input: {
       fontFamily: "monospace",
+    },
+    floorTextWrapper: {
+      marginRight: "auto",
+    },
+    floorText: {
+      fontSize: "1.75em",
+      color: palette.grey[500],
     },
   }),
 );

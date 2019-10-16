@@ -6,6 +6,7 @@ import {
   toggleViewingDrawer,
   changeFloorStart,
   deleteFloorStart,
+  moveFloorStart,
 } from "../../redux/actions";
 
 import ContentCell from "./component";
@@ -26,6 +27,7 @@ const mapDispatchToProps = dispatch =>
       toggleViewingDrawer,
       changeFloor: changeFloorStart,
       deleteFloor: deleteFloorStart,
+      moveFloor: moveFloorStart,
     },
     dispatch,
   );
