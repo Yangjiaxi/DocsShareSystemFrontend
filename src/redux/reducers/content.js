@@ -13,6 +13,7 @@ const init = {
       id: ObjectId
       time: Number // time when floor last modify
       !!! needFetch: Bool (true -> false) !!!
+      needUpdate: Bool,
       comments: [{
         content: String,
         time: Number, // time then this comment added
@@ -36,6 +37,7 @@ export const contentReducer = (state = init, action) => {
             content,
             time: contentTime,
             needFetch: true,
+            needUpdate: false,
             comments: null,
             commentsCount: comments.length,
           }),
@@ -46,7 +48,12 @@ export const contentReducer = (state = init, action) => {
         ...state,
         contents: state.contents.map(ele =>
           ele.id === action.id
-            ? { ...ele, comments: action.comments, needFetch: false }
+            ? {
+                ...ele,
+                comments: action.comments,
+                needFetch: false,
+                needUpdate: false,
+              }
             : ele,
         ),
       };
@@ -61,6 +68,7 @@ export const contentReducer = (state = init, action) => {
         time: action.time,
         content: action.content,
         needFetch: true,
+        needUpdate: false,
         comments: null,
         commentsCount: 0,
       };
@@ -91,6 +99,7 @@ export const contentReducer = (state = init, action) => {
             ? {
                 ...ele,
                 needFetch: true,
+                needUpdate: true,
                 commentsCount: ele.commentsCount + 1,
               }
             : ele,

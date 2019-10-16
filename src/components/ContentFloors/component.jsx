@@ -12,12 +12,16 @@ const ContentFloors = memo(({ contents, isOwned, addFloor }) => {
   return (
     <>
       {contents.map(
-        ({ content, id, needFetch, time, commentsCount }, index) => (
+        (
+          { content, id, needFetch, needUpdate, time, commentsCount },
+          index,
+        ) => (
           <ContentCell
             key={index}
             content={content}
             id={id}
             needFetch={needFetch}
+            needUpdate={needUpdate}
             time={time}
             commentsCount={commentsCount}
           />

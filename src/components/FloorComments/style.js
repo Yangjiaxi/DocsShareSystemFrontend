@@ -10,10 +10,12 @@ const useStyles = makeStyles(({ spacing, breakpoints, palette }) =>
       [breakpoints.down("xs")]: {
         width: "100%",
       },
+      display: "block",
     },
     drawer: {
       width: drawerWidth,
       flexShrink: 0,
+      display: "block",
     },
     closeButton: {
       position: "absolute",
@@ -21,9 +23,9 @@ const useStyles = makeStyles(({ spacing, breakpoints, palette }) =>
       top: spacing(1),
     },
     send: {
-      width: "100%",
       position: "sticky",
       bottom: 0,
+      width: "100%",
       padding: spacing(1),
       backgroundColor: palette.background.paper,
     },

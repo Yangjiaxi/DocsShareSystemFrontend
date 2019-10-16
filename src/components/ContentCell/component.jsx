@@ -15,6 +15,7 @@ import {
   Switch,
   Tooltip,
   Grow,
+  Badge,
 } from "@material-ui/core";
 
 import { Save } from "@material-ui/icons";
@@ -33,6 +34,7 @@ const ContentCell = memo(
     content,
     id,
     needFetch,
+    needUpdate,
     time,
     languageName,
     commentsCount,
@@ -58,11 +60,11 @@ const ContentCell = memo(
     }, [content]);
 
     useEffect(() => {
-      if (needFetch && id === viewingFloor) {
+      if ((needFetch || needUpdate) && id === viewingFloor) {
         openComment(id);
       }
       // eslint-disable-next-line
-    }, [needFetch]);
+    }, [needFetch, needUpdate]);
 
     const handleOpenComment = () => {
       toggleViewingDrawer(id);
@@ -95,6 +97,15 @@ const ContentCell = memo(
       setDialog(false);
     };
 
+    const warpWithDot = comp =>
+      needUpdate ? (
+        <Badge color="secondary" variant="dot">
+          {comp}
+        </Badge>
+      ) : (
+        <>{comp}</>
+      );
+
     return (
       <>
         <Grow in style={{ transformOrigin: "top center" }}>
@@ -121,15 +132,17 @@ const ContentCell = memo(
                   </Tooltip>
                 )}
                 <Grid item>
-                  <Button
-                    variant="outlined"
-                    size="small"
-                    color="primary"
-                    onClick={handleOpenComment}
-                  >
-                    <TextComp term={i18nHelper.commentsCount} />
-                    {commentsCount}
-                  </Button>
+                  {warpWithDot(
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      color="primary"
+                      onClick={handleOpenComment}
+                    >
+                      <TextComp term={i18nHelper.commentsCount} />
+                      {commentsCount}
+                    </Button>,
+                  )}
                 </Grid>
                 {isOwned && (
                   <>
