@@ -8,6 +8,9 @@ export const americanEnglish = {
     loginSuccess: "Login Success",
     registerSuccess: "Register Success",
     errorPrefix: "ERROR: ",
+    socketConnected: "Collaborative Server Connected.",
+    disconnected: "Disconnected from server.",
+    reconnectAttempt: "Reconnecting...",
     // [JWT]
     NO_JWT: "No Token Provided",
     INVALID_JWT: "Token Expired",

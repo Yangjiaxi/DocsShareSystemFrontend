@@ -8,6 +8,9 @@ export const simplifiedChinese = {
     loginSuccess: "登陆成功",
     registerSuccess: "注册成功",
     errorPrefix: "错误：",
+    socketConnected: "服务器连接成功",
+    disconnected: "与服务器断开连接",
+    reconnectAttempt: "尝试重连...",
     // [JWT]
     NO_JWT: "没有提供身份验证",
     INVALID_JWT: "身份验证已过期",

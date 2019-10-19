@@ -15,6 +15,9 @@ export const i18nHelper = {
   errorPrefix: "errorPrefix",
   registerUsernameHint: "registerUsernameHint",
   registerEmailHint: "registerEmailHint",
+  socketConnected: "socketConnected",
+  disconnected: "disconnected",
+  reconnectAttempt: "reconnectAttempt",
   // --------------------------
   // [common]
   NO_SUCH_PATH: "NO_SUCH_PATH",

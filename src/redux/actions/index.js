@@ -270,6 +270,11 @@ export const socketStart = id => ({
   id,
 });
 
+export const SOCKET_END = "SOCKET_END";
+export const socketEnd = () => ({
+  type: SOCKET_END,
+});
+
 export const CHANGE_TITLE_START = "CHANGE_TITLE_START";
 export const changeTitleStart = title => ({
   type: CHANGE_TITLE_START,

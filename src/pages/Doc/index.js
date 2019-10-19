@@ -8,6 +8,7 @@ import {
   checkoutContentStart,
   exitDocViewing,
   toggleSlider,
+  socketEnd,
 } from "../../redux/actions";
 
 import Doc from "./component";
@@ -19,6 +20,7 @@ const mapStateToProps = ({ content: { id } }) => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
+      socketEnd,
       changeBrowserPath,
       viewDocs,
       acceptDoc: acceptDocStart,

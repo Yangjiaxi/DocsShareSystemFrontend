@@ -11,13 +11,11 @@ import {
   acceptDocFinish,
   shouldUpdateRecent,
   shouldUpdateShared,
-  enqueueSnackbar,
 } from "../../actions";
 
 import { API } from "../../const";
 
 import { checkToken, customError, errHandler } from "..";
-import { i18nHelper } from "../../../i18n";
 
 export const acceptDocEpic = action$ =>
   action$.pipe(
@@ -35,7 +33,6 @@ export const acceptDocEpic = action$ =>
                 acceptDocFinish(),
                 shouldUpdateRecent(),
                 shouldUpdateShared(),
-                enqueueSnackbar(i18nHelper.acceptSuccess, { variant: "info" }),
               );
             }
             throw customError(res);

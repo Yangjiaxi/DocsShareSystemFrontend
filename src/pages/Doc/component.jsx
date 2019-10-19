@@ -37,6 +37,7 @@ const Doc = memo(
     cleanUp,
     isLoading,
     toggleSlider,
+    socketEnd,
   }) => {
     const classes = useStyles();
 
@@ -63,8 +64,9 @@ const Doc = memo(
       checkoutContent(docID);
       return () => {
         cleanUp();
+        socketEnd();
       };
-    }, [docID, acceptDoc, checkoutContent, cleanUp]);
+    }, [docID, acceptDoc, checkoutContent, cleanUp, socketEnd]);
 
     if (isLoading) {
       return <Loading />;
