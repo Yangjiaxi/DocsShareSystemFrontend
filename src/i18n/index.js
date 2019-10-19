@@ -119,6 +119,18 @@ export const i18nHelper = {
   oldPassword: "oldPassword",
   newPassword: "newPassword",
   confirmNew: "confirmNew",
+  // [NoMatch]
+  noMatchTitle: "noMatchTitle",
+  noMatchT1: "noMatchT1",
+  noMatchT2: "noMatchT2",
+  noMatchT3: "noMatchT3",
+  noMatchT4: "noMatchT4",
+  noMatchT5: "noMatchT5",
+  // [About]
+  aboutTitle: "aboutTitle",
+  aboutMe: "aboutMe",
+  aboutTech: "aboutTech",
+  aboutContact: "aboutContact",
 };
 
 export const languageList = {

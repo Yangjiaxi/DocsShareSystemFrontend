@@ -120,6 +120,20 @@ export const americanEnglish = {
     newPassword: "New password",
     confirmNew: "Comfirm new password",
   },
+  NoMatch: {
+    noMatchTitle: "Unrecognizable path, possible reasons:",
+    noMatchT1: "Wrong path presented.",
+    noMatchT2: "Unexpected error happened.",
+    noMatchT3: "...and you can",
+    noMatchT4: "Give me a feedback: 1468764755@qq.com. Thanks!",
+    noMatchT5: "Check the path twice.",
+  },
+  About: {
+    aboutTitle: "ABOUT",
+    aboutMe: "My information",
+    aboutTech: "What technology is used?",
+    aboutContact: "Contact me.",
+  },
 };
 
 export default americanEnglish;

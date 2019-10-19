@@ -3,6 +3,8 @@ import React, { memo, useState } from "react";
 import "moment/min/locales";
 import moment from "moment";
 
+import copy from "copy-to-clipboard";
+
 import Chip from "@material-ui/core/Chip";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
@@ -47,6 +49,8 @@ const DocRow = memo(props => {
 
   const handleClickShare = () => {
     setAnchorDoc(null);
+    const { origin } = window.location;
+    copy(`${origin}/doc/${id}`);
   };
 
   const handleJumpToDoc = () => {

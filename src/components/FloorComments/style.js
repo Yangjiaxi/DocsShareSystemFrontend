@@ -10,15 +10,16 @@ const useStyles = makeStyles(({ spacing, breakpoints, palette }) =>
       [breakpoints.down("xs")]: {
         width: "100%",
       },
-      display: "block",
+      overflowX: "hidden",
+      // display: "block",
     },
     drawer: {
       width: drawerWidth,
       flexShrink: 0,
-      display: "block",
+      // display: "block",
     },
     closeButton: {
-      position: "absolute",
+      position: "fixed",
       right: spacing(1),
       top: spacing(1),
     },

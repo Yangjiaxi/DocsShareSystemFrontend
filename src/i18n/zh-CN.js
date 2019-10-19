@@ -117,6 +117,20 @@ export const simplifiedChinese = {
     newPassword: "新密码",
     confirmNew: "确认新密码",
   },
+  NoMatch: {
+    noMatchTitle: "错误，路径无法识别，这可能是因为：",
+    noMatchT1: "键入了错误的网址",
+    noMatchT2: "出现了意料之外的错误",
+    noMatchT3: "您可以：",
+    noMatchT4: "向我反馈错误：1468764755@qq.com，感谢您的支持",
+    noMatchT5: "再次检查输入的网址",
+  },
+  About: {
+    aboutTitle: "关于",
+    aboutMe: "关于我",
+    aboutTech: "网站用了什么技术？",
+    aboutContact: "与我联系",
+  },
 };
 
 export default simplifiedChinese;
