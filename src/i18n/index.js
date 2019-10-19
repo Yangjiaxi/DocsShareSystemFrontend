@@ -41,6 +41,8 @@ export const i18nHelper = {
   ALREADY_DELETED: "ALREADY_DELETED",
   // (changeTitle)
   TITLE_ZERO_LENGTH: "TITLE_ZERO_LENGTH",
+  // (changePassword)
+  passwordMustSame: "passwordMustSame",
   // --------------------------
   // [Login] | [Register]
   login: "login",
@@ -107,6 +109,16 @@ export const i18nHelper = {
   sendButton: "sendButton",
   // [ContentTitle]:
   contentTitle: "contentTitle",
+  // [MyInfo]:
+  infoUsername: "infoUsername",
+  infoEmail: "infoEmail",
+  infoTime: "infoTime",
+  infoID: "infoID",
+  changePasswordTitle: "changePasswordTitle",
+  changePasswordHint: "changePasswordHint",
+  oldPassword: "oldPassword",
+  newPassword: "newPassword",
+  confirmNew: "confirmNew",
 };
 
 export const languageList = {

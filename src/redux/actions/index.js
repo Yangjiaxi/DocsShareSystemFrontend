@@ -263,6 +263,18 @@ export const toggleViewingDrawer = id => ({
   id,
 });
 
+export const CHANGE_PASSWORD_START = "CHANGE_PASSWORD_START";
+export const changePasswordStart = (oldPassword, newPassword) => ({
+  type: CHANGE_PASSWORD_START,
+  oldPassword,
+  newPassword,
+});
+
+export const CHANGE_PASSWORD_FINISH = "CHANGE_PASSWORD_FINISH";
+export const changePasswordFinish = () => ({
+  type: CHANGE_PASSWORD_FINISH,
+});
+
 // [SOCKET]
 export const SOCKET_START = "SOCKET_START";
 export const socketStart = id => ({

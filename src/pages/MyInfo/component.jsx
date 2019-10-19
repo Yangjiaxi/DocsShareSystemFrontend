@@ -1,9 +1,11 @@
 import React, { memo, useEffect } from "react";
 
-import { Typography } from "@material-ui/core";
-
 import Loading from "../../components/CircularProgress";
+
 import { i18nHelper } from "../../i18n";
+
+import InfoPanel from "../../components/InfoPanel";
+import ChangePassword from "../../components/ChangePassword";
 
 const MyInfo = memo(({ changeBrowserPath, getUserInfo, info }) => {
   useEffect(() => {
@@ -15,10 +17,10 @@ const MyInfo = memo(({ changeBrowserPath, getUserInfo, info }) => {
   if (!info) {
     return <Loading />;
   }
-
   return (
     <>
-      <Typography>{JSON.stringify(info)}</Typography>
+      <InfoPanel info={info} />
+      <ChangePassword />
     </>
   );
 });

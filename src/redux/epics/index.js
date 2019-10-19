@@ -26,6 +26,7 @@ export const checkToken = () => {
 };
 
 export const errHandler = ({ message, type }, customAction) => {
+  console.log(message, type);
   if (customAction) {
     return of(
       toggleProgress(false),

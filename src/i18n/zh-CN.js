@@ -30,6 +30,7 @@ export const simplifiedChinese = {
     // (delete)
     ALREADY_DELETED: "文档已被删除",
     TITLE_ZERO_LENGTH: "文档名不能为空",
+    passwordMustSame: "两次输入必须一致",
   },
   Login: {
     login: "登录",
@@ -104,6 +105,17 @@ export const simplifiedChinese = {
   },
   ContentTitle: {
     contentTitle: "文档标题",
+  },
+  MyInfo: {
+    infoUsername: "用户名",
+    infoEmail: "邮箱地址",
+    infoTime: "加入时间",
+    infoID: "用户ID",
+    changePasswordTitle: "修改密码",
+    changePasswordHint: "推荐定期修改密码",
+    oldPassword: "原密码",
+    newPassword: "新密码",
+    confirmNew: "确认新密码",
   },
 };
 

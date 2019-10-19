@@ -4,6 +4,7 @@ const useStyles = makeStyles(({ spacing, breakpoints, zIndex }) =>
   createStyles({
     root: {
       display: "flex",
+      paddingBottom: spacing(20),
     },
     content: {
       marginTop: spacing(10),

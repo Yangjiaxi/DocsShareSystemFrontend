@@ -31,6 +31,7 @@ export const americanEnglish = {
     ALREADY_DELETED: "This document has already been deleted.",
     // (changeTitle)
     TITLE_ZERO_LENGTH: "Title can't be empty.",
+    passwordMustSame: "Password can't match",
   },
   Login: {
     login: "Sign in",
@@ -107,6 +108,17 @@ export const americanEnglish = {
   },
   ContentTitle: {
     contentTitle: "Title",
+  },
+  MyInfo: {
+    infoUsername: "Username",
+    infoEmail: "E-Mail Address",
+    infoTime: "Join Time",
+    infoID: "Account ID",
+    changePasswordTitle: "Change Password",
+    changePasswordHint: "Change your password regularly is always a good idea.",
+    oldPassword: "Old password",
+    newPassword: "New password",
+    confirmNew: "Comfirm new password",
   },
 };
 
