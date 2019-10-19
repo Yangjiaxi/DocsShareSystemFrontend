@@ -19,7 +19,6 @@ export const changePasswordEpic = action$ =>
     ofType(CHANGE_PASSWORD_START),
     mergeMap(({ oldPassword, newPassword }) => {
       const token = checkToken();
-      console.log(oldPassword, newPassword);
       return ajax
         .put(
           `${API}/user/info`,
@@ -34,7 +33,6 @@ export const changePasswordEpic = action$ =>
         )
         .pipe(
           mergeMap(({ response: res }) => {
-            console.log(res);
             if (res.type === "success") {
               return of(changePasswordFinish(), logout());
             }

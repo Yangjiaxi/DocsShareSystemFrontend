@@ -27,12 +27,10 @@ const CommentBubble = memo(
     moment.locale(languageName);
 
     const handleVoteUp = () => {
-      console.log("Up", id);
       voteComment(viewingFloor, id, "UP");
     };
 
     const handleVoteDown = () => {
-      console.log("Down", id);
       voteComment(viewingFloor, id, "DOWN");
     };
 

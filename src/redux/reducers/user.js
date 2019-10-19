@@ -22,7 +22,7 @@ export const userReducer = (state = init, action) => {
       return { ...state, token };
     case actions.LOGOUT:
       localStorage.removeItem("token");
-      return { ...state, token: "" };
+      return { info: null, token: "" };
     default:
       return state;
   }

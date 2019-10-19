@@ -35,6 +35,8 @@ export const docsReducer = (state = init, action) => {
     case actions.SHOULD_UPDATE_TRASH:
       return { ...state, shouldUpdateTrash: true };
 
+    case actions.LOGOUT:
+      return init;
     default:
       return state;
   }
