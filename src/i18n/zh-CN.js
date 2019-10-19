@@ -1,5 +1,6 @@
 export const simplifiedChinese = {
   Snackbar: {
+    newVersion: "检测到新版本，请退出所有标签页并重新进入以加载新版本（可能要多试几次）",
     acceptSuccess: "正在打开...",
     createDocSuccess: "新建成功",
     restoreSuccess: "文件已恢复",

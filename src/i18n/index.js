@@ -5,6 +5,7 @@ export { TextTermMaker } from "./component";
 
 export const i18nHelper = {
   // [Snackbar]
+  newVersion: "newVersion",
   acceptSuccess: "acceptSuccess",
   createDocSuccess: "createDocSuccess",
   restoreSuccess: "restoreSuccess",

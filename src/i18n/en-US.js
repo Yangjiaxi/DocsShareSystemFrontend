@@ -1,5 +1,6 @@
 export const americanEnglish = {
   Snackbar: {
+    newVersion: "New version detected, reload all related pages to get it.",
     acceptSuccess: "Opening document...",
     createDocSuccess: "Create Success",
     restoreSuccess: "Restore Success",
