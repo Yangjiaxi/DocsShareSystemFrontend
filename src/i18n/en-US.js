@@ -44,6 +44,8 @@ export const americanEnglish = {
     username: "Username",
   },
   AppBar: {
+    LOGIN_PAGE: "Sign in",
+    REGISTER_PAGE: "Sign up",
     INFO_PAGE: "My Profile",
     HOME_PAGE: "Home",
     INIT_PAGE: "Initializing...",
@@ -85,6 +87,7 @@ export const americanEnglish = {
     deleteHint: "Document will be sent to trash.",
     destroyHint:
       "Document will be remove completely, this operation CANNOT undo.",
+    listNoData: "No Data.",
   },
   Dialog: {
     confirmButton: "Confirm",

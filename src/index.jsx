@@ -4,4 +4,4 @@ import App from "./App";
 import { register } from "./registerServiceWorker";
 
 render(<App />, document.getElementById("root"));
-register();
+// register();

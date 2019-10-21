@@ -24,21 +24,23 @@ const MiniFrame = memo(({ children, isLoading, detectWidth }) => {
   }, [isMobile, detectWidth]);
 
   return (
-    <div className={classes.root}>
-      <Container className={classes.container} maxWidth="xs">
-        <Paper className={classes.paper}>{children}</Paper>
-        <Grid
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="center"
-        >
-          <LanguageMenu keepWidth />
-          <ThemeMenu />
-        </Grid>
-      </Container>
-      {isLoading && <Progress />}
-    </div>
+    <>
+      <div className={classes.root}>
+        <Container className={classes.container} maxWidth="xs">
+          <Paper className={classes.paper}>{children}</Paper>
+          <Grid
+            container
+            direction="row"
+            justify="space-between"
+            alignItems="center"
+          >
+            <LanguageMenu keepWidth />
+            <ThemeMenu />
+          </Grid>
+        </Container>
+        {isLoading && <Progress />}
+      </div>
+    </>
   );
 });
 

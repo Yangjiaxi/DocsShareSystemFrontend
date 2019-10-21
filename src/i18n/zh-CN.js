@@ -1,6 +1,7 @@
 export const simplifiedChinese = {
   Snackbar: {
-    newVersion: "检测到新版本，请退出所有标签页并重新进入以加载新版本（可能要多试几次）",
+    newVersion:
+      "检测到新版本，请退出所有标签页并重新进入以加载新版本（可能要多试几次）",
     acceptSuccess: "正在打开...",
     createDocSuccess: "新建成功",
     restoreSuccess: "文件已恢复",
@@ -43,6 +44,8 @@ export const simplifiedChinese = {
     username: "用户名",
   },
   AppBar: {
+    LOGIN_PAGE: "登陆",
+    REGISTER_PAGE: "注册",
     INFO_PAGE: "个人信息",
     HOME_PAGE: "主页",
     INIT_PAGE: "初始化...",
@@ -83,6 +86,7 @@ export const simplifiedChinese = {
     destroyButton: "彻底删除",
     deleteHint: "文档将被移动至回收站",
     destroyHint: "文档将被彻底删除，该操作无法恢复",
+    listNoData: "暂无数据",
   },
   Dialog: {
     confirmButton: "确认",

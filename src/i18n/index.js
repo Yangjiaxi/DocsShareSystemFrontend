@@ -59,6 +59,8 @@ export const i18nHelper = {
   changeTheme: "changeTheme",
   lightMode: "lightMode",
   darkMode: "darkMode",
+  LOGIN_PAGE: "LOGIN_PAGE",
+  REGISTER_PAGE: "REGISTER_PAGE",
   INFO_PAGE: "INFO_PAGE",
   RECENT_PAGE: "RECENT_PAGE",
   MY_PAGE: "MY_PAGE",
@@ -91,6 +93,7 @@ export const i18nHelper = {
   destroyButton: "destroyButton",
   deleteHint: "deleteHint",
   destroyHint: "destroyHint",
+  listNoData: "listNoData",
   // [Dialog]
   confirmButton: "confirmButton",
   cancelButton: "cancelButton",

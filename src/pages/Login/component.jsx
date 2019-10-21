@@ -1,4 +1,6 @@
 import React, { memo, useState } from "react";
+import Helmet from "react-helmet";
+
 import { Redirect } from "react-router";
 
 import { TextField, Button, Avatar, Grid, Typography } from "@material-ui/core";
@@ -8,13 +10,15 @@ import { Lock } from "@material-ui/icons";
 import Progress from "../../components/Progress";
 import Anchor from "../../components/Anchor";
 
+import { colorDict } from "../../utils/color";
+
 import { i18nHelper, TextTermMaker } from "../../i18n";
 
 import useStyles from "./style";
 
 const TextComp = TextTermMaker("Login");
 
-const Login = memo(({ loggedIn, login, isLoading }) => {
+const Login = memo(({ loggedIn, login, isLoading, themeColor, titleDict }) => {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,6 +39,14 @@ const Login = memo(({ loggedIn, login, isLoading }) => {
 
   return (
     <>
+      <Helmet>
+        <meta
+          name="theme-color"
+          content={colorDict[themeColor][500]}
+          data-react-helmet="true"
+        />
+        <title>{titleDict && titleDict[i18nHelper.LOGIN_PAGE]}</title>
+      </Helmet>
       <Avatar className={classes.avatar}>
         <Lock />
       </Avatar>

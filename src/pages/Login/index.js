@@ -7,11 +7,13 @@ import Login from "./component";
 
 const mapStateToProps = ({
   user: { token },
-  component: { progressOn, languageName },
+  component: { progressOn, languageName, languageDict, themeColor },
 }) => ({
   loggedIn: Boolean(token),
   isLoading: progressOn,
   languageName,
+  themeColor,
+  titleDict: languageDict.AppBar,
 });
 
 const mapDispatchToProps = dispatch =>
